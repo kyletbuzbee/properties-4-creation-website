@@ -254,7 +254,7 @@ function addFormValidation(form) {
 /**
  * Validate a single field
  */
-function validateField(field) {
+export function validateField(field) {
   const value = field.value.trim();
   let isValid = true;
   let errorMessage = '';
@@ -325,7 +325,7 @@ function clearFieldError(field) {
 /**
  * Email validation
  */
-function isValidEmail(email) {
+export function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
@@ -333,7 +333,7 @@ function isValidEmail(email) {
 /**
  * Phone validation (basic US phone number format)
  */
-function isValidPhone(phone) {
+export function isValidPhone(phone) {
   const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
   const cleanPhone = phone.replace(/[\s\-\(\)\.]/g, '');
   return phoneRegex.test(cleanPhone) && cleanPhone.length >= 10;
