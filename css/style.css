@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Properties 4 Creations - Consolidated CSS */
 /* Design System with Exact Color Palette and Typography */
 
@@ -168,6 +172,11 @@ p {
   .container {
     max-width: 1280px;
   }
+}
+
+/* Main Content Padding for Fixed Header */
+main#main-content {
+  padding-top: 80px; /* Must match header height */
 }
 
 /* Resource Category Spacing */
@@ -714,6 +723,49 @@ main#main-content {
   display: flex;
   align-items: center;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Page-specific hero backgrounds */
+.hero-home {
+  background-image: url('/images/banners/hero-home-banner-800w.webp');
+}
+
+.hero-about {
+  background-image: url('/images/banners/hero-about-us-banner-400w.webp');
+}
+
+.hero-contact {
+  background-image: url('/images/banners/hero-contact-banner.webp');
+}
+
+.hero-impact {
+  background-image: url('/images/banners/hero-impact-banner.webp');
+}
+
+.hero-privacy {
+  background-image: url('/images/banners/hero-privacy-banner.webp');
+}
+
+.hero-terms {
+  background-image: url('/images/banners/hero-terms-banner.webp');
+}
+
+.hero-transparency {
+  background-image: url('/images/banners/hero-transparency-banner.webp');
+}
+
+.hero-apply {
+  background-image: url('/images/banners/hero-contact-banner.webp');
+}
+
+.hero-faq {
+  background-image: url('/images/banners/hero-privacy-banner.webp');
+}
+
+.hero-resources {
+  background-image: url('/images/banners/hero-privacy-banner.webp');
 }
 
 .hero-video {

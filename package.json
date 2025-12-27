@@ -42,6 +42,7 @@
     "@babel/preset-env": "^7.28.5",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/user-event": "^14.6.1",
+    "autoprefixer": "^10.4.23",
     "axe-core": "^4.11.0",
     "babel-jest": "^29.7.0",
     "identity-obj-proxy": "^3.0.0",
@@ -49,6 +50,8 @@
     "jest-environment-jsdom": "^29.7.0",
     "lighthouse": "^13.0.1",
     "playwright": "^1.57.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19",
     "vite": "^7.3.0"
   },
   "engines": {
