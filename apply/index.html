@@ -173,7 +173,7 @@
           <h2 id="form-heading">Housing Application</h2>
           <p class="form-intro">Please fill out all required fields. We'll contact you within 24 hours to discuss your application.</p>
 
-          <form id="application-form" novalidate>
+          <form id="application-form" action="https://formspree.io/f/xdkjlgwk" method="POST" novalidate>
 
             <!-- Personal Information -->
             <fieldset class="form-section">
@@ -181,7 +181,7 @@
 
               <div class="form-group">
                 <label for="name">Full Name *</label>
-                <input type="text" id="name" name="name" required aria-describedby="name-help">
+                <input type="text" id="name" name="name" required minlength="2" aria-describedby="name-help">
                 <div id="name-help" class="sr-only">Enter your full legal name as it appears on your ID</div>
               </div>
 

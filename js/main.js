@@ -1,28 +1,60 @@
-// Properties 4 Creations - Main JavaScript
-// Main entry point with form validation and common functionality
+/**
+ * Properties 4 Creations - Main JavaScript
+ * Main entry point with form validation and common functionality
+ *
+ * @fileoverview Initializes all JavaScript components and functionality
+ * @author Properties 4 Creations
+ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize all components
-  initializeForms();
-  initializeAccordions();
-  initializePropertyFilters();
+  try {
+    // Initialize all components
+    initializeForms();
+    initializeAccordions();
+    initializePropertyFilters();
 
-  // Add accessibility features
-  addSkipLink();
-  addFocusManagement();
+    // Add accessibility features
+    addSkipLink();
+    addFocusManagement();
 
-  // Initialize current page indicator
-  setCurrentPage();
+    // Initialize current page indicator
+    setCurrentPage();
 
-  // Register service worker for PWA functionality
-  registerServiceWorker();
+    // Register service worker for PWA functionality
+    registerServiceWorker();
 
-  // Initialize lazy loading for images
-  initializeLazyLoading();
+    // Initialize lazy loading for images
+    initializeLazyLoading();
 
-  // Add performance optimizations
-  initializePerformanceOptimizations();
+    // Add performance optimizations
+    initializePerformanceOptimizations();
+    
+    // Initialize performance monitoring
+    initializePerformanceMonitoring();
+  } catch (error) {
+    console.error('Error initializing main JavaScript:', error);
+    // Fallback to basic functionality
+    initializeBasicFunctionality();
+  }
 });
+
+/**
+ * Initialize basic functionality as fallback when main initialization fails
+ * @private
+ */
+function initializeBasicFunctionality() {
+  console.warn('Initializing basic functionality due to initialization error');
+  
+  // Basic form validation
+  const forms = document.querySelectorAll('form');
+  forms.forEach(form => {
+    if (form.id === 'application-form') {
+      form.addEventListener('submit', handleApplicationSubmit);
+    } else if (form.id === 'contact-form') {
+      form.addEventListener('submit', handleContactSubmit);
+    }
+  });
+}
 
 /**
  * Register service worker for PWA functionality
@@ -127,25 +159,132 @@ function optimizeScrollPerformance() {
 }
 
 /**
+ * Initialize performance monitoring for Core Web Vitals
+ */
+function initializePerformanceMonitoring() {
+  // Check if PerformanceObserver is supported
+  if ('PerformanceObserver' in window) {
+    const metrics = {
+      lcp: 0,
+      cls: 0,
+      fid: 0,
+      navigationTiming: {}
+    };
+
+    // Track navigation timing
+    if (window.performance && window.performance.timing) {
+      metrics.navigationTiming = {
+        loadTime: performance.timing.loadEventEnd - performance.timing.navigationStart,
+        domReady: performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart
+      };
+    }
+
+    // Largest Contentful Paint
+    try {
+      new PerformanceObserver((entryList) => {
+        const entries = entryList.getEntries();
+        const lastEntry = entries[entries.length - 1];
+        metrics.lcp = lastEntry.startTime;
+        console.log('LCP:', metrics.lcp, 'ms');
+        
+        // Send to analytics if available
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            event: 'performance_metrics',
+            metricType: 'LCP',
+            value: metrics.lcp
+          });
+        }
+      }).observe({type: 'largest-contentful-paint', buffered: true});
+    } catch (e) {
+      console.warn('LCP monitoring failed:', e);
+    }
+
+    // Cumulative Layout Shift
+    try {
+      let cls = 0;
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          if (!entry.hadRecentInput) {
+            cls += entry.value;
+          }
+        }
+        metrics.cls = cls;
+        console.log('CLS:', metrics.cls);
+        
+        // Send to analytics if available
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            event: 'performance_metrics',
+            metricType: 'CLS',
+            value: metrics.cls
+          });
+        }
+      }).observe({type: 'layout-shift', buffered: true});
+    } catch (e) {
+      console.warn('CLS monitoring failed:', e);
+    }
+
+    // First Input Delay
+    try {
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          metrics.fid = entry.processingStart - entry.startTime;
+          console.log('FID:', metrics.fid, 'ms');
+          
+          // Send to analytics if available
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              event: 'performance_metrics',
+              metricType: 'FID',
+              value: metrics.fid
+            });
+          }
+        }
+      }).observe({type: 'first-input', buffered: true});
+    } catch (e) {
+      console.warn('FID monitoring failed:', e);
+    }
+
+    // Log metrics to console for debugging
+    console.log('Performance Monitoring Initialized');
+    console.log('Navigation Timing:', metrics.navigationTiming);
+    
+    // Expose metrics globally for debugging
+    window.performanceMetrics = metrics;
+  } else {
+    console.log('PerformanceObserver not supported, performance monitoring disabled');
+  }
+}
+
+/**
  * Initialize form validation and submission
  */
 function initializeForms() {
   // Set minimum date for move-in date field
   setMinimumMoveInDate();
 
-  // Application form validation
-  const applicationForm = document.getElementById('application-form');
-  if (applicationForm) {
-    applicationForm.addEventListener('submit', handleApplicationSubmit);
-    addFormValidation(applicationForm);
-  }
+  const forms = [
+    document.getElementById('application-form'),
+    document.getElementById('contact-form')
+  ];
 
-  // Contact form validation
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', handleContactSubmit);
-    addFormValidation(contactForm);
-  }
+  forms.forEach(form => {
+    if (form) {
+      const submitButton = form.querySelector('button[type="submit"]');
+      if (submitButton) {
+        submitButton.disabled = true; // Disable on page load
+      }
+      
+      if (form.id === 'application-form') {
+        form.addEventListener('submit', handleApplicationSubmit);
+      } else if (form.id === 'contact-form') {
+        form.addEventListener('submit', handleContactSubmit);
+      }
+      
+      addFormValidation(form);
+    }
+  });
 }
 
 /**
@@ -165,96 +304,213 @@ function setMinimumMoveInDate() {
 }
 
 /**
+ * Validate the entire form by checking each field.
+ * @param {HTMLFormElement} form - The form element to validate
+ * @param {boolean} [showErrors=true] - Whether to display error messages for invalid fields
+ * @returns {boolean} True if the form is valid, false otherwise
+ * @throws {Error} If form parameter is not a valid HTMLFormElement
+ */
+function validateForm(form, showErrors = true) {
+  if (!form || !(form instanceof HTMLFormElement)) {
+    console.error('validateForm: Invalid form parameter');
+    return false;
+  }
+
+  const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+  let isFormValid = true;
+  
+  try {
+    for (const input of inputs) {
+      if (!validateField(input, showErrors)) {
+        isFormValid = false;
+      }
+    }
+  } catch (error) {
+    console.error('Error validating form:', error);
+    return false;
+  }
+  
+  return isFormValid;
+}
+
+/**
  * Handle application form submission
  */
-function handleApplicationSubmit(e) {
+async function handleApplicationSubmit(e) {
   e.preventDefault();
+  const form = e.target;
 
-  const formData = new FormData(e.target);
-  const data = Object.fromEntries(formData);
-
-  // Basic validation
-  if (!data.name || !data.email || !data.phone || !data.voucher || !data.household || !data.bedrooms) {
-    showError('Please fill in all required fields');
+  if (!validateForm(form)) {
+    showError(form, 'Please correct the errors before submitting.');
     return;
   }
 
-  // Email validation
-  if (!isValidEmail(data.email)) {
-    showError('Please enter a valid email address');
-    return;
+  const formData = new FormData(form);
+  const formspreeUrl = form.action;
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalButtonText = submitButton ? submitButton.textContent : 'Submit Application';
+
+  if (submitButton) {
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+    submitButton.classList.add('btn-loading');
+    submitButton.innerHTML = '<span class="spinner"></span> Sending...';
   }
 
-  // Phone validation
-  if (!isValidPhone(data.phone)) {
-    showError('Please enter a valid phone number');
-    return;
+  try {
+    // Input sanitization
+    const sanitizedData = new FormData();
+    for (const [key, value] of formData.entries()) {
+      sanitizedData.append(key, sanitizeInput(value));
+    }
+
+    const response = await fetch(formspreeUrl, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: sanitizedData
+    });
+
+    if (response.ok) {
+      showSuccess(form, 'Application Submitted Successfully! Thank you! We will contact you within 24 hours.');
+      form.reset();
+      // After resetting, re-disable the submit button
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+    } else {
+      let errorMessage = 'There was an issue submitting your application. Please try again.';
+      try {
+        const errorData = await response.json();
+        if (errorData && errorData.errors) {
+          errorMessage = `Submission failed: ${errorData.errors.map(err => err.message).join(', ')}`;
+        } else if (errorData && errorData.error) {
+          errorMessage = `Submission failed: ${errorData.error}`;
+        }
+      } catch (jsonError) {
+        console.warn('Could not parse error response as JSON:', jsonError);
+      }
+      showError(form, errorMessage);
+    }
+  } catch (error) {
+    console.error('Network error submitting application:', error);
+    showError(form, 'Network error. Please check your internet connection and try again.');
+  } finally {
+    if (submitButton) {
+      submitButton.textContent = originalButtonText;
+      submitButton.disabled = false;
+      submitButton.classList.remove('btn-loading');
+      submitButton.innerHTML = originalButtonText;
+    }
   }
-
-  // Show success message
-  showSuccess('Thank you! Your application has been submitted. We will contact you within 24 hours.');
-
-  // Reset form
-  e.target.reset();
-
-  // In a real application, you would send this data to a server
-  console.log('Application submitted:', data);
 }
 
 /**
  * Handle contact form submission
  */
-function handleContactSubmit(e) {
+async function handleContactSubmit(e) {
   e.preventDefault();
+  const form = e.target;
 
-  const formData = new FormData(e.target);
-  const data = Object.fromEntries(formData);
-
-  // Basic validation
-  if (!data.name || !data.email || !data.message) {
-    showError('Please fill in all required fields');
+  if (!validateForm(form)) {
+    showError(form, 'Please correct the errors before submitting.');
     return;
   }
 
-  // Email validation
-  if (!isValidEmail(data.email)) {
-    showError('Please enter a valid email address');
-    return;
+  const formData = new FormData(form);
+  const formspreeUrl = form.action;
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalButtonText = submitButton ? submitButton.textContent : 'Send Message';
+
+  if (submitButton) {
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+    submitButton.classList.add('btn-loading');
+    submitButton.innerHTML = '<span class="spinner"></span> Sending...';
   }
 
-  // Show success message
-  showSuccess('Thank you! Your message has been sent. We will respond within 24 hours.');
+  try {
+    // Input sanitization
+    const sanitizedData = new FormData();
+    for (const [key, value] of formData.entries()) {
+      sanitizedData.append(key, sanitizeInput(value));
+    }
 
-  // Reset form
-  e.target.reset();
+    const response = await fetch(formspreeUrl, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: sanitizedData
+    });
 
-  // In a real application, you would send this data to a server
-  console.log('Contact form submitted:', data);
+    if (response.ok) {
+      showSuccess(form, 'Message Sent Successfully! Thank you! We will respond within 24 hours.');
+      form.reset();
+      // After resetting, re-disable the submit button
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+    } else {
+      let errorMessage = 'There was an issue sending your message. Please try again.';
+      try {
+        const errorData = await response.json();
+        if (errorData && errorData.errors) {
+          errorMessage = `Submission failed: ${errorData.errors.map(err => err.message).join(', ')}`;
+        } else if (errorData && errorData.error) {
+          errorMessage = `Submission failed: ${errorData.error}`;
+        }
+      } catch (jsonError) {
+        console.warn('Could not parse error response as JSON:', jsonError);
+      }
+      showError(form, errorMessage);
+    }
+  } catch (error) {
+    console.error('Network error submitting contact form:', error);
+    showError(form, 'Network error. Please check your internet connection and try again.');
+  } finally {
+    if (submitButton) {
+      submitButton.textContent = originalButtonText;
+      submitButton.disabled = false;
+      submitButton.classList.remove('btn-loading');
+      submitButton.innerHTML = originalButtonText;
+    }
+  }
 }
 
 /**
- * Add real-time form validation
+ * Add real-time form validation and manage submit button state
  */
 function addFormValidation(form) {
   const inputs = form.querySelectorAll('input, select, textarea');
+  const submitButton = form.querySelector('button[type="submit"]');
 
   inputs.forEach(input => {
-    // Real-time validation on blur
+    // Real-time validation on blur to show errors
     input.addEventListener('blur', () => {
       validateField(input);
     });
 
-    // Clear errors on input
+    // On input, clear the specific field's error and check form validity to update button state
     input.addEventListener('input', () => {
       clearFieldError(input);
+      if (submitButton) {
+        // Check all fields to see if the form is now valid
+        const isFormValid = validateForm(form, false); // Pass false to prevent showing new errors on every keystroke
+        submitButton.disabled = !isFormValid;
+      }
     });
   });
 }
 
 /**
  * Validate a single field
+ * @param {HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement} field The field to validate.
+ * @param {boolean} showErrorMsg Whether to display the error message.
+ * @returns {boolean} True if the field is valid, false otherwise.
  */
-export function validateField(field) {
+export function validateField(field, showErrorMsg = true) {
   const value = field.value.trim();
   let isValid = true;
   let errorMessage = '';
@@ -265,25 +521,31 @@ export function validateField(field) {
     errorMessage = 'This field is required';
   }
 
-  // Email validation
-  if (field.type === 'email' && value && !isValidEmail(value)) {
-    isValid = false;
-    errorMessage = 'Please enter a valid email address';
-  }
-
-  // Phone validation
-  if (field.type === 'tel' && value && !isValidPhone(value)) {
-    isValid = false;
-    errorMessage = 'Please enter a valid phone number';
-  }
-
-  // Min length validation
-  if (field.hasAttribute('minlength') && value.length < field.getAttribute('minlength')) {
+  // Min length validation (only if value is not empty)
+  if (isValid && field.hasAttribute('minlength') && value.length < parseInt(field.getAttribute('minlength'), 10)) {
     isValid = false;
     errorMessage = `Minimum ${field.getAttribute('minlength')} characters required`;
   }
 
-  if (!isValid) {
+  // Email validation (only if value is not empty)
+  if (isValid && field.type === 'email' && value && !isValidEmail(value)) {
+    isValid = false;
+    errorMessage = 'Please enter a valid email address';
+  }
+
+  // Phone validation (only if value is not empty)
+  if (isValid && field.type === 'tel' && value && !isValidPhone(value)) {
+    isValid = false;
+    errorMessage = 'Please enter a valid phone number';
+  }
+
+  // Checkbox validation
+  if (field.type === 'checkbox' && field.hasAttribute('required') && !field.checked) {
+    isValid = false;
+    errorMessage = 'You must agree to this';
+  }
+
+  if (!isValid && showErrorMsg) {
     showFieldError(field, errorMessage);
   } else {
     clearFieldError(field);
@@ -340,42 +602,62 @@ export function isValidPhone(phone) {
 }
 
 /**
- * Show success message
+ * Show success message within the context of a form
  */
-function showSuccess(message) {
-  const successDiv = document.createElement('div');
-  successDiv.className = 'success-message';
-  successDiv.textContent = message;
-  successDiv.setAttribute('role', 'alert');
-  successDiv.setAttribute('aria-live', 'polite');
+function showSuccess(form, message) {
+  const successMessageDiv = form.parentNode.querySelector('.success-message');
 
-  // Find the form and add the message after it
-  const form = document.querySelector('form');
-  if (form) {
-    form.parentNode.insertBefore(successDiv, form.nextSibling);
-  } else {
-    document.body.appendChild(successDiv);
-  }
-
-  // Auto-hide after 5 seconds
-  setTimeout(() => {
-    if (successDiv.parentNode) {
-      successDiv.remove();
+  if (successMessageDiv) {
+    // Clear any previous general error message for this form
+    const existingErrorDiv = form.parentNode.querySelector('.form-general-error');
+    if (existingErrorDiv) {
+      existingErrorDiv.remove();
     }
-  }, 5000);
+
+    successMessageDiv.innerHTML = `<h3>${message}</h3>`;
+    successMessageDiv.style.display = 'block';
+    successMessageDiv.setAttribute('aria-hidden', 'false');
+
+    // Hide after 5 seconds
+    setTimeout(() => {
+      successMessageDiv.style.display = 'none';
+      successMessageDiv.setAttribute('aria-hidden', 'true');
+      successMessageDiv.innerHTML = '';
+    }, 5000);
+  } else {
+    // Fallback if no specific div is found (current implementation)
+    const successDiv = document.createElement('div');
+    successDiv.className = 'success-message';
+    successDiv.textContent = message;
+    successDiv.setAttribute('role', 'alert');
+    successDiv.setAttribute('aria-live', 'polite');
+    form.parentNode.insertBefore(successDiv, form.nextSibling);
+
+    setTimeout(() => {
+      if (successDiv.parentNode) {
+        successDiv.remove();
+      }
+    }, 5000);
+  }
 }
 
 /**
- * Show error message
+ * Show error message before a specific form
  */
-function showError(message) {
+function showError(form, message) {
+  // Clear any existing general error message for this form
+  const existingErrorDiv = form.parentNode.querySelector('.form-general-error');
+  if (existingErrorDiv) {
+    existingErrorDiv.remove();
+  }
+
   const errorDiv = document.createElement('div');
-  errorDiv.className = 'error-message';
+  errorDiv.className = 'error-message form-general-error'; // Add a specific class to identify it
   errorDiv.textContent = message;
   errorDiv.setAttribute('role', 'alert');
   errorDiv.setAttribute('aria-live', 'assertive');
 
-  // Style the error message
+  // Style the error message (keep existing inline style for now)
   errorDiv.style.cssText = `
     background: var(--color-semantic-error);
     color: var(--color-neutral-white);
@@ -385,13 +667,7 @@ function showError(message) {
     text-align: center;
   `;
 
-  // Find the form and add the message before it
-  const form = document.querySelector('form');
-  if (form) {
-    form.parentNode.insertBefore(errorDiv, form);
-  } else {
-    document.body.appendChild(errorDiv);
-  }
+  form.parentNode.insertBefore(errorDiv, form); // Insert before the form
 
   // Auto-hide after 5 seconds
   setTimeout(() => {
@@ -672,6 +948,29 @@ function announceToScreenReader(message) {
 
 /**
  * Utility function to debounce function calls
+ */
+/**
+ * Sanitize user input to prevent XSS attacks
+ * @param {string} input - The input string to sanitize
+ * @returns {string} Sanitized input string
+ */
+function sanitizeInput(input) {
+  if (typeof input !== 'string') {
+    return '';
+  }
+  
+  return input
+    .replace(/[<>]/g, '') // Remove angle brackets
+    .replace(/javascript:/gi, '') // Remove javascript: protocol
+    .replace(/on\w+=/gi, '') // Remove event handlers
+    .trim();
+}
+
+/**
+ * Utility function to debounce function calls
+ * @param {Function} func - The function to debounce
+ * @param {number} wait - The delay in milliseconds
+ * @returns {Function} Debounced function
  */
 function debounce(func, wait) {
   let timeout;

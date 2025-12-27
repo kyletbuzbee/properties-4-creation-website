@@ -41,6 +41,9 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css?v=1.1">
 
+  <!-- Preload critical resources -->
+  <link rel="preload" as="image" href="/images/banners/hero-home-banner-800w.webp" imagesrcset="/images/banners/hero-home-banner-400w.webp 400w, /images/banners/hero-home-banner-800w.webp 800w" imagesizes="100vw">
+
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
@@ -152,25 +155,25 @@
         <h2 id="features-heading" class="text-center">Why Choose Properties 4 Creations?</h2>
         <div class="features-grid">
           <div class="feature-card">
-            <img src="images/icons/home.svg" alt="" class="feature-icon" aria-hidden="true">
+            <img src="images/icons/home.svg" alt="Icon of a residential house" class="feature-icon">
             <h3>100% Section 8 & HUD-VASH Acceptance</h3>
             <p>We proudly accept both Section 8 vouchers and HUD-VASH program participants, making quality housing accessible to veterans and families who need it most.</p>
           </div>
 
           <div class="feature-card">
-            <img src="images/icons/patriotism.svg" alt="" class="feature-icon" aria-hidden="true">
+            <img src="images/icons/patriotism.svg" alt="Icon of a heart with an American flag design" class="feature-icon">
             <h3>Premium $30k+ Renovations Per Property</h3>
             <p>Every home undergoes extensive renovations including new HVAC systems, updated kitchens, modern bathrooms, and complete exterior improvements.</p>
           </div>
 
           <div class="feature-card">
-            <img src="images/icons/american-flag-icon.svg" alt="" class="feature-icon" aria-hidden="true">
+            <img src="images/icons/american-flag-icon.svg" alt="Icon of the American flag" class="feature-icon">
             <h3>Veteran-Owned & Operated</h3>
             <p>Founded and operated by veterans, for veterans. We understand the unique housing challenges faced by our military community and their families.</p>
           </div>
 
           <div class="feature-card">
-            <img src="images/icons/001-house.png" alt="" class="feature-icon" aria-hidden="true">
+            <img src="images/icons/001-house.png" alt="Icon of a house with a warranty checkmark" class="feature-icon">
             <h3>Comprehensive Warranties</h3>
             <p>All our renovations come with comprehensive warranties covering appliances, systems, and structural components for peace of mind.</p>
           </div>
@@ -184,7 +187,10 @@
         <h2 id="properties-heading" class="text-center">Featured Properties</h2>
         <div class="properties-grid">
           <a href="properties/index.html" class="property-card" aria-label="View Tyler Ranch Home details">
-            <img src="images/properties/tyler-ranch-home.webp" alt="Tyler Ranch Home exterior" loading="lazy">
+            <picture>
+              <source srcset="images/properties/tyler-ranch-home.webp" type="image/webp">
+              <img src="images/properties/tyler-ranch-home.jpg" alt="Tyler Ranch Home exterior" loading="lazy" width="800" height="600">
+            </picture>
             <div class="property-content">
               <h3 class="property-title">Tyler Ranch Home</h3>
               <div class="property-details">
@@ -199,7 +205,10 @@
           </a>
 
           <a href="properties/index.html" class="property-card" aria-label="View Longview Victorian details">
-            <img src="images/properties/longview-victorian.webp" alt="Longview Victorian home exterior" loading="lazy">
+            <picture>
+              <source srcset="images/properties/longview-victorian.webp" type="image/webp">
+              <img src="images/properties/longview-victorian.jpg" alt="Longview Victorian home exterior" loading="lazy" width="800" height="600">
+            </picture>
             <div class="property-content">
               <h3 class="property-title">Longview Victorian</h3>
               <div class="property-details">
@@ -214,7 +223,10 @@
           </a>
 
           <a href="properties/index.html" class="property-card" aria-label="View Jefferson Riverfront details">
-            <img src="images/properties/jefferson-riverfront.webp" alt="Jefferson Riverfront property exterior" loading="lazy">
+            <picture>
+              <source srcset="images/properties/jefferson-riverfront.webp" type="image/webp">
+              <img src="images/properties/jefferson-riverfront.jpg" alt="Jefferson Riverfront property exterior" loading="lazy" width="800" height="600">
+            </picture>
             <div class="property-content">
               <h3 class="property-title">Jefferson Riverfront</h3>
               <div class="property-details">

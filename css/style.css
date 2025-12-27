@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* Properties 4 Creations - Consolidated CSS */
 /* Design System with Exact Color Palette and Typography */
 
@@ -468,6 +464,29 @@ main#main-content {
   cursor: pointer;
   border: none;
   font-size: 1rem;
+  position: relative;
+}
+
+.btn-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .btn-primary {
@@ -484,22 +503,24 @@ main#main-content {
 .btn-secondary {
   background: transparent;
   color: var(--color-primary-navy);
-  border: 2px solid var(--color-primary-navy);
+  border: 2px solid var(--color-primary-gold); /* changed from navy to gold */
 }
 
 [data-theme="dark"] .btn-secondary {
   color: var(--color-neutral-white);
-  border-color: var(--color-neutral-white);
+  border-color: var(--color-primary-gold); /* changed from white to gold */
 }
 
 .btn-secondary:hover {
   background: var(--color-primary-navy);
   color: var(--color-neutral-white);
+  border-color: var(--color-primary-navy); /* ensures border doesn't stay gold on hover */
 }
 
 [data-theme="dark"] .btn-secondary:hover {
   background: var(--color-neutral-white);
   color: var(--color-primary-navy);
+  border-color: var(--color-neutral-white); /* ensures border matches background */
 }
 
 /* Property Card Component - Exact Specification */
@@ -623,17 +644,24 @@ main#main-content {
   resize: vertical;
 }
 
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 /* Form Error States */
-.form-group.error input,
-.form-group.error select,
-.form-group.error textarea {
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
   border-color: var(--color-semantic-error);
   background-color: rgba(211, 47, 47, 0.05);
 }
 
-[data-theme="dark"] .form-group.error input,
-[data-theme="dark"] .form-group.error select,
-[data-theme="dark"] .form-group.error textarea {
+[data-theme="dark"] .form-group input.error,
+[data-theme="dark"] .form-group select.error,
+[data-theme="dark"] .form-group textarea.error {
   background-color: rgba(211, 47, 47, 0.1);
 }
 
@@ -765,7 +793,7 @@ main#main-content {
 }
 
 .hero-resources {
-  background-image: url('/images/banners/hero-privacy-banner.webp');
+  background-image: url('/images/banners/hero-home-banner-800w.webp');
 }
 
 .hero-video {
@@ -1161,6 +1189,7 @@ main#main-content {
   grid-template-columns: 1fr; /* Force single column */
   gap: var(--spacing-4);
   max-width: 800px; /* Keep it readable, don't stretch full width */
+  margin: 0 auto; /* Center the list */
 }
 
 .resources-grid.list-view .resource-card {
@@ -1290,4 +1319,34 @@ main#main-content {
 
 .mt-8 {
   margin-top: var(--spacing-8);
+}
+
+/* Call to Action (CTA) Section */
+.cta-section {
+  padding: var(--spacing-16) 0;
+  background-color: var(--color-primary-navy);
+  color: var(--color-neutral-white);
+  text-align: center;
+  margin-top: var(--spacing-16);
+  border-radius: 1rem;
+  margin-bottom: var(--spacing-16);
+}
+
+.cta-content h2 {
+  color: var(--color-primary-gold);
+  margin-bottom: var(--spacing-4);
+}
+
+.cta-content p {
+  color: var(--color-neutral-gray-300);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-8) auto;
+  font-size: 1.125rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
 }

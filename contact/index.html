@@ -191,11 +191,11 @@
             <h2 id="form-heading">Send Us a Message</h2>
             <p>Fill out the form below and we'll get back to you as soon as possible.</p>
 
-            <form id="contact-form" novalidate>
+            <form id="contact-form" action="https://formspree.io/f/mvzoaazj" method="POST" novalidate>
 
               <div class="form-group">
                 <label for="contact-name">Your Name *</label>
-                <input type="text" id="contact-name" name="name" required aria-describedby="name-help">
+                <input type="text" id="contact-name" name="name" required minlength="2" aria-describedby="name-help">
                 <div id="name-help" class="sr-only">Enter your full name</div>
               </div>
 

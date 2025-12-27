@@ -8,7 +8,7 @@ export default {
   // Test file patterns
   testMatch: [
     '<rootDir>/tests/**/*.test.js',
-    '<rootDir>/tests/**/*.spec.js',
+    // '<rootDir>/tests/**/*.spec.js', // This line is removed to prevent Jest from running Playwright e2e tests
     '<rootDir>/js/**/*.test.js'
   ],
 
