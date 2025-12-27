@@ -176,9 +176,9 @@ p {
   top: 0;
   z-index: 1000;
   backdrop-filter: saturate(180%) blur(10px);
-  background: rgba(255, 255, 255, 0.85);
-  border-bottom: 1px solid rgba(11, 17, 32, 0.1);
-  box-shadow: 0 4px 20px rgba(11, 17, 32, 0.1);
+  background: rgba(11, 17, 32, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(11, 17, 32, 0.3);
   transition: all var(--transition-base);
 }
 
@@ -219,11 +219,7 @@ p {
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-primary-navy);
-}
-
-[data-theme="dark"] .brand-text {
-  color: var(--color-neutral-white);
+  color: var(--color-primary-gold);
 }
 
 .nav-menu {
@@ -238,17 +234,13 @@ p {
   display: inline-flex;
   align-items: center;
   padding: 0.75rem 1rem;
-  color: var(--color-primary-navy);
+  color: var(--color-primary-gold);
   text-decoration: none;
   font-weight: 500;
   border-radius: 0.5rem;
   transition: all var(--transition-base);
   min-height: 44px;
   min-width: 44px;
-}
-
-[data-theme="dark"] .nav-link {
-  color: var(--color-neutral-white);
 }
 
 .nav-link:hover {
@@ -348,11 +340,7 @@ p {
   border-radius: 0.5rem;
   transition: all var(--transition-base);
   font-size: 0.875rem;
-  color: var(--color-primary-navy);
-}
-
-[data-theme="dark"] .theme-toggle {
-  color: var(--color-neutral-white);
+  color: var(--color-primary-gold);
 }
 
 .theme-toggle:hover {
@@ -702,11 +690,19 @@ p {
   position: relative;
   height: 60vh;
   min-height: 400px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   align-items: center;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .hero::before {
@@ -717,6 +713,7 @@ p {
   right: 0;
   bottom: 0;
   background: rgba(11, 17, 32, 0.4);
+  z-index: 0;
 }
 
 .hero .container {
@@ -766,9 +763,15 @@ p {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-8);
   margin-top: var(--spacing-12);
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .feature-card {
