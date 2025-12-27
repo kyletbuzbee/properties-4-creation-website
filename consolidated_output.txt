@@ -25,32 +25,32 @@ PROJECT TREE:
 ├── images
 │   ├── banners
 │   │   ├── hero-about-us-banner-400w.webp
-│   │   ├── hero-about-us-banner-placeholder.jpg
+│   │   ├── hero-about-us-banner.webp
 │   │   ├── hero-banner.webp
 │   │   ├── hero-contact-banner-1200w.webp
 │   │   ├── hero-contact-banner-400w.webp
 │   │   ├── hero-contact-banner-800w.webp
-│   │   ├── hero-contact-banner-placeholder.jpg
+│   │   ├── hero-contact-banner.webp
 │   │   ├── hero-contact-banner.webp
 │   │   ├── hero-home-banner-400w.webp
 │   │   ├── hero-home-banner-800w.webp
-│   │   ├── hero-home-banner-placeholder.jpg
+│   │   ├── hero-home-banner.webp
 │   │   ├── hero-impact-banner-400w.webp
-│   │   ├── hero-impact-banner-placeholder.jpg
+│   │   ├── hero-impact-banner.webp
 │   │   ├── hero-privacy-banner-1200w.webp
 │   │   ├── hero-privacy-banner-1600w.webp
 │   │   ├── hero-privacy-banner-400w.webp
 │   │   ├── hero-privacy-banner-800w.webp
-│   │   ├── hero-privacy-banner-placeholder.jpg
+│   │   ├── hero-privacy-banner.webp
 │   │   ├── hero-privacy-banner.webp
 │   │   ├── hero-projects-banner-400w.webp
-│   │   ├── hero-projects-banner-placeholder.jpg
+│   │   ├── hero-projects-banner.webp
 │   │   ├── hero-terms-banner-1200w.webp
 │   │   ├── hero-terms-banner-400w.webp
 │   │   ├── hero-terms-banner-800w.webp
-│   │   ├── hero-terms-banner-placeholder.jpg
+│   │   ├── hero-terms-banner.webp
 │   │   ├── hero-transparency-banner-400w.webp
-│   │   └── hero-transparency-banner-placeholder.jpg
+│   │   └── hero-transparency-banner.webp
 │   ├── before-after-comparison
 │   │   ├── after.webp
 │   │   ├── after1.webp
@@ -60,32 +60,32 @@ PROJECT TREE:
 │   │   ├── before2.webp
 │   │   ├── projects-after-bathroom-400w.webp
 │   │   ├── projects-after-bathroom-800w.webp
-│   │   ├── projects-after-bathroom-placeholder.jpg
+│   │   ├── projects-after-bathroom.jpg
 │   │   ├── projects-after-brick-patio-400w.webp
-│   │   ├── projects-after-brick-patio-placeholder.jpg
+│   │   ├── projects-after-brick-patio.jpg
 │   │   ├── projects-after-front-porch-400w.webp
 │   │   ├── projects-after-front-porch-800w.webp
-│   │   ├── projects-after-front-porch-placeholder.jpg
+│   │   ├── projects-after-front-porch.jpg
 │   │   ├── projects-after-front-porch.webp
 │   │   ├── projects-after-kitchen-400w.webp
 │   │   ├── projects-after-kitchen-800w.webp
-│   │   ├── projects-after-kitchen-placeholder.jpg
+│   │   ├── projects-after-kitchen.jpg
 │   │   ├── projects-after-kitchen.webp
 │   │   ├── projects-after-living-room-400w.webp
 │   │   ├── projects-after-living-room-800w.webp
-│   │   ├── projects-after-living-room-placeholder.jpg
+│   │   ├── projects-after-living-room.jpg
 │   │   ├── projects-after-living-room.webp
 │   │   ├── projects-before-bathroom-400w.webp
 │   │   ├── projects-before-bathroom-800w.webp
-│   │   ├── projects-before-bathroom-placeholder.jpg
+│   │   ├── projects-before-bathroom.jpg
 │   │   ├── projects-before-front-porch-400w.webp
-│   │   ├── projects-before-front-porch-placeholder.jpg
+│   │   ├── projects-before-front-porch.jpg
 │   │   ├── projects-before-kitchen-400w.webp
 │   │   ├── projects-before-kitchen-800w.webp
-│   │   ├── projects-before-kitchen-placeholder.jpg
+│   │   ├── projects-before-kitchen.jpg
 │   │   ├── projects-before-living-room-400w.webp
 │   │   ├── projects-before-living-room-800w.webp
-│   │   └── projects-before-living-room-placeholder.jpg
+│   │   └── projects-before-living-room.jpg
 │   ├── icons
 │   │   ├── 001-house.png
 │   │   ├── 001.house.png
@@ -136,46 +136,46 @@ PROJECT TREE:
 │   ├── our-work-gallery
 │   │   ├── our-work-detailed-measuring-400w.webp
 │   │   ├── our-work-detailed-measuring-800w.webp
-│   │   ├── our-work-detailed-measuring-placeholder.jpg
+│   │   ├── our-work-detailed-measuring.jpg
 │   │   ├── our-work-framing-door-1200w.webp
 │   │   ├── our-work-framing-door-400w.webp
 │   │   ├── our-work-framing-door-800w.webp
-│   │   ├── our-work-framing-door-placeholder.jpg
+│   │   ├── our-work-framing-door.webp
 │   │   ├── our-work-framing-door.webp
 │   │   ├── our-work-painting-dog-400w.webp
 │   │   ├── our-work-painting-dog-800w.webp
-│   │   ├── our-work-painting-dog-placeholder.jpg
+│   │   ├── our-work-painting-dog.jpg
 │   │   ├── our-work-remodeling-400w.webp
-│   │   └── our-work-remodeling-placeholder.jpg
+│   │   └── our-work-remodeling.jpg
 │   └── properties
 │       ├── card-impact-rodriguez-family-400w.webp
 │       ├── card-impact-rodriguez-family-800w.webp
-│       ├── card-impact-rodriguez-family-placeholder.jpg
+│       ├── card-impact-rodriguez-family.jpg
 │       ├── jefferson-riverfront.webp
 │       ├── kemp-townhome.webp
 │       ├── longview-victorian.webp
 │       ├── marshall-historic-farm.webp
 │       ├── mineola-modern-studio.webp
 │       ├── projects-home-exterior-400w.webp
-│       ├── projects-home-exterior-placeholder.jpg
+│       ├── projects-home-exterior.webp
 │       ├── properties-jefferson-river-front-400w.webp
-│       ├── properties-jefferson-river-front-placeholder.jpg
+│       ├── properties-jefferson-river-front.jpg
 │       ├── properties-jefferson-river-front.webp
 │       ├── properties-kemp-townhome-400w.webp
-│       ├── properties-kemp-townhome-placeholder.jpg
+│       ├── properties-kemp-townhome.jpg
 │       ├── properties-longview-victorian-400w.webp
-│       ├── properties-longview-victorian-placeholder.jpg
+│       ├── properties-longview-victorian.jpg
 │       ├── properties-longview-victorian.webp
 │       ├── properties-marshall-farmhouse-400w.webp
-│       ├── properties-marshall-farmhouse-placeholder.jpg
+│       ├── properties-marshall-farmhouse.jpg
 │       ├── properties-marshall-victorian-400w.webp
 │       ├── properties-marshall-victorian-800w.webp
-│       ├── properties-marshall-victorian-placeholder.jpg
+│       ├── properties-marshall-victorian.jpg
 │       ├── properties-mineola-studio-400w.webp
-│       ├── properties-mineola-studio-placeholder.jpg
+│       ├── properties-mineola-studio.jpg
 │       ├── properties-mineola-studio.webp
 │       ├── properties-tyler-ranch-home-400w.webp
-│       ├── properties-tyler-ranch-home-placeholder.jpg
+│       ├── properties-tyler-ranch-home.jpg
 │       └── tyler-ranch-home.webp
 ├── impact
 │   └── index.html
