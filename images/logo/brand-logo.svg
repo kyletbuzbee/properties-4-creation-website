@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C28E5A" />
+      <stop offset="100%" stop-color="#0B1120" />
+    </linearGradient>
+  </defs>
+  
+  <!-- House shape -->
+  <path d="M50 150 L50 100 L100 70 L150 100 L150 150 Z" fill="url(#logoGradient)" stroke="#0B1120" stroke-width="3"/>
+  
+  <!-- Roof -->
+  <path d="M40 100 L100 50 L160 100 Z" fill="#0B1120" stroke="#C28E5A" stroke-width="2"/>
+  
+  <!-- Door -->
+  <rect x="110" y="120" width="20" height="30" fill="#0B1120" stroke="#C28E5A" stroke-width="2"/>
+  
+  <!-- Window -->
+  <rect x="70" y="110" width="15" height="15" fill="#C28E5A" stroke="#0B1120" stroke-width="2"/>
+  
+  <!-- Text -->
+  <text x="100" y="180" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#0B1120">
+    Properties 4 Creations
+  </text>
+  
+  <!-- Veteran badge -->
+  <circle cx="170" cy="30" r="15" fill="#0B1120" stroke="#C28E5A" stroke-width="2"/>
+  <text x="170" y="35" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="#C28E5A">
+    V
+  </text>
+</svg>
