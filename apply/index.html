@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply - Properties 4 Creations</title>
+  <meta name="description" content="Apply for housing with Properties 4 Creations. We accept Section 8 and HUD-VASH vouchers.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- ARIA Live Region for notifications -->
+  <div id="notification-container" class="notification-container" aria-live="polite" aria-atomic="true"></div>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <!-- Brand/Logo -->
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo">
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle (hidden on desktop) -->
+      <button class="menu-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-navigation"
+           id="main-navigation"
+           role="navigation"
+           aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <section class="apply-hero">
+      <div class="container">
+        <h1>Apply for Housing</h1>
+        <p>Complete the form below to apply for housing with Properties 4 Creations.</p>
+      </div>
+    </section>
+    
+    <section class="apply-content">
+      <div class="container">
+        <form id="application-form" class="application-form">
+          <div class="form-group">
+            <label for="name">Full Name*</label>
+            <input type="text" id="name" name="name" required>
+            <span class="error-message"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error-message"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone*</label>
+            <input type="tel" id="phone" name="phone" required>
+            <span class="error-message"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="voucher">Housing Voucher</label>
+            <select id="voucher" name="voucher">
+              <option value="">Select an option</option>
+              <option value="section8">Section 8</option>
+              <option value="hudvash">HUD-VASH</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="household">Household Size*</label>
+            <input type="number" id="household" name="household" required>
+            <span class="error-message"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="bedrooms">Desired Bedrooms*</label>
+            <select id="bedrooms" name="bedrooms" required>
+              <option value="">Select an option</option>
+              <option value="1">1 Bedroom</option>
+              <option value="2">2 Bedrooms</option>
+              <option value="3">3 Bedrooms</option>
+              <option value="4+">4+ Bedrooms</option>
+            </select>
+            <span class="error-message"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="location">Preferred Location</label>
+            <select id="location" name="location">
+              <option value="">Select an option</option>
+              <option value="tyler">Tyler</option>
+              <option value="longview">Longview</option>
+              <option value="marshall">Marshall</option>
+              <option value="jefferson">Jefferson</option>
+              <option value="mineola">Mineola</option>
+              <option value="kemp">Kemp</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Additional Information</label>
+            <textarea id="message" name="message" rows="5"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Submit Application</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p>
+          <strong>24/7 Support:</strong>
+          Veterans Crisis <a href="tel:988">988</a> |
+          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
+        </p>
+      </div>
+      
+      <!-- Footer Content Grid -->
+      <div class="footer-content">
+        
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">Veteran-Owned & Operated</div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
+          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Properties 4 Creations.
+          <a href="/privacy/">Privacy</a> |
+          <a href="/terms/">Terms</a>
+        </p>
+      </div>
+      
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+  <script src="/js/accessibility.js"></script>
+</body>
+</html>

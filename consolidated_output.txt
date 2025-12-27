@@ -1,0 +1,4097 @@
+CONSOLIDATED PROJECT FILES
+Generated: 2025-12-26 13:34:54
+Source: .
+Output: consolidated_output.txt
+================================================================================
+
+PROJECT TREE:
+.
+├── .qodo
+│   ├── agents
+│   └── workflows
+├── 404.html
+├── about
+│   └── index.html
+├── apply
+│   └── index.html
+├── code-review.py
+├── consolidated_output.txt
+├── contact
+│   └── index.html
+├── css
+│   └── style.css
+├── faq
+│   └── index.html
+├── images
+│   ├── banners
+│   │   ├── hero-about-us-banner-400w.webp
+│   │   ├── hero-about-us-banner-placeholder.jpg
+│   │   ├── hero-banner.webp
+│   │   ├── hero-contact-banner-1200w.webp
+│   │   ├── hero-contact-banner-400w.webp
+│   │   ├── hero-contact-banner-800w.webp
+│   │   ├── hero-contact-banner-placeholder.jpg
+│   │   ├── hero-contact-banner.webp
+│   │   ├── hero-home-banner-400w.webp
+│   │   ├── hero-home-banner-800w.webp
+│   │   ├── hero-home-banner-placeholder.jpg
+│   │   ├── hero-impact-banner-400w.webp
+│   │   ├── hero-impact-banner-placeholder.jpg
+│   │   ├── hero-privacy-banner-1200w.webp
+│   │   ├── hero-privacy-banner-1600w.webp
+│   │   ├── hero-privacy-banner-400w.webp
+│   │   ├── hero-privacy-banner-800w.webp
+│   │   ├── hero-privacy-banner-placeholder.jpg
+│   │   ├── hero-privacy-banner.webp
+│   │   ├── hero-projects-banner-400w.webp
+│   │   ├── hero-projects-banner-placeholder.jpg
+│   │   ├── hero-terms-banner-1200w.webp
+│   │   ├── hero-terms-banner-400w.webp
+│   │   ├── hero-terms-banner-800w.webp
+│   │   ├── hero-terms-banner-placeholder.jpg
+│   │   ├── hero-transparency-banner-400w.webp
+│   │   └── hero-transparency-banner-placeholder.jpg
+│   ├── before-after-comparison
+│   │   ├── after.webp
+│   │   ├── after1.webp
+│   │   ├── after2.webp
+│   │   ├── before.webp
+│   │   ├── before1.webp
+│   │   ├── before2.webp
+│   │   ├── projects-after-bathroom-400w.webp
+│   │   ├── projects-after-bathroom-800w.webp
+│   │   ├── projects-after-bathroom-placeholder.jpg
+│   │   ├── projects-after-brick-patio-400w.webp
+│   │   ├── projects-after-brick-patio-placeholder.jpg
+│   │   ├── projects-after-front-porch-400w.webp
+│   │   ├── projects-after-front-porch-800w.webp
+│   │   ├── projects-after-front-porch-placeholder.jpg
+│   │   ├── projects-after-front-porch.webp
+│   │   ├── projects-after-kitchen-400w.webp
+│   │   ├── projects-after-kitchen-800w.webp
+│   │   ├── projects-after-kitchen-placeholder.jpg
+│   │   ├── projects-after-kitchen.webp
+│   │   ├── projects-after-living-room-400w.webp
+│   │   ├── projects-after-living-room-800w.webp
+│   │   ├── projects-after-living-room-placeholder.jpg
+│   │   ├── projects-after-living-room.webp
+│   │   ├── projects-before-bathroom-400w.webp
+│   │   ├── projects-before-bathroom-800w.webp
+│   │   ├── projects-before-bathroom-placeholder.jpg
+│   │   ├── projects-before-front-porch-400w.webp
+│   │   ├── projects-before-front-porch-placeholder.jpg
+│   │   ├── projects-before-kitchen-400w.webp
+│   │   ├── projects-before-kitchen-800w.webp
+│   │   ├── projects-before-kitchen-placeholder.jpg
+│   │   ├── projects-before-living-room-400w.webp
+│   │   ├── projects-before-living-room-800w.webp
+│   │   └── projects-before-living-room-placeholder.jpg
+│   ├── icons
+│   │   ├── 001-house.png
+│   │   ├── 001.house.png
+│   │   ├── 002-house-1.png
+│   │   ├── 003-house-2.png
+│   │   ├── 004-search.png
+│   │   ├── 005-3d-house.png
+│   │   ├── 006-protection.png
+│   │   ├── 007-mortgage.png
+│   │   ├── 008-standard.png
+│   │   ├── 009-quality-control.png
+│   │   ├── 010-check.png
+│   │   ├── 011-standard-1.png
+│   │   ├── 012-quality-control-1.png
+│   │   ├── 013-quality-standard.png
+│   │   ├── 014-community-engagement.png
+│   │   ├── 015-epidemiology.png
+│   │   ├── 016-social-care.png
+│   │   ├── 017-public-health.png
+│   │   ├── 018-social-justice.png
+│   │   ├── 019-heart.png
+│   │   ├── 020-online-community.png
+│   │   ├── 021-family.png
+│   │   ├── 022-family-1.png
+│   │   ├── 023-family-2.png
+│   │   ├── 024-family-3.png
+│   │   ├── 025-home.png
+│   │   ├── 026-family-4.png
+│   │   ├── 027-family-5.png
+│   │   ├── 028-family-6.png
+│   │   ├── 029-home-1.png
+│   │   ├── 030-family-7.png
+│   │   ├── 031-happy-house.png
+│   │   ├── 032-va-loan.png
+│   │   ├── 033-va-loan-1.png
+│   │   ├── 034-soldier.png
+│   │   ├── 035-usa.png
+│   │   ├── 036-patriotism.png
+│   │   ├── 037-flag.png
+│   │   ├── 038-ribbon.png
+│   │   ├── 039-flat.png
+│   │   ├── american-flag-icon.svg
+│   │   ├── home.svg
+│   │   └── patriotism.svg
+│   ├── logo
+│   │   ├── brand-logo.png
+│   │   └── brand-logo.svg
+│   ├── our-work-gallery
+│   │   ├── our-work-detailed-measuring-400w.webp
+│   │   ├── our-work-detailed-measuring-800w.webp
+│   │   ├── our-work-detailed-measuring-placeholder.jpg
+│   │   ├── our-work-framing-door-1200w.webp
+│   │   ├── our-work-framing-door-400w.webp
+│   │   ├── our-work-framing-door-800w.webp
+│   │   ├── our-work-framing-door-placeholder.jpg
+│   │   ├── our-work-framing-door.webp
+│   │   ├── our-work-painting-dog-400w.webp
+│   │   ├── our-work-painting-dog-800w.webp
+│   │   ├── our-work-painting-dog-placeholder.jpg
+│   │   ├── our-work-remodeling-400w.webp
+│   │   └── our-work-remodeling-placeholder.jpg
+│   └── properties
+│       ├── card-impact-rodriguez-family-400w.webp
+│       ├── card-impact-rodriguez-family-800w.webp
+│       ├── card-impact-rodriguez-family-placeholder.jpg
+│       ├── jefferson-riverfront.webp
+│       ├── kemp-townhome.webp
+│       ├── longview-victorian.webp
+│       ├── marshall-historic-farm.webp
+│       ├── mineola-modern-studio.webp
+│       ├── projects-home-exterior-400w.webp
+│       ├── projects-home-exterior-placeholder.jpg
+│       ├── properties-jefferson-river-front-400w.webp
+│       ├── properties-jefferson-river-front-placeholder.jpg
+│       ├── properties-jefferson-river-front.webp
+│       ├── properties-kemp-townhome-400w.webp
+│       ├── properties-kemp-townhome-placeholder.jpg
+│       ├── properties-longview-victorian-400w.webp
+│       ├── properties-longview-victorian-placeholder.jpg
+│       ├── properties-longview-victorian.webp
+│       ├── properties-marshall-farmhouse-400w.webp
+│       ├── properties-marshall-farmhouse-placeholder.jpg
+│       ├── properties-marshall-victorian-400w.webp
+│       ├── properties-marshall-victorian-800w.webp
+│       ├── properties-marshall-victorian-placeholder.jpg
+│       ├── properties-mineola-studio-400w.webp
+│       ├── properties-mineola-studio-placeholder.jpg
+│       ├── properties-mineola-studio.webp
+│       ├── properties-tyler-ranch-home-400w.webp
+│       ├── properties-tyler-ranch-home-placeholder.jpg
+│       └── tyler-ranch-home.webp
+├── impact
+│   └── index.html
+├── index.html
+├── js
+│   ├── accessibility.js
+│   ├── comparison-slider.js
+│   ├── main.js
+│   └── theme-toggle.js
+├── manifest.json
+├── privacy
+│   └── index.html
+├── properties
+│   └── index.html
+├── resources
+│   └── index.html
+├── terms
+│   └── index.html
+└── transparency
+    └── index.html
+
+================================================================================
+
+================================================================================
+FILE: 404.html
+SIZE: 4928 bytes
+MODIFIED: 2025-12-26 12:52:03
+================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found - Properties 4 Creations</title>
+  <meta name="description" content="The page you are looking for does not exist.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <!-- Brand/Logo -->
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo">
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle (hidden on desktop) -->
+      <button class="menu-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-navigation"
+           id="main-navigation"
+           role="navigation"
+           aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <section class="error-page">
+      <div class="container">
+        <h1>404</h1>
+        <h2>Page Not Found</h2>
+        <p>The page you are looking for does not exist or has been moved.</p>
+        <a href="/" class="btn btn-primary">Go to Homepage</a>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p>
+          <strong>24/7 Support:</strong>
+          Veterans Crisis <a href="tel:988">988</a> |
+          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
+        </p>
+      </div>
+      
+      <!-- Footer Content Grid -->
+      <div class="footer-content">
+        
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">Veteran-Owned & Operated</div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
+          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Properties 4 Creations.
+          <a href="/privacy/">Privacy</a> |
+          <a href="/terms/">Terms</a>
+        </p>
+      </div>
+      
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------
+FILE: about\index.html
+SIZE: 6795 bytes
+MODIFIED: 2025-12-26 12:53:14
+================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Properties 4 Creations</title>
+  <meta name="description" content="Learn about Properties 4 Creations, a veteran-owned housing platform serving families and veterans in East Texas.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <!-- Brand/Logo -->
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo">
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle (hidden on desktop) -->
+      <button class="menu-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-navigation"
+           id="main-navigation"
+           role="navigation"
+           aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <section class="about-hero">
+      <div class="container">
+        <h1>About Properties 4 Creations</h1>
+        <p>Veteran-owned housing platform serving families and veterans in East Texas.</p>
+      </div>
+    </section>
+    
+    <section class="about-content">
+      <div class="container">
+        <h2>Our Mission</h2>
+        <p>At Properties 4 Creations, our mission is to provide quality, affordable housing to veterans and families in East Texas. We are committed to serving those who have served our country and ensuring that every family has access to safe and comfortable housing.</p>
+        
+        <h2>Our Vision</h2>
+        <p>We envision a community where every veteran and family has access to quality housing that meets their needs. Through our extensive renovations and commitment to excellence, we aim to set a new standard for affordable housing in East Texas.</p>
+        
+        <h2>Veteran-Owned Story</h2>
+        <p>Properties 4 Creations was founded by veterans who understand the unique challenges faced by those transitioning from military service to civilian life. Our team is dedicated to providing housing solutions that cater to the specific needs of veterans and their families.</p>
+        
+        <h2>Commitment to Quality Housing</h2>
+        <p>Every property we manage undergoes extensive renovations to ensure it meets our high standards. From HVAC systems to roofing, plumbing, and electrical, we invest over $30,000 in each property to provide a safe and comfortable living environment.</p>
+        
+        <h2>Company Values</h2>
+        <ul>
+          <li><strong>Integrity:</strong> We conduct our business with honesty and transparency.</li>
+          <li><strong>Quality:</strong> We are committed to providing the highest quality housing.</li>
+          <li><strong>Community:</strong> We believe in giving back to the communities we serve.</li>
+          <li><strong>Service:</strong> We are dedicated to serving veterans and families with respect and dignity.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p>
+          <strong>24/7 Support:</strong>
+          Veterans Crisis <a href="tel:988">988</a> |
+          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
+        </p>
+      </div>
+      
+      <!-- Footer Content Grid -->
+      <div class="footer-content">
+        
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">Veteran-Owned & Operated</div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
+          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Properties 4 Creations.
+          <a href="/privacy/">Privacy</a> |
+          <a href="/terms/">Terms</a>
+        </p>
+      </div>
+      
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------
+FILE: apply\index.html
+SIZE: 7895 bytes
+MODIFIED: 2025-12-26 12:56:53
+================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply - Properties 4 Creations</title>
+  <meta name="description" content="Apply for housing with Properties 4 Creations. We accept Section 8 and HUD-VASH vouchers.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <!-- Brand/Logo -->
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo">
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle (hidden on desktop) -->
+      <button class="menu-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-navigation"
+           id="main-navigation"
+           role="navigation"
+           aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <section class="apply-hero">
+      <div class="container">
+        <h1>Apply for Housing</h1>
+        <p>Complete the form below to apply for housing with Properties 4 Creations.</p>
+      </div>
+    </section>
+    
+    <section class="apply-content">
+      <div class="container">
+        <form id="application-form" class="application-form">
+          <div class="form-group">
+            <label for="name">Full Name*</label>
+            <input type="text" id="name" name="name" required>
+            <span class="error-message"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error-message"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone*</label>
+            <input type="tel" id="phone" name="phone" required>
+            <span class="error-message"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="voucher">Housing Voucher</label>
+            <select id="voucher" name="voucher">
+              <option value="">Select an option</option>
+              <option value="section8">Section 8</option>
+              <option value="hudvash">HUD-VASH</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="household">Household Size*</label>
+            <input type="number" id="household" name="household" required>
+            <span class="error-message"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="bedrooms">Desired Bedrooms*</label>
+            <select id="bedrooms" name="bedrooms" required>
+              <option value="">Select an option</option>
+              <option value="1">1 Bedroom</option>
+              <option value="2">2 Bedrooms</option>
+              <option value="3">3 Bedrooms</option>
+              <option value="4+">4+ Bedrooms</option>
+            </select>
+            <span class="error-message"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="location">Preferred Location</label>
+            <select id="location" name="location">
+              <option value="">Select an option</option>
+              <option value="tyler">Tyler</option>
+              <option value="longview">Longview</option>
+              <option value="marshall">Marshall</option>
+              <option value="jefferson">Jefferson</option>
+              <option value="mineola">Mineola</option>
+              <option value="kemp">Kemp</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Additional Information</label>
+            <textarea id="message" name="message" rows="5"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Submit Application</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p>
+          <strong>24/7 Support:</strong>
+          Veterans Crisis <a href="tel:988">988</a> |
+          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
+        </p>
+      </div>
+      
+      <!-- Footer Content Grid -->
+      <div class="footer-content">
+        
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">Veteran-Owned & Operated</div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
+          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Properties 4 Creations.
+          <a href="/privacy/">Privacy</a> |
+          <a href="/terms/">Terms</a>
+        </p>
+      </div>
+      
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+  <script src="/js/accessibility.js"></script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------
+FILE: contact\index.html
+SIZE: 6722 bytes
+MODIFIED: 2025-12-26 12:58:20
+================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Properties 4 Creations</title>
+  <meta name="description" content="Contact Properties 4 Creations for more information about our veteran and Section 8 housing options.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <!-- Brand/Logo -->
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo">
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle (hidden on desktop) -->
+      <button class="menu-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-navigation"
+           id="main-navigation"
+           role="navigation"
+           aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <section class="contact-hero">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>Get in touch with Properties 4 Creations for more information about our housing options.</p>
+      </div>
+    </section>
+    
+    <section class="contact-content">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p><strong>Phone:</strong> (903) 555-1234</p>
+            <p><strong>Email:</strong> info@properties4creations.com</p>
+            <p><strong>Hours:</strong> Mon-Fri 9am-5pm CST</p>
+            <p><strong>Address:</strong> 123 Main St, Tyler, TX 75701</p>
+          </div>
+          
+          <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="name">Name*</label>
+                <input type="text" id="name" name="name" required>
+                <span class="error-message"></span>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message"></span>
+              </div>
+              
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Message*</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <span class="error-message"></span>
+              </div>
+              
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p>
+          <strong>24/7 Support:</strong>
+          Veterans Crisis <a href="tel:988">988</a> |
+          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
+        </p>
+      </div>
+      
+      <!-- Footer Content Grid -->
+      <div class="footer-content">
+        
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">Veteran-Owned & Operated</div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
+          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Properties 4 Creations.
+          <a href="/privacy/">Privacy</a> |
+          <a href="/terms/">Terms</a>
+        </p>
+      </div>
+      
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+  <script src="/js/accessibility.js"></script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------
+FILE: css\style.css
+SIZE: 20100 bytes
+MODIFIED: 2025-12-26 12:49:51
+================================================================================
+:root {
+  /* Primary Colors */
+  --color-primary-navy: #0B1120;
+  --color-primary-navy-light: #1A2332;
+  --color-primary-navy-dark: #050811;
+  --color-primary-gold: #C28E5A;
+  --color-primary-gold-light: #D99A6A;
+  --color-primary-gold-dark: #B07E4A;
+  --color-primary-beige: #F5F5F0;
+
+  /* Semantic Colors */
+  --color-semantic-error: #D32F2F;
+  --color-semantic-success: #388E3C;
+  --color-semantic-warning: #F57C00;
+  --color-semantic-info: #1976D2;
+
+  /* Neutral Grays */
+  --color-neutral-white: #FFFFFF;
+  --color-neutral-gray-50: #F9FAFB;
+  --color-neutral-gray-100: #F3F4F6;
+  --color-neutral-gray-200: #E5E7EB;
+  --color-neutral-gray-300: #D1D5DB;
+  --color-neutral-gray-400: #9CA3AF;
+  --color-neutral-gray-500: #6B7280;
+  --color-neutral-gray-600: #4B5563;
+  --color-neutral-gray-700: #374151;
+  --color-neutral-gray-800: #1F2937;
+  --color-neutral-gray-900: #111827;
+  --color-neutral-black: #000000;
+
+  /* Spacing System (8px grid) */
+  --spacing-1: 0.25rem; /* 4px */
+  --spacing-2: 0.5rem; /* 8px */
+  --spacing-3: 0.75rem; /* 12px */
+  --spacing-4: 1rem; /* 16px */
+  --spacing-6: 1.5rem; /* 24px */
+  --spacing-8: 2rem; /* 32px */
+  --spacing-12: 3rem; /* 48px */
+  --spacing-16: 4rem; /* 64px */
+
+  /* Typography */
+  --font-heading: 'Merriweather', Georgia, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-code: Monaco, "Courier New", monospace;
+
+  /* Type Scale */
+  --text-hero: 3rem; /* 48px */
+  --text-h1: 2.25rem; /* 36px */
+  --text-h2: 1.875rem; /* 30px */
+  --text-h3: 1.5rem; /* 24px */
+  --text-h4: 1.25rem; /* 20px */
+  --text-body: 1rem; /* 16px */
+  --text-small: 0.875rem; /* 14px */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* Border Radius */
+  --radius-sm: 0.125rem; /* 2px */
+  --radius-md: 0.25rem; /* 4px */
+  --radius-lg: 0.5rem; /* 8px */
+  --radius-xl: 1rem; /* 16px */
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition: all 0.25s ease-in-out;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  color: var(--color-neutral-gray-900);
+  background-color: var(--color-neutral-white);
+  transition: var(--transition);
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: var(--color-neutral-gray-900);
+  color: var(--color-neutral-gray-100);
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-4);
+}
+
+h1, .h1 {
+  font-size: var(--text-h1);
+}
+
+h2, .h2 {
+  font-size: var(--text-h2);
+}
+
+h3, .h3 {
+  font-size: var(--text-h3);
+}
+
+h4, .h4 {
+  font-size: var(--text-h4);
+}
+
+p {
+  margin-bottom: var(--spacing-4);
+}
+
+/* Layout */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary-navy);
+  color: var(--color-neutral-white);
+  padding: var(--spacing-2);
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Header Base - Glassmorphism Effect */
+.header-glass {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: saturate(180%) blur(10px);
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(11, 17, 32, 0.1);
+  box-shadow: 0 4px 20px rgba(11, 17, 32, 0.1);
+  transition: all 0.25s ease-out;
+}
+
+/* Scrolled State */
+.header-glass.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 15px rgba(11, 17, 32, 0.15);
+}
+
+/* Navigation Container */
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Brand/Logo */
+.brand-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  transition: transform 0.25s ease-out;
+}
+
+.brand-link:hover {
+  transform: translateY(-1px);
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0B1120;
+  letter-spacing: 0.5px;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: #0B1120;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.25s ease-out;
+  border: 2px solid transparent;
+  min-height: 44px; /* WCAG touch target */
+  min-width: 44px;
+}
+
+.nav-link:hover {
+  background: rgba(194, 142, 90, 0.1);
+  color: #0B1120;
+}
+
+.nav-link:focus-visible {
+  outline: 3px solid #C28E5A;
+  outline-offset: 2px;
+  border-color: #C28E5A;
+}
+
+/* Active page */
+.nav-link[aria-current="page"] {
+  background: rgba(194, 142, 90, 0.2);
+  color: #0B1120;
+  font-weight: 700;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.menu-toggle:hover {
+  background: rgba(194, 142, 90, 0.1);
+}
+
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #0B1120;
+  transition: all 0.25s ease-out;
+  border-radius: 2px;
+}
+
+/* Hamburger Animation (when open) */
+.menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Dark Mode Toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: 2px solid #0B1120;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0B1120;
+  transition: all 0.25s ease-out;
+  min-height: 44px;
+}
+
+.theme-toggle:hover {
+  background: #0B1120;
+  color: #FFFFFF;
+}
+
+.theme-icon {
+  font-size: 1.25rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 1rem;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .main-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: saturate(180%) blur(10px);
+    transform: translateX(-100%);
+    transition: transform 0.25s ease-out;
+    z-index: 999;
+    padding: 3rem 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  .main-navigation[aria-hidden="false"] {
+    transform: translateX(0);
+  }
+  
+  .nav-menu {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.25rem;
+  }
+  
+  .nav-link {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+  
+  .brand-text {
+    font-size: 1.125rem;
+  }
+  
+  .theme-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .header-glass {
+    background: rgba(11, 17, 32, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .brand-text,
+  .nav-link,
+  .hamburger-line {
+    color: #FFFFFF;
+    background: #FFFFFF;
+  }
+  
+  .nav-link:hover {
+    background: rgba(194, 142, 90, 0.2);
+  }
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(11, 17, 32, 0.8), rgba(11, 17, 32, 0.8)), url('/images/banners/hero-banner.webp');
+  background-size: cover;
+  background-position: center;
+  color: var(--color-neutral-white);
+  padding: var(--spacing-16) 0;
+  text-align: center;
+}
+
+body.dark-mode .hero {
+  background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('/images/banners/hero-banner.webp');
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: var(--text-hero);
+  margin-bottom: var(--spacing-4);
+}
+
+.hero p {
+  font-size: var(--text-h3);
+  margin-bottom: var(--spacing-8);
+}
+
+.hero-ctas {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-4);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-3) var(--spacing-6);
+  border-radius: var(--radius-md);
+  font-size: var(--text-body);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: 44px;
+  min-width: 150px;
+}
+
+.btn-primary {
+  background-color: var(--color-primary-gold);
+  color: var(--color-primary-navy);
+  border: 1px solid var(--color-primary-gold);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-gold-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary-navy);
+  border: 1px solid var(--color-primary-navy);
+}
+
+body.dark-mode .btn-secondary {
+  color: var(--color-neutral-white);
+  border: 1px solid var(--color-neutral-white);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-navy);
+  color: var(--color-neutral-white);
+}
+
+body.dark-mode .btn-secondary:hover {
+  background-color: var(--color-neutral-white);
+  color: var(--color-neutral-gray-900);
+}
+
+.btn-cta {
+  background: linear-gradient(45deg, var(--color-primary-gold), var(--color-primary-gold-light));
+  color: var(--color-primary-navy);
+  font-size: var(--text-h4);
+  padding: var(--spacing-4) var(--spacing-8);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Features Section */
+.features {
+  padding: var(--spacing-16) 0;
+}
+
+.features h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-8);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-8);
+}
+
+.feature-card {
+  background: var(--color-neutral-white);
+  padding: var(--spacing-6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+body.dark-mode .feature-card {
+  background: var(--color-neutral-gray-800);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-card h3 {
+  color: var(--color-primary-navy);
+  margin-bottom: var(--spacing-2);
+}
+
+body.dark-mode .feature-card h3 {
+  color: var(--color-neutral-white);
+}
+
+/* Properties Section */
+.properties {
+  padding: var(--spacing-16) 0;
+}
+
+.properties h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-8);
+}
+
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-8);
+}
+
+.property-card {
+  background: var(--color-neutral-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+body.dark-mode .property-card {
+  background: var(--color-neutral-gray-800);
+}
+
+.property-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.property-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.property-card:hover img {
+  transform: scale(1.05);
+}
+
+.property-content {
+  padding: var(--spacing-4);
+}
+
+.property-content h3 {
+  color: var(--color-primary-navy);
+  margin-bottom: var(--spacing-1);
+}
+
+body.dark-mode .property-content h3 {
+  color: var(--color-neutral-white);
+}
+
+.property-details {
+  display: flex;
+  gap: var(--spacing-4);
+  margin: var(--spacing-2) 0;
+}
+
+.property-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin: var(--spacing-2) 0;
+}
+
+.tag {
+  background: var(--color-primary-beige);
+  color: var(--color-primary-navy);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-full);
+  font-size: var(--text-small);
+}
+
+.property-actions {
+  display: flex;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-4);
+}
+
+/* Impact Section */
+.impact {
+  padding: var(--spacing-16) 0;
+  background: var(--color-primary-beige);
+}
+
+.impact h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-8);
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-8);
+}
+
+.impact-card {
+  text-align: center;
+}
+
+.impact-card h3 {
+  font-size: var(--text-h1);
+  color: var(--color-primary-navy);
+  margin-bottom: var(--spacing-2);
+}
+
+body.dark-mode .impact-card h3 {
+  color: var(--color-neutral-white);
+}
+
+/* CTA Section */
+.cta {
+  padding: var(--spacing-16) 0;
+  text-align: center;
+}
+
+.cta h2 {
+  margin-bottom: var(--spacing-2);
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-6);
+}
+
+/* Footer Base */
+.footer {
+  background: #0B1120;
+  color: #FFFFFF;
+  padding: 3rem 0 1rem;
+  margin-top: 4rem;
+}
+
+.footer .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Emergency Banner */
+.emergency-banner {
+  background: rgba(194, 142, 90, 0.1);
+  border-left: 4px solid #C28E5A;
+  padding: 1rem 1.5rem;
+  margin-bottom: 3rem;
+  border-radius: 0.5rem;
+}
+
+.emergency-banner p {
+  margin: 0;
+  font-size: 1rem;
+  color: #FFFFFF;
+}
+
+.emergency-banner a {
+  color: #C28E5A;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.emergency-banner a:hover {
+  color: #D99A6A;
+}
+
+/* Footer Content Grid */
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+  font-family: 'Merriweather', Georgia, serif;
+  color: #C28E5A;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+.footer-section p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-section a:hover {
+  color: #C28E5A;
+}
+
+/* Veteran Badge */
+.veteran-badge {
+  display: inline-block;
+  background: rgba(194, 142, 90, 0.2);
+  border: 2px solid #C28E5A;
+  color: #C28E5A;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.footer-bottom a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.footer-bottom a:hover {
+  color: #C28E5A;
+  text-decoration: underline;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .emergency-banner {
+    padding: 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: var(--spacing-4);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-1);
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: var(--spacing-2);
+  border: 1px solid var(--color-neutral-gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--text-body);
+  transition: var(--transition);
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+  background: var(--color-neutral-gray-800);
+  border: 1px solid var(--color-neutral-gray-700);
+  color: var(--color-neutral-white);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary-gold);
+  box-shadow: 0 0 0 2px rgba(194, 142, 90, 0.2);
+}
+
+.error-message {
+  color: var(--color-semantic-error);
+  font-size: var(--text-small);
+  margin-top: var(--spacing-1);
+}
+
+/* FAQ Styles */
+.faq-grid {
+  display: grid;
+  gap: var(--spacing-2);
+}
+
+.faq-item {
+  border: 1px solid var(--color-neutral-gray-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+body.dark-mode .faq-item {
+  border: 1px solid var(--color-neutral-gray-700);
+}
+
+.faq-question {
+  width: 100%;
+  padding: var(--spacing-4);
+  background: var(--color-neutral-white);
+  border: none;
+  text-align: left;
+  font-size: var(--text-h4);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+body.dark-mode .faq-question {
+  background: var(--color-neutral-gray-800);
+  color: var(--color-neutral-white);
+}
+
+.faq-question:hover {
+  background: var(--color-neutral-gray-50);
+}
+
+body.dark-mode .faq-question:hover {
+  background: var(--color-neutral-gray-700);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding: 0 var(--spacing-4);
+}
+
+.faq-answer p {
+  padding: var(--spacing-4) 0;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+
+/* Comparison Slider */
+.comparison-slider {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.comparison-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.comparison-before,
+.comparison-after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comparison-after {
+  clip-path: inset(0 0 0 50%);
+}
+
+.comparison-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: var(--color-primary-gold);
+  cursor: ew-resize;
+}
+
+.comparison-handle::before,
+.comparison-handle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 40px;
+  height: 40px;
+  background: var(--color-primary-gold);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.comparison-handle::before {
+  content: 'Before';
+  color: var(--color-primary-navy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+
+.comparison-handle::after {
+  content: 'After';
+  color: var(--color-primary-navy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--text-small);
+  font-weight: 600;
+  left: -20px;
+  top: calc(50% + 30px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  .hero h1 {
+    font-size: var(--text-h1);
+  }
+  
+  .hero p {
+    font-size: var(--text-h4);
+  }
+  
+  .hero-ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .contact-grid {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: var(--text-h2);
+  }
+  
+  .hero p {
+    font-size: var(--text-body);
+  }
+}
+
+--------------------------------------------------------------------------------
+FILE: faq\index.html
+SIZE: 8299 bytes
+MODIFIED: 2025-12-26 13:00:09
+================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Properties 4 Creations</title>
+  <meta name="description" content="Frequently asked questions about Properties 4 Creations and our housing options.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <!-- Brand/Logo -->
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo">
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle (hidden on desktop) -->
+      <button class="menu-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-navigation"
+           id="main-navigation"
+           role="navigation"
+           aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <section class="faq-hero">
+      <div class="container">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about our housing options and application process.</p>
+      </div>
+    </section>
+    
+    <section class="faq-content">
+      <div class="container">
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question">How do I apply for housing?</button>
+            <div class="faq-answer">
+              <p>You can apply for housing by completing our online application form on the Apply page. If you have any questions or need assistance, feel free to contact us.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">Do you accept Section 8 vouchers?</button>
+            <div class="faq-answer">
+              <p>Yes, all our properties accept Section 8 vouchers. We are committed to providing affordable housing options for families and veterans.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">What about HUD-VASH for veterans?</button>
+            <div class="faq-answer">
+              <p>Yes, we accept HUD-VASH vouchers for veterans. Our veteran-owned company is dedicated to serving those who have served our country.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">What areas do you serve?</button>
+            <div class="faq-answer">
+              <p>We serve East Texas, including Tyler, Longview, Marshall, Jefferson, Mineola, and Kemp.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">What makes you different from other landlords?</button>
+            <div class="faq-answer">
+              <p>We are a veteran-owned company that invests over $30,000 in renovations for each property. We also provide comprehensive warranties for HVAC, roofing, plumbing, and electrical systems.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">Are all properties renovated?</button>
+            <div class="faq-answer">
+              <p>Yes, every property undergoes extensive renovations to ensure quality and comfort for our tenants.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">How long does the application process take?</button>
+            <div class="faq-answer">
+              <p>The application process typically takes 1-2 weeks. We will contact you as soon as your application has been reviewed.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">What's included in your renovations?</button>
+            <div class="faq-answer">
+              <p>Our renovations include HVAC systems, roofing, plumbing, electrical, and cosmetic updates to ensure each property is safe and comfortable.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">Do you allow pets?</button>
+            <div class="faq-answer">
+              <p>Yes, we have pet-friendly properties. Please check the property details or contact us for more information.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p>
+          <strong>24/7 Support:</strong>
+          Veterans Crisis <a href="tel:988">988</a> |
+          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
+        </p>
+      </div>
+      
+      <!-- Footer Content Grid -->
+      <div class="footer-content">
+        
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">Veteran-Owned & Operated</div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
+          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Properties 4 Creations.
+          <a href="/privacy/">Privacy</a> |
+          <a href="/terms/">Terms</a>
+        </p>
+      </div>
+      
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+  <script src="/js/accessibility.js"></script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------
+FILE: impact\index.html
+SIZE: 7929 bytes
+MODIFIED: 2025-12-26 13:04:31
+================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impact - Properties 4 Creations</title>
+  <meta name="description" content="Learn about the impact of Properties 4 Creations in East Texas.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <!-- Brand/Logo -->
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo">
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle (hidden on desktop) -->
+      <button class="menu-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-navigation"
+           id="main-navigation"
+           role="navigation"
+           aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <section class="impact-hero">
+      <div class="container">
+        <h1>Our Impact</h1>
+        <p>Learn about the impact of Properties 4 Creations in East Texas.</p>
+      </div>
+    </section>
+    
+    <section class="impact-content">
+      <div class="container">
+        <h2>Success Stories</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p>"Properties 4 Creations provided me with a safe and comfortable home after my military service. The quality of the renovation is outstanding."</p>
+            <p class="testimonial-author">- John D., Veteran</p>
+          </div>
+          
+          <div class="testimonial-card">
+            <p>"As a single mother, finding affordable housing was a challenge. Properties 4 Creations made it possible for my family to have a beautiful home."</p>
+            <p class="testimonial-author">- Sarah M., Tyler, TX</p>
+          </div>
+          
+          <div class="testimonial-card">
+            <p>"The application process was smooth, and the team was very supportive. I highly recommend Properties 4 Creations to any veteran."</p>
+            <p class="testimonial-author">- Robert T., Longview, TX</p>
+          </div>
+        </div>
+        
+        <h2>Impact Statistics</h2>
+        <div class="impact-grid">
+          <div class="impact-card">
+            <h3>150+</h3>
+            <p>Families Housed</p>
+          </div>
+          <div class="impact-card">
+            <h3>75+</h3>
+            <p>Veterans Served</p>
+          </div>
+          <div class="impact-card">
+            <h3>$4.5M+</h3>
+            <p>Total Invested</p>
+          </div>
+          <div class="impact-card">
+            <h3>98%</h3>
+            <p>Satisfaction Rate</p>
+          </div>
+        </div>
+        
+        <h2>Community Partnerships</h2>
+        <p>We work closely with local organizations and government agencies to provide housing solutions for veterans and families in East Texas.</p>
+        
+        <h2>Before & After Photos</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="/images/before-after-comparison/before1.webp" alt="Before Renovation" loading="lazy">
+            <p>Before</p>
+          </div>
+          <div class="gallery-item">
+            <img src="/images/before-after-comparison/after1.webp" alt="After Renovation" loading="lazy">
+            <p>After</p>
+          </div>
+          <div class="gallery-item">
+            <img src="/images/before-after-comparison/before2.webp" alt="Before Renovation" loading="lazy">
+            <p>Before</p>
+          </div>
+          <div class="gallery-item">
+            <img src="/images/before-after-comparison/after2.webp" alt="After Renovation" loading="lazy">
+            <p>After</p>
+          </div>
+        </div>
+        
+        <h2>Renovation Standards</h2>
+        <p>Every property undergoes extensive renovations to ensure quality and comfort. Our renovations include:</p>
+        <ul>
+          <li>HVAC systems</li>
+          <li>Roofing</li>
+          <li>Plumbing</li>
+          <li>Electrical</li>
+          <li>Cosmetic updates</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p>
+          <strong>24/7 Support:</strong>
+          Veterans Crisis <a href="tel:988">988</a> |
+          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
+        </p>
+      </div>
+      
+      <!-- Footer Content Grid -->
+      <div class="footer-content">
+        
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">Veteran-Owned & Operated</div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
+          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Properties 4 Creations.
+          <a href="/privacy/">Privacy</a> |
+          <a href="/terms/">Terms</a>
+        </p>
+      </div>
+      
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------
+FILE: index.html
+SIZE: 9863 bytes
+MODIFIED: 2025-12-26 12:48:42
+================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Properties 4 Creations - Veteran Housing in East Texas</title>
+  <meta name="description" content="Veteran-owned housing platform serving families and veterans in East Texas with Section 8 and HUD-VASH approved properties.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <!-- Brand/Logo -->
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo">
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle (hidden on desktop) -->
+      <button class="menu-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-navigation"
+           id="main-navigation"
+           role="navigation"
+           aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Affordable Housing for Veterans & Families</h1>
+        <p>Veteran-Owned. Section 8 & HUD-VASH Approved. Quality Renovated Homes in East Texas.</p>
+        <div class="hero-ctas">
+          <a href="/properties/" class="btn btn-primary">Browse Properties</a>
+          <a href="/apply/" class="btn btn-secondary">Apply Now</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <h2>Why Choose Us</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>100% Section 8 & HUD-VASH Acceptance</h3>
+            <p>All our properties accept Section 8 and HUD-VASH vouchers, making it easier for veterans and families to secure housing.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Premium $30k+ Renovations</h3>
+            <p>Every property undergoes extensive renovations to ensure quality and comfort for our tenants.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Veteran-Owned & Operated</h3>
+            <p>We understand the unique needs of veterans and are committed to serving our community.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Comprehensive Warranties</h3>
+            <p>Our properties come with warranties for HVAC, roofing, plumbing, and electrical systems.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Property Cards -->
+    <section class="properties">
+      <div class="container">
+        <h2>Featured Properties</h2>
+        <div class="properties-grid">
+          <div class="property-card">
+            <img src="/images/properties/tyler-ranch-home.webp" alt="Tyler Ranch Home" loading="lazy">
+            <div class="property-content">
+              <h3>Tyler Ranch Home</h3>
+              <p class="address">Tyler, TX</p>
+              <div class="property-details">
+                <span>3 Beds</span>
+                <span>2 Baths</span>
+              </div>
+              <div class="property-tags">
+                <span class="tag">Section 8 Ready</span>
+                <span class="tag">Newly Renovated</span>
+              </div>
+              <a href="/properties/" class="btn btn-secondary">View Details</a>
+            </div>
+          </div>
+          
+          <div class="property-card">
+            <img src="/images/properties/longview-victorian.webp" alt="Longview Victorian" loading="lazy">
+            <div class="property-content">
+              <h3>Longview Victorian</h3>
+              <p class="address">Longview, TX</p>
+              <div class="property-details">
+                <span>4 Beds</span>
+                <span>2.5 Baths</span>
+              </div>
+              <div class="property-tags">
+                <span class="tag">HUD-VASH Approved</span>
+                <span class="tag">Historic Home</span>
+              </div>
+              <a href="/properties/" class="btn btn-secondary">View Details</a>
+            </div>
+          </div>
+          
+          <div class="property-card">
+            <img src="/images/properties/jefferson-riverfront.webp" alt="Jefferson Riverfront" loading="lazy">
+            <div class="property-content">
+              <h3>Jefferson Riverfront</h3>
+              <p class="address">Jefferson, TX</p>
+              <div class="property-details">
+                <span>2 Beds</span>
+                <span>1 Bath</span>
+              </div>
+              <div class="property-tags">
+                <span class="tag">ADA Accessible</span>
+                <span class="tag">Waterfront</span>
+              </div>
+              <a href="/properties/" class="btn btn-secondary">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Impact Stats -->
+    <section class="impact">
+      <div class="container">
+        <h2>Our Impact</h2>
+        <div class="impact-grid">
+          <div class="impact-card">
+            <h3>150+</h3>
+            <p>Families Housed</p>
+          </div>
+          <div class="impact-card">
+            <h3>75+</h3>
+            <p>Veterans Served</p>
+          </div>
+          <div class="impact-card">
+            <h3>$4.5M+</h3>
+            <p>Total Invested</p>
+          </div>
+          <div class="impact-card">
+            <h3>98%</h3>
+            <p>Satisfaction Rate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to Find Your Home?</h2>
+        <p>Apply now to secure your spot in one of our quality renovated properties.</p>
+        <div class="cta-buttons">
+          <a href="/apply/" class="btn btn-primary">Apply Now</a>
+          <a href="/contact/" class="btn btn-secondary">Contact Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p>
+          <strong>24/7 Support:</strong>
+          Veterans Crisis <a href="tel:988">988</a> |
+          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
+        </p>
+      </div>
+      
+      <!-- Footer Content Grid -->
+      <div class="footer-content">
+        
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">Veteran-Owned & Operated</div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
+          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Properties 4 Creations.
+          <a href="/privacy/">Privacy</a> |
+          <a href="/terms/">Terms</a>
+        </p>
+      </div>
+      
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------
+FILE: js\accessibility.js
+SIZE: 2006 bytes
+MODIFIED: 2025-12-26 12:42:42
+================================================================================
+// Accessibility Enhancements
+document.addEventListener('DOMContentLoaded', () => {
+  // Add ARIA attributes to interactive elements
+  const buttons = document.querySelectorAll('button, [role="button"]');
+  buttons.forEach(button => {
+    if (!button.getAttribute('aria-label') && !button.textContent.trim()) {
+      button.setAttribute('aria-label', 'Interactive button');
+    }
+  });
+
+  // Add focus styles for keyboard navigation
+  const focusableElements = document.querySelectorAll('a, button, input, select, textarea, [tabindex="0"]');
+  focusableElements.forEach(element => {
+    element.addEventListener('focus', () => {
+      element.style.outline = '2px solid var(--color-primary-gold)';
+      element.style.outlineOffset = '2px';
+    });
+
+    element.addEventListener('blur', () => {
+      element.style.outline = '';
+      element.style.outlineOffset = '';
+    });
+  });
+
+  // FAQ Accordion functionality
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+      const faqItem = question.parentElement;
+      const isActive = faqItem.classList.contains('active');
+
+      // Close all FAQ items
+      faqQuestions.forEach(q => {
+        q.parentElement.classList.remove('active');
+        q.setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked FAQ item if it wasn't active
+      if (!isActive) {
+        faqItem.classList.add('active');
+        question.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // Add ARIA attributes
+    question.setAttribute('aria-expanded', 'false');
+    question.setAttribute('aria-controls', 'faq-answer-' + Math.random().toString(36).substr(2, 9));
+  });
+
+  // Reduce motion for users who prefer it
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    document.body.classList.add('reduce-motion');
+  }
+});
+
+--------------------------------------------------------------------------------
+FILE: js\comparison-slider.js
+SIZE: 1668 bytes
+MODIFIED: 2025-12-26 12:42:22
+================================================================================
+// Comparison Slider Functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const sliders = document.querySelectorAll('.comparison-slider');
+
+  sliders.forEach(slider => {
+    const container = slider.querySelector('.comparison-container');
+    const handle = slider.querySelector('.comparison-handle');
+    const beforeImg = slider.querySelector('.comparison-before');
+    const afterImg = slider.querySelector('.comparison-after');
+
+    let isDragging = false;
+
+    // Set initial position
+    let position = 50;
+    updateSlider(position);
+
+    // Mouse events
+    handle.addEventListener('mousedown', startDrag);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', stopDrag);
+
+    // Touch events
+    handle.addEventListener('touchstart', startDrag);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('touchend', stopDrag);
+
+    function startDrag(e) {
+      e.preventDefault();
+      isDragging = true;
+    }
+
+    function drag(e) {
+      if (!isDragging) return;
+
+      const rect = container.getBoundingClientRect();
+      const clientX = e.clientX || e.touches[0].clientX;
+      let newPosition = ((clientX - rect.left) / rect.width) * 100;
+
+      // Constrain position between 0 and 100
+      newPosition = Math.max(0, Math.min(100, newPosition));
+
+      updateSlider(newPosition);
+    }
+
+    function stopDrag() {
+      isDragging = false;
+    }
+
+    function updateSlider(pos) {
+      position = pos;
+      handle.style.left = position + '%';
+      afterImg.style.clipPath = `inset(0 0 0 ${position}%)`;
+    }
+  });
+});
+
+--------------------------------------------------------------------------------
+FILE: js\main.js
+SIZE: 4608 bytes
+MODIFIED: 2025-12-26 12:50:16
+================================================================================
+// Main JavaScript File
+// Theme Toggle
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Check for saved theme preference or use system preference
+const savedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+  body.classList.add('dark-mode');
+  themeToggle.innerHTML = '☀️';
+}
+
+// Toggle theme
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  const isDark = body.classList.contains('dark-mode');
+  themeToggle.innerHTML = isDark ? '☀️' : '🌙';
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+// Mobile Menu Toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const mainNav = document.querySelector('.main-navigation');
+
+if (menuToggle && mainNav) {
+  menuToggle.addEventListener('click', () => {
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    
+    menuToggle.setAttribute('aria-expanded', !isExpanded);
+    mainNav.setAttribute('aria-hidden', isExpanded);
+    
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = !isExpanded ? 'hidden' : '';
+  });
+  
+  // Close menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mainNav.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      menuToggle.focus();
+    }
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mainNav.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  });
+}
+
+// Highlight active page
+const currentPath = window.location.pathname;
+const navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach(link => {
+  if (link.getAttribute('href') === currentPath ||
+      (currentPath === '/' && link.getAttribute('href') === '/')) {
+    link.setAttribute('aria-current', 'page');
+  }
+});
+
+// Sticky header on scroll
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.header-glass');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+// Smooth Scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// Form Validation
+const forms = document.querySelectorAll('form');
+
+forms.forEach(form => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let isValid = true;
+    
+    const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+    
+    inputs.forEach(input => {
+      const errorMessage = input.nextElementSibling;
+      
+      if (!input.value.trim()) {
+        isValid = false;
+        input.style.borderColor = 'var(--color-semantic-error)';
+        if (errorMessage && errorMessage.classList.contains('error-message')) {
+          errorMessage.textContent = 'This field is required';
+        }
+      } else {
+        input.style.borderColor = '';
+        if (errorMessage && errorMessage.classList.contains('error-message')) {
+          errorMessage.textContent = '';
+        }
+      }
+    });
+    
+    if (isValid) {
+      // Form is valid, you can submit it here
+      alert('Form submitted successfully!');
+      form.reset();
+    }
+  });
+});
+
+// Lazy Loading for images
+const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+
+if ('IntersectionObserver' in window) {
+  const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const lazyImage = entry.target;
+        lazyImage.src = lazyImage.dataset.src || lazyImage.src;
+        lazyImage.classList.remove('lazy');
+        lazyImageObserver.unobserve(lazyImage);
+      }
+    });
+  });
+  
+  lazyImages.forEach(lazyImage => {
+    lazyImageObserver.observe(lazyImage);
+  });
+}
+
+--------------------------------------------------------------------------------
+FILE: js\theme-toggle.js
+SIZE: 1183 bytes
+MODIFIED: 2025-12-26 12:50:41
+================================================================================
+// Dark Mode Toggle
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.querySelector('.theme-icon');
+const themeText = document.querySelector('.theme-text');
+
+// Check for saved theme preference or default to light mode
+const currentTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', currentTheme);
+
+// Update button state
+if (currentTheme === 'dark') {
+  themeToggle.setAttribute('aria-pressed', 'true');
+  themeIcon.textContent = '☀️';
+  themeText.textContent = 'Light Mode';
+}
+
+// Toggle theme
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const newTheme = current === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Update button
+    themeToggle.setAttribute('aria-pressed', newTheme === 'dark');
+    themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    themeText.textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+  });
+}
+
+--------------------------------------------------------------------------------
+FILE: manifest.json
+SIZE: 598 bytes
+MODIFIED: 2025-12-26 12:35:35
+================================================================================
+{
+    "name": "Properties 4 Creations",
+    "short_name": "P4C",
+    "description": "Veteran-owned housing platform serving families and veterans in East Texas.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0B1120",
+    "theme_color": "#C28E5A",
+    "icons": [
+        {
+            "src": "/images/logo/brand-logo.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "/images/logo/brand-logo.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml"
+        }
+    ]
+}
+
+--------------------------------------------------------------------------------
+FILE: privacy\index.html
+SIZE: 8349 bytes
+MODIFIED: 2025-12-26 13:09:11
+================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Properties 4 Creations</title>
+  <meta name="description" content="Privacy policy for Properties 4 Creations.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <!-- Brand/Logo -->
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo">
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle (hidden on desktop) -->
+      <button class="menu-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-navigation"
+           id="main-navigation"
+           role="navigation"
+           aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <section class="privacy-hero">
+      <div class="container">
+        <h1>Privacy Policy</h1>
+        <p>Last updated: January 1, 2025</p>
+      </div>
+    </section>
+    
+    <section class="privacy-content">
+      <div class="container">
+        <h2>Introduction</h2>
+        <p>Welcome to Properties 4 Creations. We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us at info@properties4creations.com.</p>
+        
+        <h2>Information We Collect</h2>
+        <p>We collect personal information that you voluntarily provide to us when you apply for housing, express an interest in obtaining information about us or our products and services, or otherwise contact us.</p>
+        
+        <h2>How We Use Your Information</h2>
+        <p>We use personal information collected via our website for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests, in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations.</p>
+        
+        <h2>Will Your Information Be Shared?</h2>
+        <p>We may process or share data based on the following legal basis: Consent, Performance of a Contract, Legitimate Interests, Legal Obligations, and Vital Interests.</p>
+        
+        <h2>How Long Do We Keep Your Information?</h2>
+        <p>We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy policy, unless a longer retention period is required or permitted by law.</p>
+        
+        <h2>How Do We Keep Your Information Safe?</h2>
+        <p>We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure.</p>
+        
+        <h2>Do We Collect Information From Minors?</h2>
+        <p>We do not knowingly solicit data from or market to children under 18 years of age. By using the website, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent's use of the website.</p>
+        
+        <h2>What Are Your Privacy Rights?</h2>
+        <p>You may review, change, or terminate your account at any time. If you have questions or comments about your privacy rights, you may email us at info@properties4creations.com.</p>
+        
+        <h2>Controls For Do-Not-Track Features</h2>
+        <p>Most web browsers and some mobile operating systems include a Do-Not-Track feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected.</p>
+        
+        <h2>Do California Residents Have Specific Privacy Rights?</h2>
+        <p>Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information.</p>
+        
+        <h2>Do We Make Updates To This Policy?</h2>
+        <p>Yes, we will update this policy as necessary to stay compliant with relevant laws.</p>
+        
+        <h2>How Can You Contact Us About This Policy?</h2>
+        <p>If you have questions or comments about this policy, you may email us at info@properties4creations.com or contact us by post at:</p>
+        <p>Properties 4 Creations<br>123 Main St<br>Tyler, TX 75701<br>United States</p>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p>
+          <strong>24/7 Support:</strong>
+          Veterans Crisis <a href="tel:988">988</a> |
+          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
+        </p>
+      </div>
+      
+      <!-- Footer Content Grid -->
+      <div class="footer-content">
+        
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">Veteran-Owned & Operated</div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
+          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Properties 4 Creations.
+          <a href="/privacy/">Privacy</a> |
+          <a href="/terms/">Terms</a>
+        </p>
+      </div>
+      
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------
+FILE: properties\index.html
+SIZE: 11199 bytes
+MODIFIED: 2025-12-26 12:55:37
+================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Properties - Properties 4 Creations</title>
+  <meta name="description" content="Browse our Section 8 and HUD-VASH approved properties in East Texas.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <!-- Brand/Logo -->
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo">
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle (hidden on desktop) -->
+      <button class="menu-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-navigation"
+           id="main-navigation"
+           role="navigation"
+           aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <section class="properties-hero">
+      <div class="container">
+        <h1>Our Properties</h1>
+        <p>Browse our Section 8 and HUD-VASH approved properties in East Texas.</p>
+      </div>
+    </section>
+    
+    <section class="properties-content">
+      <div class="container">
+        <div class="properties-grid">
+          <div class="property-card">
+            <img src="/images/properties/tyler-ranch-home.webp" alt="Tyler Ranch Home" loading="lazy">
+            <div class="property-content">
+              <h3>Tyler Ranch Home</h3>
+              <p class="address">Tyler, TX</p>
+              <div class="property-details">
+                <span>3 Beds</span>
+                <span>2 Baths</span>
+              </div>
+              <div class="property-tags">
+                <span class="tag">Section 8 Ready</span>
+                <span class="tag">Newly Renovated</span>
+                <span class="tag">HVAC New</span>
+              </div>
+              <div class="property-actions">
+                <a href="/apply/" class="btn btn-primary">Apply Now</a>
+                <a href="#" class="btn btn-secondary">View Details</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="property-card">
+            <img src="/images/properties/longview-victorian.webp" alt="Longview Victorian" loading="lazy">
+            <div class="property-content">
+              <h3>Longview Victorian</h3>
+              <p class="address">Longview, TX</p>
+              <div class="property-details">
+                <span>4 Beds</span>
+                <span>2.5 Baths</span>
+              </div>
+              <div class="property-tags">
+                <span class="tag">HUD-VASH Approved</span>
+                <span class="tag">Historic Home</span>
+                <span class="tag">New Roof</span>
+              </div>
+              <div class="property-actions">
+                <a href="/apply/" class="btn btn-primary">Apply Now</a>
+                <a href="#" class="btn btn-secondary">View Details</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="property-card">
+            <img src="/images/properties/jefferson-riverfront.webp" alt="Jefferson Riverfront" loading="lazy">
+            <div class="property-content">
+              <h3>Jefferson Riverfront</h3>
+              <p class="address">Jefferson, TX</p>
+              <div class="property-details">
+                <span>2 Beds</span>
+                <span>1 Bath</span>
+              </div>
+              <div class="property-tags">
+                <span class="tag">ADA Accessible</span>
+                <span class="tag">Waterfront</span>
+                <span class="tag">Section 8 Ready</span>
+              </div>
+              <div class="property-actions">
+                <a href="/apply/" class="btn btn-primary">Apply Now</a>
+                <a href="#" class="btn btn-secondary">View Details</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="property-card">
+            <img src="/images/properties/kemp-townhome.webp" alt="Kemp Townhome" loading="lazy">
+            <div class="property-content">
+              <h3>Kemp Townhome</h3>
+              <p class="address">Kemp, TX</p>
+              <div class="property-details">
+                <span>1 Bed</span>
+                <span>1 Bath</span>
+              </div>
+              <div class="property-tags">
+                <span class="tag">Section 8/HUD-VASH</span>
+                <span class="tag">Low Maintenance</span>
+              </div>
+              <div class="property-actions">
+                <a href="/apply/" class="btn btn-primary">Apply Now</a>
+                <a href="#" class="btn btn-secondary">View Details</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="property-card">
+            <img src="/images/properties/marshall-historic-farm.webp" alt="Marshall Historic Farm" loading="lazy">
+            <div class="property-content">
+              <h3>Marshall Historic Farm</h3>
+              <p class="address">Marshall, TX</p>
+              <div class="property-details">
+                <span>3 Beds</span>
+                <span>2 Baths</span>
+              </div>
+              <div class="property-tags">
+                <span class="tag">Large Yard</span>
+                <span class="tag">Pet Friendly</span>
+                <span class="tag">Renovated 2024</span>
+              </div>
+              <div class="property-actions">
+                <a href="/apply/" class="btn btn-primary">Apply Now</a>
+                <a href="#" class="btn btn-secondary">View Details</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="property-card">
+            <img src="/images/properties/mineola-modern-studio.webp" alt="Mineola Modern Studio" loading="lazy">
+            <div class="property-content">
+              <h3>Mineola Modern Studio</h3>
+              <p class="address">Mineola, TX</p>
+              <div class="property-details">
+                <span>Studio</span>
+                <span>1 Bath</span>
+              </div>
+              <div class="property-tags">
+                <span class="tag">Modern</span>
+                <span class="tag">Energy Efficient</span>
+                <span class="tag">Downtown</span>
+              </div>
+              <div class="property-actions">
+                <a href="/apply/" class="btn btn-primary">Apply Now</a>
+                <a href="#" class="btn btn-secondary">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="comparison">
+      <div class="container">
+        <h2>Before & After Renovation</h2>
+        <p>See the quality of our renovations with these before and after comparisons.</p>
+        <div class="comparison-slider">
+          <div class="comparison-container">
+            <img src="/images/before-after-comparison/before.webp" alt="Before Renovation" class="comparison-before">
+            <img src="/images/before-after-comparison/after.webp" alt="After Renovation" class="comparison-after">
+            <div class="comparison-handle"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p>
+          <strong>24/7 Support:</strong>
+          Veterans Crisis <a href="tel:988">988</a> |
+          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
+        </p>
+      </div>
+      
+      <!-- Footer Content Grid -->
+      <div class="footer-content">
+        
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">Veteran-Owned & Operated</div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
+          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Properties 4 Creations.
+          <a href="/privacy/">Privacy</a> |
+          <a href="/terms/">Terms</a>
+        </p>
+      </div>
+      
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+  <script src="/js/comparison-slider.js"></script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------
+FILE: resources\index.html
+SIZE: 6913 bytes
+MODIFIED: 2025-12-26 13:05:26
+================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources - Properties 4 Creations</title>
+  <meta name="description" content="Resources for veterans and families seeking housing assistance in East Texas.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <!-- Brand/Logo -->
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo">
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle (hidden on desktop) -->
+      <button class="menu-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-navigation"
+           id="main-navigation"
+           role="navigation"
+           aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <section class="resources-hero">
+      <div class="container">
+        <h1>Resources</h1>
+        <p>Find helpful resources for veterans and families seeking housing assistance in East Texas.</p>
+      </div>
+    </section>
+    
+    <section class="resources-content">
+      <div class="container">
+        <div class="resources-grid">
+          <div class="resource-card">
+            <h3>HUD Housing Resources</h3>
+            <p>Information about HUD housing programs and assistance.</p>
+            <a href="https://www.hud.gov/" target="_blank" class="btn btn-secondary">Visit HUD</a>
+          </div>
+          
+          <div class="resource-card">
+            <h3>VA Housing Assistance</h3>
+            <p>Learn about VA housing assistance programs for veterans.</p>
+            <a href="https://www.va.gov/housing-assistance/" target="_blank" class="btn btn-secondary">Visit VA</a>
+          </div>
+          
+          <div class="resource-card">
+            <h3>Section 8 Information</h3>
+            <p>Find out more about Section 8 housing vouchers.</p>
+            <a href="https://www.hud.gov/topics/rental_assistance/phprog" target="_blank" class="btn btn-secondary">Learn More</a>
+          </div>
+          
+          <div class="resource-card">
+            <h3>Veteran Benefits</h3>
+            <p>Explore benefits available to veterans and their families.</p>
+            <a href="https://www.va.gov/" target="_blank" class="btn btn-secondary">Visit VA</a>
+          </div>
+          
+          <div class="resource-card">
+            <h3>Local Housing Authorities</h3>
+            <p>Contact local housing authorities for additional assistance.</p>
+            <a href="https://www.hud.gov/program_offices/public_indian_housing/pha/contacts" target="_blank" class="btn btn-secondary">Find Housing Authorities</a>
+          </div>
+          
+          <div class="resource-card">
+            <h3>Financial Assistance Programs</h3>
+            <p>Learn about financial assistance programs for housing.</p>
+            <a href="https://www.benefits.gov/" target="_blank" class="btn btn-secondary">Visit Benefits.gov</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p>
+          <strong>24/7 Support:</strong>
+          Veterans Crisis <a href="tel:988">988</a> |
+          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
+        </p>
+      </div>
+      
+      <!-- Footer Content Grid -->
+      <div class="footer-content">
+        
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">Veteran-Owned & Operated</div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
+          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Properties 4 Creations.
+          <a href="/privacy/">Privacy</a> |
+          <a href="/terms/">Terms</a>
+        </p>
+      </div>
+      
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------
+FILE: terms\index.html
+SIZE: 8074 bytes
+MODIFIED: 2025-12-26 13:11:00
+================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service - Properties 4 Creations</title>
+  <meta name="description" content="Terms of service for Properties 4 Creations.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <!-- Brand/Logo -->
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo">
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle (hidden on desktop) -->
+      <button class="menu-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-navigation"
+           id="main-navigation"
+           role="navigation"
+           aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <section class="terms-hero">
+      <div class="container">
+        <h1>Terms of Service</h1>
+        <p>Last updated: January 1, 2025</p>
+      </div>
+    </section>
+    
+    <section class="terms-content">
+      <div class="container">
+        <h2>Introduction</h2>
+        <p>Welcome to Properties 4 Creations. These terms and conditions outline the rules and regulations for the use of our website.</p>
+        
+        <h2>Intellectual Property Rights</h2>
+        <p>Other than the content you own, under these Terms, Properties 4 Creations and/or its licensors own all the intellectual property rights and materials contained in this website.</p>
+        
+        <h2>Restrictions</h2>
+        <p>You are specifically restricted from all of the following:</p>
+        <ul>
+          <li>Publishing any website material in any other media</li>
+          <li>Selling, sublicensing, and/or otherwise commercializing any website material</li>
+          <li>Publicly performing and/or showing any website material</li>
+          <li>Using this website in any way that is or may be damaging to this website</li>
+        </ul>
+        
+        <h2>Your Content</h2>
+        <p>In these website Standard Terms and Conditions, "Your Content" shall mean any audio, video, text, images, or other material you choose to display on this website.</p>
+        
+        <h2>No Warranties</h2>
+        <p>This website is provided "as is," with all faults, and Properties 4 Creations expresses no representations or warranties of any kind related to this website or the materials contained on this website.</p>
+        
+        <h2>Limitation of Liability</h2>
+        <p>In no event shall Properties 4 Creations, nor any of its officers, directors, and employees, be held liable for anything arising out of or in any way connected with your use of this website.</p>
+        
+        <h2>Indemnification</h2>
+        <p>You hereby indemnify to the fullest extent Properties 4 Creations from and against any and all liabilities, costs, demands, causes of action, damages, and expenses arising out of or in any way related to your breach of any of the provisions of these Terms.</p>
+        
+        <h2>Severability</h2>
+        <p>If any provision of these Terms is found to be invalid under any applicable law, such provisions shall be deleted without affecting the remaining provisions herein.</p>
+        
+        <h2>Variation of Terms</h2>
+        <p>Properties 4 Creations is permitted to revise these Terms at any time as it sees fit, and by using this website you are expected to review these Terms on a regular basis.</p>
+        
+        <h2>Assignment</h2>
+        <p>Properties 4 Creations is allowed to assign, transfer, and subcontract its rights and/or obligations under these Terms without any notification.</p>
+        
+        <h2>Entire Agreement</h2>
+        <p>These Terms constitute the entire agreement between Properties 4 Creations and you in relation to your use of this website and supersede all prior agreements and understandings.</p>
+        
+        <h2>Governing Law & Jurisdiction</h2>
+        <p>These Terms will be governed by and construed in accordance with the laws of the State of Texas, and you submit to the non-exclusive jurisdiction of the state and federal courts located in Texas for the resolution of any disputes.</p>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p>
+          <strong>24/7 Support:</strong>
+          Veterans Crisis <a href="tel:988">988</a> |
+          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
+        </p>
+      </div>
+      
+      <!-- Footer Content Grid -->
+      <div class="footer-content">
+        
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">Veteran-Owned & Operated</div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
+          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Properties 4 Creations.
+          <a href="/privacy/">Privacy</a> |
+          <a href="/terms/">Terms</a>
+        </p>
+      </div>
+      
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------
+FILE: transparency\index.html
+SIZE: 6497 bytes
+MODIFIED: 2025-12-26 13:07:49
+================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transparency - Properties 4 Creations</title>
+  <meta name="description" content="Learn about our renovation standards, cost transparency, and warranties at Properties 4 Creations.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <!-- Brand/Logo -->
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo">
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle (hidden on desktop) -->
+      <button class="menu-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-navigation"
+           id="main-navigation"
+           role="navigation"
+           aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <section class="transparency-hero">
+      <div class="container">
+        <h1>Transparency</h1>
+        <p>Learn about our renovation standards, cost transparency, and warranties at Properties 4 Creations.</p>
+      </div>
+    </section>
+    
+    <section class="transparency-content">
+      <div class="container">
+        <h2>Renovation Standards</h2>
+        <p>Every property undergoes extensive renovations to ensure quality and comfort. Our renovations include:</p>
+        <ul>
+          <li>HVAC systems</li>
+          <li>Roofing</li>
+          <li>Plumbing</li>
+          <li>Electrical</li>
+          <li>Cosmetic updates</li>
+        </ul>
+        
+        <h2>Cost Transparency</h2>
+        <p>We invest over $30,000 in each property to provide a safe and comfortable living environment. This includes:</p>
+        <ul>
+          <li>HVAC systems: $5,000 - $7,000</li>
+          <li>Roofing: $5,000 - $10,000</li>
+          <li>Plumbing: $2,000 - $5,000</li>
+          <li>Electrical: $2,000 - $5,000</li>
+          <li>Cosmetic updates: $5,000 - $10,000</li>
+        </ul>
+        
+        <h2>Warranty Information</h2>
+        <p>Our properties come with comprehensive warranties for:</p>
+        <ul>
+          <li>HVAC systems: 1 year</li>
+          <li>Roofing: 5 years</li>
+          <li>Plumbing: 1 year</li>
+          <li>Electrical: 1 year</li>
+        </ul>
+        
+        <h2>Inspection Reports</h2>
+        <p>All properties undergo thorough inspections to ensure they meet our high standards. Inspection reports are available upon request.</p>
+        
+        <h2>Fair Housing Compliance</h2>
+        <p>We are committed to fair housing practices and comply with all applicable laws and regulations.</p>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p>
+          <strong>24/7 Support:</strong>
+          Veterans Crisis <a href="tel:988">988</a> |
+          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
+        </p>
+      </div>
+      
+      <!-- Footer Content Grid -->
+      <div class="footer-content">
+        
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">Veteran-Owned & Operated</div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
+          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Properties 4 Creations.
+          <a href="/privacy/">Privacy</a> |
+          <a href="/terms/">Terms</a>
+        </p>
+      </div>
+      
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Properties 4 Creations</title>
+  <meta name="description" content="Contact Properties 4 Creations for more information about our veteran and Section 8 housing options.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- ARIA Live Region for notifications -->
+  <div id="notification-container" class="notification-container" aria-live="polite" aria-atomic="true"></div>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <!-- Brand/Logo -->
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo">
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle (hidden on desktop) -->
+      <button class="menu-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-navigation"
+           id="main-navigation"
+           role="navigation"
+           aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <div class="theme-toggle-container">
+        <button id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode"
+                aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main">
+    <section class="contact-hero">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>Get in touch with Properties 4 Creations for more information about our housing options.</p>
+      </div>
+    </section>
+    
+    <section class="contact-content">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p><strong>Phone:</strong> (903) 555-1234</p>
+            <p><strong>Email:</strong> info@properties4creations.com</p>
+            <p><strong>Hours:</strong> Mon-Fri 9am-5pm CST</p>
+            <p><strong>Address:</strong> 123 Main St, Tyler, TX 75701</p>
+          </div>
+          
+          <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="name">Name*</label>
+                <input type="text" id="name" name="name" required>
+                <span class="error-message"></span>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message"></span>
+              </div>
+              
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Message*</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <span class="error-message"></span>
+              </div>
+              
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p>
+          <strong>24/7 Support:</strong>
+          Veterans Crisis <a href="tel:988">988</a> |
+          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
+        </p>
+      </div>
+      
+      <!-- Footer Content Grid -->
+      <div class="footer-content">
+        
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">Veteran-Owned & Operated</div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
+          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
+        </div>
+        
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Properties 4 Creations.
+          <a href="/privacy/">Privacy</a> |
+          <a href="/terms/">Terms</a>
+        </p>
+      </div>
+      
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+  <script src="/js/accessibility.js"></script>
+</body>
+</html>
