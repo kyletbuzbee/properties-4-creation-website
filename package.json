@@ -1,0 +1,39 @@
+{
+  "name": "properties4creations.com",
+  "version": "1.0.0",
+  "description": "Modern, accessible housing website for veterans and families in East Texas",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite preview --host",
+    "clean": "rm -rf dist",
+    "lint": "echo 'No linting configured yet'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyletbuzbee/properties-4-creation-website.git"
+  },
+  "keywords": [
+    "housing",
+    "veterans",
+    "affordable-housing",
+    "section-8",
+    "hud-vash",
+    "east-texas"
+  ],
+  "author": "Properties 4 Creations",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyletbuzbee/properties-4-creation-website/issues"
+  },
+  "homepage": "https://properties4creations.com",
+  "devDependencies": {
+    "vite": "^7.3.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
