@@ -959,8 +959,8 @@ main#main-content {
 
 /* Properties Grid */
 .properties-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  /* Changed from 350px to 300px so 3 cards fit side-by-side */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--spacing-8);
 }
 
@@ -1321,32 +1321,303 @@ main#main-content {
   margin-top: var(--spacing-8);
 }
 
-/* Call to Action (CTA) Section */
+/* --- NEW GOLD CTA SECTION --- */
 .cta-section {
   padding: var(--spacing-16) 0;
-  background-color: var(--color-primary-navy);
-  color: var(--color-neutral-white);
+  background-color: var(--color-primary-gold); /* Gold Background */
+  color: var(--color-primary-navy);            /* Navy Text */
   text-align: center;
   margin-top: var(--spacing-16);
   border-radius: 1rem;
   margin-bottom: var(--spacing-16);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
+/* Ensure headings inside the Gold section are Navy */
 .cta-content h2 {
-  color: var(--color-primary-gold);
+  color: var(--color-primary-navy);
+  text-shadow: none;
   margin-bottom: var(--spacing-4);
 }
 
+/* Ensure paragraph text is Navy */
 .cta-content p {
-  color: var(--color-neutral-gray-300);
+  color: var(--color-primary-navy);
+  font-weight: 500;
   max-width: 600px;
   margin: 0 auto var(--spacing-8) auto;
   font-size: 1.125rem;
 }
 
-.cta-buttons {
+/* --- CTA BUTTON COLORS --- */
+/* Primary Button: Navy Background, White Text */
+.cta-buttons .btn-primary {
+  background-color: var(--color-primary-navy);
+  color: var(--color-neutral-white);
+  border: 2px solid var(--color-primary-navy);
+}
+
+.cta-buttons .btn-primary:hover {
+  background-color: var(--color-primary-navy-light);
+  border-color: var(--color-primary-navy-light);
+  transform: translateY(-2px);
+}
+
+/* Secondary Button: Transparent with Navy Border/Text */
+.cta-buttons .btn-secondary {
+  background: transparent;
+  border-color: var(--color-primary-navy);
+  color: var(--color-primary-navy);
+}
+
+.cta-buttons .btn-secondary:hover {
+  background-color: var(--color-primary-navy);
+  color: var(--color-neutral-white);
+}
+
+/* Error Page Styles */
+.error-page {
+  min-height: 70vh;
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: var(--spacing-4);
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-content {
+  max-width: 600px;
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: 900;
+  color: var(--color-primary-gold);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.error-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary-navy);
+}
+
+.error-message {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: var(--color-neutral-gray-600);
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
   flex-wrap: wrap;
+}
+
+.error-popular-links {
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.error-popular-links h3 {
+  margin-bottom: 1rem;
+}
+
+.error-popular-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.error-popular-links li {
+  margin-bottom: 0.5rem;
+}
+
+.error-popular-links a {
+  color: var(--color-primary-gold);
+  text-decoration: none;
+}
+
+[data-theme="dark"] .error-title {
+  color: var(--color-neutral-white);
+}
+
+[data-theme="dark"] .error-message {
+  color: var(--color-neutral-gray-300);
+}
+
+[data-theme="dark"] .error-popular-links a {
+  color: var(--color-primary-gold);
+}
+
+@media (max-width: 768px) {
+  .error-code {
+    font-size: 6rem;
+  }
+
+  .error-title {
+    font-size: 2rem;
+  }
+
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* =========================================
+   ABOUT PAGE SPECIFIC STYLES
+   ========================================= */
+
+/* 1. Mission & Vision - Side by Side Cards */
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-8);
+}
+
+.mission-card {
+  background: var(--color-neutral-gray-50);
+  padding: var(--spacing-8);
+  border-radius: 1rem;
+  border-left: 4px solid var(--color-primary-gold);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.mission-card h3 {
+  color: var(--color-primary-navy);
+  margin-bottom: var(--spacing-4);
+}
+
+/* 2. Our Story & Philosophy - Zig-Zag Layout */
+.story-section, .philosophy-section {
+  padding: var(--spacing-16) 0;
+}
+
+.story-content, .philosophy-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: var(--spacing-12);
+  align-items: center;
+}
+
+/* Make images look like polaroids/framed */
+.story-image img, .philosophy-image img {
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 20px 20px 0px rgba(194, 142, 90, 0.2); /* Gold offset shadow */
+  transition: transform var(--transition-base);
+}
+
+.story-image img:hover, .philosophy-image img:hover {
+  transform: translate(-5px, -5px);
+}
+
+/* 3. Values - 3-Column Grid with Icons */
+.values-section {
+  background: var(--color-primary-navy);
+  color: var(--color-neutral-white);
+  padding: var(--spacing-16) 0;
+  text-align: center;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-12);
+}
+
+.value-card {
+  background: rgba(255, 255, 255, 0.05); /* Glassy effect */
+  padding: var(--spacing-8);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform var(--transition-base);
+}
+
+.value-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.value-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-4);
+  display: inline-block;
+  background: rgba(194, 142, 90, 0.2);
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+}
+
+.value-card h3 {
+  color: var(--color-primary-gold);
+}
+
+.value-card p {
+  color: var(--color-neutral-gray-300);
+  font-size: 0.95rem;
+}
+
+/* 4. Team Section - Clean Profile Cards */
+.team-section {
+  padding: var(--spacing-16) 0;
+  background: var(--color-neutral-gray-50);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-8);
+}
+
+.team-member {
+  background: var(--color-neutral-white);
+  padding: var(--spacing-8);
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border-top: 4px solid var(--color-primary-navy);
+}
+
+.member-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--color-primary-gold);
+  margin-bottom: var(--spacing-4);
+}
+
+.team-member h3 {
+  margin-bottom: 0.25rem;
+}
+
+.team-member p:nth-of-type(1) {
+  /* Job Title */
+  color: var(--color-primary-gold-dark);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--spacing-4);
+}
+
+/* Mobile Responsiveness for 2-column layouts */
+@media (max-width: 768px) {
+  .story-content, .philosophy-content {
+    grid-template-columns: 1fr; /* Stack vertically on mobile */
+    gap: var(--spacing-8);
+  }
+  
+  /* Reorder Philosophy section on mobile so image comes second */
+  .philosophy-content .philosophy-image {
+    order: -1; /* Image first on mobile */
+  }
 }

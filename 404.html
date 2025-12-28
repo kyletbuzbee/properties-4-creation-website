@@ -18,71 +18,6 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
-
-  <style>
-    .error-page {
-      min-height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .error-content {
-      max-width: 600px;
-    }
-
-    .error-code {
-      font-size: 8rem;
-      font-weight: 900;
-      color: var(--color-primary-gold);
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-
-    .error-title {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--color-primary-navy);
-    }
-
-    .error-message {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      color: var(--color-neutral-gray-600);
-    }
-
-    .error-actions {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    [data-theme="dark"] .error-title {
-      color: var(--color-neutral-white);
-    }
-
-    [data-theme="dark"] .error-message {
-      color: var(--color-neutral-gray-300);
-    }
-
-    @media (max-width: 768px) {
-      .error-code {
-        font-size: 6rem;
-      }
-
-      .error-title {
-        font-size: 2rem;
-      }
-
-      .error-actions {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
 </head>
 <body>
   <!-- Skip Link for Accessibility -->
@@ -164,14 +99,14 @@
           <a href="/contact/" class="btn btn-secondary">Contact Us</a>
         </div>
 
-        <div style="margin-top: 3rem; text-align: left;">
+        <div class="error-popular-links">
           <h3>Popular Pages</h3>
-          <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.5rem;"><a href="/properties/">🏠 Available Properties</a></li>
-            <li style="margin-bottom: 0.5rem;"><a href="/apply/">📝 Apply for Housing</a></li>
-            <li style="margin-bottom: 0.5rem;"><a href="/about/">ℹ️ About Us</a></li>
-            <li style="margin-bottom: 0.5rem;"><a href="/resources/">📚 Housing Resources</a></li>
-            <li style="margin-bottom: 0.5rem;"><a href="/faq/">❓ Frequently Asked Questions</a></li>
+          <ul>
+            <li><a href="/properties/">🏠 Available Properties</a></li>
+            <li><a href="/apply/">📝 Apply for Housing</a></li>
+            <li><a href="/about/">ℹ️ About Us</a></li>
+            <li><a href="/resources/">📚 Housing Resources</a></li>
+            <li><a href="/faq/">❓ Frequently Asked Questions</a></li>
           </ul>
         </div>
       </div>
@@ -219,7 +154,7 @@
       <!-- Footer Bottom -->
       <div class="footer-bottom">
         <p>
-          &copy; 2025 Properties 4 Creations.
+          © 2025 Properties 4 Creations.
           <a href="/privacy/">Privacy</a> |
           <a href="/terms/">Terms</a>
         </p>
