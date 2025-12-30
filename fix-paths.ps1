@@ -1,47 +1,43 @@
-# PowerShell script to fix all paths in HTML files for local file testing
+#!/usr/bin/env pwsh
+# PowerShell script to fix absolute paths in HTML files
 
-Get-ChildItem -Path about,properties,apply,contact,faq,impact,resources,transparency,privacy,terms -Filter index.html -Recurse | ForEach-Object {
-    $content = Get-Content $_.FullName -Raw
+$directories = @("privacy", "terms", "transparency")
 
-    # Fix navigation links - change absolute to relative
-    $content = $content -replace 'href="/', 'href="../'
-    $content = $content -replace 'href="/properties/"', 'href="../properties/index.html"'
-    $content = $content -replace 'href="/about/"', 'href="../about/index.html"'
-    $content = $content -replace 'href="/impact/"', 'href="../impact/index.html"'
-    $content = $content -replace 'href="/resources/"', 'href="../resources/index.html"'
-    $content = $content -replace 'href="/contact/"', 'href="../contact/index.html"'
-    $content = $content -replace 'href="/apply/"', 'href="../apply/index.html"'
-    $content = $content -replace 'href="/faq/"', 'href="../faq/index.html"'
-    $content = $content -replace 'href="/transparency/"', 'href="../transparency/index.html"'
-    $content = $content -replace 'href="/privacy/"', 'href="../privacy/index.html"'
-    $content = $content -replace 'href="/terms/"', 'href="../terms/index.html"'
-    $content = $content -replace 'href="/properties/index.html"', 'href="../properties/index.html"'
-    $content = $content -replace 'href="/about/index.html"', 'href="../about/index.html"'
-    $content = $content -replace 'href="/impact/index.html"', 'href="../impact/index.html"'
-    $content = $content -replace 'href="/resources/index.html"', 'href="../resources/index.html"'
-    $content = $content -replace 'href="/contact/index.html"', 'href="../contact/index.html"'
-    $content = $content -replace 'href="/apply/index.html"', 'href="../apply/index.html"'
-    $content = $content -replace 'href="/faq/index.html"', 'href="../faq/index.html"'
-    $content = $content -replace 'href="/transparency/index.html"', 'href="../transparency/index.html"'
-    $content = $content -replace 'href="/privacy/index.html"', 'href="../privacy/index.html"'
-    $content = $content -replace 'href="/terms/index.html"', 'href="../terms/index.html"'
-
-    # Fix home link
-    $content = $content -replace 'href="../index.html"', 'href="../index.html"'
-
-    # Fix image sources
-    $content = $content -replace 'src="/images/', 'src="../images/'
-
-    # Fix JavaScript sources
-    $content = $content -replace 'src="/js/', 'src="../js/'
-
-    # Fix CSS (already done in head)
-    # $content = $content -replace 'href="/css/', 'href="../css/'
-
-    # Fix manifest and favicon (already done in head)
-    # $content = $content -replace 'href="/manifest.json"', 'href="../manifest.json"'
-    # $content = $content -replace 'href="/favicon.ico"', 'href="../favicon.ico"'
-
-    Set-Content $_.FullName $content
-    Write-Host "Fixed paths in $($_.FullName)"
+foreach ($dir in $directories) {
+    $filePath = Join-Path $dir "index.html"
+    
+    if (Test-Path $filePath) {
+        Write-Host "Fixing paths in $filePath"
+        
+        # Read the file content
+        $content = Get-Content $filePath -Raw
+        
+        # Replace absolute paths with relative paths
+        $content = $content -replace 'href="/css/', 'href="../css/'
+        $content = $content -replace 'href="/js/', 'href="../js/'
+        $content = $content -replace 'href="/images/', 'href="../images/'
+        $content = $content -replace 'src="/css/', 'src="../css/'
+        $content = $content -replace 'src="/js/', 'src="../js/'
+        $content = $content -replace 'src="/images/', 'src="../images/'
+        $content = $content -replace 'href="/favicon.ico"', 'href="../favicon.ico"'
+        $content = $content -replace 'href="/manifest.json"', 'href="../manifest.json"'
+        
+        # Fix navigation links
+        $content = $content -replace 'href="/"', 'href="../index.html"'
+        $content = $content -replace 'href="/properties/"', 'href="../properties/index.html"'
+        $content = $content -replace 'href="/about/"', 'href="../about/index.html"'
+        $content = $content -replace 'href="/impact/"', 'href="../impact/index.html"'
+        $content = $content -replace 'href="/resources/"', 'href="../resources/index.html"'
+        $content = $content -replace 'href="/contact/"', 'href="../contact/index.html"'
+        $content = $content -replace 'href="/apply/"', 'href="../apply/index.html"'
+        
+        # Write the updated content back
+        Set-Content -Path $filePath -Value $content -Encoding utf8
+        
+        Write-Host "✓ Fixed paths in $filePath"
+    } else {
+        Write-Host "File not found: $filePath"
+    }
 }
+
+Write-Host "Path fixing complete!"
