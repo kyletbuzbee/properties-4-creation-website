@@ -27,11 +27,11 @@
   <link rel="canonical" href="https://properties4creations.com/about/">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link rel="apple-touch-icon" href="../images/logo/brand-logo.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/logo/brand-logo.svg">
 
   <!-- Web App Manifest -->
-  <link rel="manifest" href="../manifest.json">
+  <link rel="manifest" href="/manifest.json">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/components/buttons.css">
+  <link rel="stylesheet" href="/css/components/cards.css">
+  <link rel="stylesheet" href="/css/layout/header.css">
+  <link rel="stylesheet" href="/css/layout/footer.css">
+  <link rel="stylesheet" href="/css/sections/hero.css">
+  <link rel="stylesheet" href="/css/sections/resources.css">
+  <link rel="stylesheet" href="/css/utilities.css">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -85,69 +92,12 @@
     }
   }
   </script>
+  <!-- Preload critical resources -->
+  <link rel="preload" as="image" href="/images/banners/hero-about-us-banner-400w.webp" type="image/webp">
+  <link rel="preload" as="image" href="/images/banners/hero-about-us-banner-placeholder.jpg" type="image/jpeg">
 </head>
 <body>
-  <!-- Skip Link for Accessibility -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <!-- Header -->
-  <header class="header-glass" role="banner">
-    <div class="nav-container">
-      <div class="brand-container">
-        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
-          <img src="/images/logo/brand-logo.svg"
-               alt="Properties 4 Creations Logo"
-               class="brand-logo">
-          <span class="brand-text">Properties 4 Creations</span>
-        </a>
-      </div>
-
-      <button class="menu-toggle"
-              aria-label="Toggle navigation menu"
-              aria-expanded="false"
-              aria-controls="main-navigation">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-
-      <nav class="main-navigation"
-           id="main-navigation"
-           role="navigation"
-           aria-label="Main navigation">
-        <ul class="nav-menu" role="menubar">
-          <li role="none">
-            <a href="/" class="nav-link" role="menuitem">Home</a>
-          </li>
-          <li role="none">
-            <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
-          </li>
-          <li role="none">
-            <a href="/about/" class="nav-link" role="menuitem" aria-current="page">About</a>
-          </li>
-          <li role="none">
-            <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
-          </li>
-          <li role="none">
-            <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
-          </li>
-          <li role="none">
-            <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="theme-toggle-container">
-        <button id="theme-toggle"
-                class="theme-toggle"
-                aria-label="Toggle dark mode"
-                aria-pressed="false">
-          <span class="theme-icon">🌙</span>
-          <span class="theme-text">Dark Mode</span>
-        </button>
-      </div>
-    </div>
-  </header>
+  <div id="header-placeholder"></div>
 
   <!-- Main Content -->
   <main id="main-content" role="main" style="padding-top: 80px;">
@@ -161,21 +111,19 @@
     </section>
 
     <!-- Trust Stats -->
-    <section class="trust-stats" style="background: var(--color-primary-navy); padding: 2rem 0; color: white;">
+    <section class="trust-stats">
       <div class="container">
-        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; text-align: center;">
-          <div>
-            <span style="font-size: 2rem; font-weight: 700; color: var(--color-primary-gold);">100%</span>
-            <p style="margin: 0; font-size: 0.9rem; color: #ddd;">Veteran Owned</p>
-          </div>
-          <div>
-            <span style="font-size: 2rem; font-weight: 700; color: var(--color-primary-gold);">2024</span>
-            <p style="margin: 0; font-size: 0.9rem; color: #ddd;">Established</p>
-          </div>
-          <div>
-            <span style="font-size: 2rem; font-weight: 700; color: var(--color-primary-gold);">East Texas</span>
-            <p style="margin: 0; font-size: 0.9rem; color: #ddd;">Locally Focused</p>
-          </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <div class="stat-label">Veteran Owned</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2024</span>
+          <div class="stat-label">Established</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">East Texas</span>
+          <div class="stat-label">Locally Focused</div>
         </div>
       </div>
     </section>
@@ -185,7 +133,7 @@
       <div class="container">
         <div class="mission-content">
           <h2 id="mission-heading">Our Mission & Vision</h2>
-          <div class="mission-grid">
+          <div class="mission-grid grid-auto">
             <div class="mission-card">
               <h3>Our Mission</h3>
               <p>To provide dignified, affordable housing solutions for veterans, military families, and working families across East Texas, ensuring that everyone has access to safe, renovated homes they can be proud to call home.</p>
@@ -210,7 +158,10 @@
             <p>That's why we started Properties 4 Creations. As a veteran-owned and operated company, we bring personal understanding and professional expertise to every property we renovate and every family we serve. We're not just in the business of housing - we're in the business of building stronger communities.</p>
           </div>
           <div class="story-image">
-            <img src="/images/our-work-gallery/our-work-painting-dog-400w.webp" alt="Our team working on property renovations" loading="lazy">
+            <picture>
+            <source srcset="/images/our-work-gallery/our-work-painting-dog-400w.webp" type="image/webp">
+            <img src="/images/our-work-gallery/our-work-painting-dog-400w.jpg" alt="Our team working on property renovations" loading="lazy">
+          </picture>
           </div>
         </div>
       </div>
@@ -220,7 +171,7 @@
     <section class="values-section" aria-labelledby="values-heading">
       <div class="container">
         <h2 id="values-heading">Our Values</h2>
-        <div class="values-grid">
+        <div class="values-grid grid-auto">
           <div class="value-card">
             <div class="value-icon">🏛️</div>
             <h3>Integrity</h3>
@@ -274,7 +225,10 @@
             <p>We're committed to East Texas and actively work to strengthen our local communities through housing stability and economic investment.</p>
           </div>
           <div class="philosophy-image">
-            <img src="/images/our-work-gallery/our-work-framing-door-400w.webp" alt="Our team providing quality renovations" loading="lazy">
+            <picture>
+            <source srcset="/images/our-work-gallery/our-work-framing-door-400w.webp" type="image/webp">
+            <img src="/images/our-work-gallery/our-work-framing-door-400w.jpg" alt="Our team providing quality renovations" loading="lazy">
+          </picture>
           </div>
         </div>
       </div>
@@ -284,7 +238,7 @@
     <section class="team-section" aria-labelledby="team-heading">
       <div class="container">
         <h2 id="team-heading">Leadership Team</h2>
-        <div class="team-grid">
+        <div class="team-grid grid-auto">
           <div class="team-member">
             <div class="member-photo">
               <img src="/images/icons/034-soldier.png" alt="Veteran leader avatar" loading="lazy">
@@ -329,59 +283,12 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-
-      <!-- Emergency Banner -->
-      <div class="emergency-banner">
-        <p>
-          <strong>24/7 Support:</strong>
-          Veterans Crisis <a href="tel:988">988</a> |
-          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
-        </p>
-      </div>
-
-      <!-- Footer Content -->
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>Properties 4 Creations</h4>
-          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
-          <div class="veteran-badge">Veteran-Owned & Operated</div>
-        </div>
-
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/properties/">Properties</a></li>
-            <li><a href="/apply/">Apply Now</a></li>
-            <li><a href="/resources/">Resources</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h4>Contact</h4>
-          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
-          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
-        </div>
-      </div>
-
-      <!-- Footer Bottom -->
-      <div class="footer-bottom">
-        <p>
-          &copy; 2025 Properties 4 Creations.
-          <a href="/privacy/">Privacy</a> |
-          <a href="/terms/">Terms</a>
-        </p>
-      </div>
-
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
 
   <!-- Scripts -->
-  <script type="module" src="../js/main.js"></script>
-  <script type="module" src="../js/mobile-menu.js"></script>
-  <script type="module" src="../js/theme-toggle.js"></script>
+  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/mobile-menu.js"></script>
+  <script type="module" src="/js/theme-toggle.js"></script>
+  <script type="module" src="/js/includes.js"></script>
 </body>
 </html>

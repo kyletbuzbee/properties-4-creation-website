@@ -1,0 +1,120 @@
+/* Accessibility - Skip Link */
+.skip-link {
+  position: absolute;
+  top: calc(-1 * var(--spacing-10));
+  left: 0;
+  background: var(--color-primary-gold);
+  color: var(--color-primary-navy);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  z-index: 10000;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .theme-toggle-container,
+  .menu-toggle {
+    display: none !important;
+  }
+
+  .header-glass {
+    position: static;
+    background: white;
+    box-shadow: none;
+    border-bottom: 2px solid var(--color-primary-navy);
+  }
+
+  .hero {
+    display: none;
+  }
+
+  .footer {
+    background: white;
+    color: black;
+    border-top: 2px solid var(--color-primary-navy);
+  }
+}
+
+/* Focus Indicators */
+*:focus-visible {
+  outline: 2px solid var(--color-primary-gold);
+  outline-offset: 2px;
+}
+
+/* Utility Classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: var(--spacing-4);
+}
+
+.mb-8 {
+  margin-bottom: var(--spacing-8);
+}
+
+.mt-4 {
+  margin-top: var(--spacing-4);
+}
+
+.mt-8 {
+  margin-top: var(--spacing-8);
+}
+
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-8);
+}

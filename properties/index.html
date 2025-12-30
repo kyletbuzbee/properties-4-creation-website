@@ -28,7 +28,7 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/images/logo/brand-logo.png">
+  <link rel="apple-touch-icon" href="/images/logo/brand-logo.svg">
 
   <!-- Web App Manifest -->
   <link rel="manifest" href="/manifest.json">
@@ -40,6 +40,13 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/components/buttons.css">
+  <link rel="stylesheet" href="/css/components/cards.css">
+  <link rel="stylesheet" href="/css/layout/header.css">
+  <link rel="stylesheet" href="/css/layout/footer.css">
+  <link rel="stylesheet" href="/css/sections/hero.css">
+  <link rel="stylesheet" href="/css/sections/resources.css">
+  <link rel="stylesheet" href="/css/utilities.css">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -99,6 +106,8 @@
     }
   }
   </script>
+  <!-- Preload critical resources -->
+  <link rel="preload" as="video" href="/images/videos/hero-properties-banner.mp4" type="video/mp4">
 </head>
 <body>
   <!-- Skip Link for Accessibility -->
@@ -106,7 +115,7 @@
 
   <!-- Header -->
   <header class="header-glass" role="banner">
-    <div class="nav-container">
+    <div class="nav-container flex-center-between">
       <div class="brand-container">
         <a href="/index.html" class="brand-link" aria-label="Properties 4 Creations - Home">
           <img src="/images/logo/brand-logo.svg"
@@ -168,12 +177,12 @@
 
     <!-- Hero Section -->
     <section class="hero" aria-labelledby="hero-heading">
-      <video autoplay muted loop class="hero-video">
+      <video autoplay muted loop class="hero-video" aria-hidden="true">
         <source src="/images/videos/hero-properties-banner.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <div class="container">
-        <h1 id="hero-heading">Find Your Perfect Home</h1>
+        <h1 id="hero-heading">Available Properties</h1>
         <p>Quality, affordable housing for veterans and families across East Texas. All properties are fully renovated and ready for move-in.</p>
       </div>
     </section>
@@ -217,7 +226,7 @@
 
           <!-- Tyler Ranch Home -->
           <article class="property-card" data-bedrooms="3" data-location="Tyler">
-            <img src="/images/properties/tyler-ranch-home.webp"
+            <img src="../images/properties/tyler-ranch-home.webp"
                  alt="Tyler Ranch Home - charming 3 bedroom, 2 bathroom home"
                  loading="lazy">
             <div class="property-content">
@@ -372,59 +381,12 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-
-      <!-- Emergency Banner -->
-      <div class="emergency-banner">
-        <p>
-          <strong>24/7 Support:</strong>
-          Veterans Crisis <a href="tel:988">988</a> |
-          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
-        </p>
-      </div>
-
-      <!-- Footer Content -->
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>Properties 4 Creations</h4>
-          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
-          <div class="veteran-badge">Veteran-Owned & Operated</div>
-        </div>
-
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/properties/index.html">Properties</a></li>
-            <li><a href="/apply/index.html">Apply Now</a></li>
-            <li><a href="/resources/index.html">Resources</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h4>Contact</h4>
-          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
-          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
-        </div>
-      </div>
-
-      <!-- Footer Bottom -->
-      <div class="footer-bottom">
-        <p>
-          &copy; 2025 Properties 4 Creations.
-          <a href="/privacy/index.html">Privacy</a> |
-          <a href="/terms/index.html">Terms</a>
-        </p>
-      </div>
-
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
 
   <!-- Scripts -->
   <script type="module" src="/js/main.js"></script>
   <script type="module" src="/js/mobile-menu.js"></script>
   <script type="module" src="/js/theme-toggle.js"></script>
+  <script type="module" src="/js/includes.js"></script>
 </body>
 </html>

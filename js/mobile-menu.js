@@ -19,7 +19,10 @@ function initializeMobileMenu() {
 
   // Set initial ARIA attributes
   menuToggle.setAttribute('aria-expanded', 'false');
-  mainNav.setAttribute('aria-hidden', 'true');
+  // Only set aria-hidden on mobile
+  if (window.innerWidth < 768) {
+    mainNav.setAttribute('aria-hidden', 'true');
+  }
 
   // Add click event listener
   menuToggle.addEventListener('click', handleMenuToggle);
@@ -60,7 +63,9 @@ function openMenu() {
 
   // Update ARIA attributes
   menuToggle.setAttribute('aria-expanded', 'true');
-  mainNav.setAttribute('aria-hidden', 'false');
+  if (window.innerWidth < 768) {
+    mainNav.setAttribute('aria-hidden', 'false');
+  }
 
   // Prevent body scroll
   body.style.overflow = 'hidden';
@@ -84,7 +89,9 @@ function closeMenu() {
 
   // Update ARIA attributes
   menuToggle.setAttribute('aria-expanded', 'false');
-  mainNav.setAttribute('aria-hidden', 'true');
+  if (window.innerWidth < 768) {
+    mainNav.setAttribute('aria-hidden', 'true');
+  }
 
   // Restore body scroll
   body.style.overflow = '';

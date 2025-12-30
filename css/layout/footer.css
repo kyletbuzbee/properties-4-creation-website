@@ -1,0 +1,76 @@
+/* Footer Styles - Exact Specification */
+.footer {
+  background: var(--color-primary-navy);
+  color: var(--color-neutral-white);
+  padding: var(--spacing-12) 0 var(--spacing-4);
+  margin-top: var(--spacing-16);
+}
+
+.emergency-banner {
+  background: rgba(194, 142, 90, 0.1);
+  border-left: 4px solid var(--color-primary-gold);
+  padding: var(--spacing-4) var(--spacing-6);
+  margin-bottom: var(--spacing-12);
+  border-radius: var(--spacing-2);
+}
+
+.emergency-banner a {
+  color: var(--color-primary-gold);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
+}
+
+.footer-section h4 {
+  color: var(--color-primary-gold);
+  margin-bottom: var(--spacing-4);
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section li {
+  margin-bottom: var(--spacing-2);
+}
+
+.footer-section a {
+  color: var(--color-neutral-white);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.footer-section a:hover {
+  color: var(--color-primary-gold);
+}
+
+.veteran-badge {
+  display: inline-block;
+  background: rgba(194, 142, 90, 0.2);
+  border: 2px solid var(--color-primary-gold);
+  color: var(--color-primary-gold);
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--spacing-1-5);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: var(--spacing-4);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--spacing-8);
+  text-align: center;
+}
+
+.footer-bottom a {
+  color: var(--color-primary-gold);
+  text-decoration: underline;
+}

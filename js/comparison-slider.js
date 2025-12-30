@@ -2,7 +2,7 @@
 // Handles before/after image comparison functionality
 
 document.addEventListener('DOMContentLoaded', () => {
-  initializeComparisonSliders();
+  window.comparisonSlider.initialize();
 });
 
 /**
@@ -18,45 +18,51 @@ function initializeComparisonSliders() {
 
 /**
  * Create a comparison slider for a given container
+ * Supports both pre-rendered images and data attributes
  */
 function createComparisonSlider(container, index) {
   const beforeImage = container.querySelector('.before-image');
   const afterImage = container.querySelector('.after-image');
+  const beforeSrc = container.dataset.before;
+  const afterSrc = container.dataset.after;
 
-  if (!beforeImage || !afterImage) {
+  // Handle data attribute pattern (Impact Gallery style)
+  if (beforeSrc && afterSrc) {
+    // Create the slider structure for data attributes
+    container.innerHTML = `
+      <img src="${beforeSrc}" alt="Before renovation" class="before-image" style="display: block;">
+      <div class="slider-overlay" style="background-image: url('${afterSrc}')"></div>
+      <div class="slider-handle" role="slider" aria-label="Adjust before/after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+        <div class="slider-handle-button" aria-label="Drag to compare images"></div>
+      </div>
+      <div class="slider-label before-label">Before</div>
+      <div class="slider-label after-label">After</div>
+    `;
+  }
+  // Handle pre-rendered image pattern
+  else if (!beforeImage || !afterImage) {
     console.warn('Comparison slider missing before or after image');
     return;
   }
 
-  // Create slider handle
-  const handle = document.createElement('div');
-  handle.className = 'slider-handle';
-  handle.setAttribute('role', 'slider');
-  handle.setAttribute('aria-label', 'Adjust before/after comparison');
-  handle.setAttribute('aria-valuemin', '0');
-  handle.setAttribute('aria-valuemax', '100');
-  handle.setAttribute('aria-valuenow', '50');
-  handle.setAttribute('tabindex', '0');
+  const finalBeforeImage = container.querySelector('.before-image');
+  const finalAfterImage = container.querySelector('.after-image');
+  const overlay = container.querySelector('.slider-overlay');
+  const handle = container.querySelector('.slider-handle');
 
-  // Create handle button for better accessibility
-  const handleButton = document.createElement('button');
-  handleButton.className = 'slider-handle-button';
-  handleButton.setAttribute('aria-label', 'Drag to compare before and after images');
-  handle.appendChild(handleButton);
-
-  // Set up the overlay structure
-  const overlay = document.createElement('div');
-  overlay.className = 'slider-overlay';
-  overlay.style.backgroundImage = `url(${afterImage.src})`;
+  if (!finalBeforeImage || !overlay || !handle) {
+    console.warn('Comparison slider elements not created properly');
+    return;
+  }
 
   // Position images
   container.style.position = 'relative';
-  beforeImage.style.position = 'absolute';
-  beforeImage.style.top = '0';
-  beforeImage.style.left = '0';
-  beforeImage.style.width = '100%';
-  beforeImage.style.height = '100%';
-  beforeImage.style.objectFit = 'cover';
+  finalBeforeImage.style.position = 'absolute';
+  finalBeforeImage.style.top = '0';
+  finalBeforeImage.style.left = '0';
+  finalBeforeImage.style.width = '100%';
+  finalBeforeImage.style.height = '100%';
+  finalBeforeImage.style.objectFit = 'cover';
 
   overlay.style.position = 'absolute';
   overlay.style.top = '0';
@@ -73,10 +79,6 @@ function createComparisonSlider(container, index) {
   handle.style.transform = 'translate(-50%, -50%)';
   handle.style.zIndex = '10';
   handle.style.cursor = 'ew-resize';
-
-  // Add elements to container
-  container.appendChild(overlay);
-  container.appendChild(handle);
 
   // Initialize slider position
   let sliderPosition = 50; // percentage
@@ -158,20 +160,6 @@ function createComparisonSlider(container, index) {
         break;
     }
   });
-
-  // Add labels for accessibility
-  const beforeLabel = document.createElement('div');
-  beforeLabel.className = 'slider-label before-label';
-  beforeLabel.textContent = 'Before';
-  beforeLabel.setAttribute('aria-hidden', 'true');
-
-  const afterLabel = document.createElement('div');
-  afterLabel.className = 'slider-label after-label';
-  afterLabel.textContent = 'After';
-  afterLabel.setAttribute('aria-hidden', 'true');
-
-  container.appendChild(beforeLabel);
-  container.appendChild(afterLabel);
 }
 
 /**

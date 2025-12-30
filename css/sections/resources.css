@@ -1,0 +1,90 @@
+/* Resources Links */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-6);
+}
+
+.resource-card {
+  background: var(--color-neutral-white);
+  padding: var(--spacing-6);
+  border-radius: var(--spacing-3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-base);
+}
+
+[data-theme="dark"] .resource-card {
+  background: var(--color-neutral-gray-800);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.resource-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.resource-card h3 {
+  color: var(--color-primary-gold);
+  margin-bottom: var(--spacing-3);
+}
+
+.resource-card p {
+  color: var(--color-neutral-gray-600);
+  margin-bottom: var(--spacing-4);
+}
+
+[data-theme="dark"] .resource-card p {
+  color: var(--color-neutral-gray-300);
+}
+
+.resource-link {
+  display: inline-block;
+  margin-top: var(--spacing-4);
+  font-weight: 700;
+  color: var(--color-primary-gold);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.resource-link:hover {
+  color: var(--color-primary-gold-dark);
+  border-bottom-color: var(--color-primary-gold);
+  transform: translateX(5px); /* Subtle slide effect */
+}
+
+/* List View Modifier */
+.resources-grid.list-view {
+  grid-template-columns: 1fr; /* Force single column */
+  gap: var(--spacing-4);
+  max-width: 800px; /* Keep it readable, don't stretch full width */
+  margin: 0 auto; /* Center the list */
+}
+
+.resources-grid.list-view .resource-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: var(--spacing-6);
+  border-left: 4px solid var(--color-primary-gold); /* distinct accent */
+}
+
+/* Adjust text inside list view for better alignment */
+.resources-grid.list-view .resource-card h3 {
+  margin-bottom: var(--spacing-2);
+  width: 100%;
+}
+
+.resources-grid.list-view .resource-card p {
+  margin-bottom: var(--spacing-2);
+  margin-right: var(--spacing-8);
+  flex: 1;
+}
+
+.resources-grid.list-view .resource-card .resource-link {
+  margin-top: 0;
+  white-space: nowrap;
+}

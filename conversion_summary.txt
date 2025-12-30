@@ -1,40 +1,49 @@
 ================================================================================
 FILE CONVERSION SUMMARY REPORT
 ================================================================================
-Generated: 2025-12-27 12:33:56
+Generated: 2025-12-29 21:06:53
 Source folder: .
 Output file: consolidated_output.txt
-Excluded directories: node_modules, codeReview, .git, .clinerules, .txt, .md, .py
+Excluded directories: node_modules, codeReview, .git, .clinerules, .txt, .md, .py, .next
 
 STATISTICS:
 ----------------------------------------
-Total files scanned: 259
-Files converted: 68
-Files skipped: 191
+Total files scanned: 268
+Files converted: 62
+Files skipped: 206
 Errors: 0
-Total characters: 1439991
-Total lines: 33398
+Total characters: 589221
+Total lines: 13824
 
 SKIPPED FILES:
 ----------------------------------------
+package-lock.json
+yarn.lock
+.DS_Store
 .gitignore
 .htaccess
 .kilocode\rules\properties-4-creation.md
 _headers
+ai_logic_review\css_logic_group.txt
+ai_logic_review\html_logic_group.txt
+ai_logic_review\js_logic_group.txt
+ai_logic_review\json_logic_group.txt
+ai_logic_review\md_logic_group.txt
+ai_logic_review\py_logic_group.txt
 babel.config.cjs
 code-review.py
 consolidated_output.txt
-coverage\favicon.png
-coverage\lcov-report\favicon.png
-coverage\lcov-report\sort-arrow-sprite.png
-coverage\lcov.info
-coverage\sort-arrow-sprite.png
-dist\assets\brand-logo-CWGJySks.svg
-dist\assets\brand-logo-DNp1YFEf.png
+conversion_summary.txt
+dist\assets\about-us-team-customer-care-B96v1D-D.png
+dist\assets\about-us-team-headshot-x6qAeMen.png
+dist\assets\about-us-team-owner-Hj25nApy.png
+dist\assets\brand-logo-Dh1dtn6n.svg
 dist\assets\card-impact-rodriguez-family-400w-CZETGlpj.webp
 dist\assets\hero-about-us-banner-400w-Cq1bvUlU.webp
 dist\assets\hero-contact-banner-BVGndiey.webp
+dist\assets\hero-home-banner-400w-DoLEuOie.webp
 dist\assets\hero-home-banner-800w-B9nMB1hH.webp
+dist\assets\hero-impact-banner-CtMXDTV5.mp4
 dist\assets\hero-privacy-banner-Ddo87-In.webp
 dist\assets\hero-properties-banner-C3Seh-10.mp4
 dist\assets\our-work-detailed-measuring-400w-B2Y5l22M.webp
@@ -51,6 +60,12 @@ dist\assets\projects-before-bathroom-400w-LMoWZCpN.webp
 dist\assets\projects-before-front-porch-400w-GhHUmNV_.webp
 dist\assets\projects-before-kitchen-400w-CT9Ybwry.webp
 dist\assets\projects-before-living-room-400w-B5ubwIJk.webp
+dist\assets\properties-jefferson-river-front-400w-B8esTNaH.webp
+dist\assets\properties-kemp-townhome-400w-BjKKDrMy.webp
+dist\assets\properties-longview-victorian-400w-ByrSrP-l.webp
+dist\assets\properties-marshall-farmhouse-400w-IOeLL6fw.webp
+dist\assets\properties-mineola-studio-400w-D9nkB-CP.webp
+dist\assets\properties-tyler-ranch-home-400w-s8eJg2NX.webp
 fix-paths.ps1
 images\banners\hero-about-us-banner-400w.webp
 images\banners\hero-about-us-banner-placeholder.jpg
@@ -156,7 +171,7 @@ images\icons\039-flat.png
 images\icons\american-flag-icon.svg
 images\icons\home.svg
 images\icons\patriotism.svg
-images\logo\brand-logo.png
+images\logo\brand-logo.svg
 images\logo\brand-logo.svg
 images\our-work-gallery\our-work-detailed-measuring-400w.webp
 images\our-work-gallery\our-work-detailed-measuring-800w.webp
@@ -202,6 +217,9 @@ images\properties\properties-tyler-ranch-home-placeholder.jpg
 images\properties\tyler-ranch-home.webp
 images\videos\hero-our-work-banner.mp4
 images\videos\hero-properties-banner.mp4
+IMPROVEMENTS_EXPLANATION.md
+IMPROVEMENTS_SUMMARY.md
+package-lock.json
 plans\deep_analysis_report.md
 plans\focused_implementation_plan.md
 plans\implementation_plan.md

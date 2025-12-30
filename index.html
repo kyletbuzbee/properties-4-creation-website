@@ -28,7 +28,7 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="images/logo/brand-logo.png">
+  <link rel="apple-touch-icon" href="images/logo/brand-logo.svg">
 
   <!-- Web App Manifest -->
   <link rel="manifest" href="manifest.json">
@@ -40,6 +40,13 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css?v=1.1">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/cards.css">
+  <link rel="stylesheet" href="css/layout/header.css">
+  <link rel="stylesheet" href="css/layout/footer.css">
+  <link rel="stylesheet" href="css/sections/hero.css">
+  <link rel="stylesheet" href="css/sections/resources.css">
+  <link rel="stylesheet" href="css/utilities.css">
 
   <!-- Preload critical resources -->
   <link rel="preload" as="image" href="/images/banners/hero-home-banner-800w.webp" imagesrcset="/images/banners/hero-home-banner-400w.webp 400w, /images/banners/hero-home-banner-800w.webp 800w" imagesizes="100vw">
@@ -72,67 +79,7 @@
   </script>
 </head>
 <body>
-  <!-- Skip Link for Accessibility -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <!-- Header -->
-  <header class="header-glass" role="banner">
-    <div class="nav-container">
-      <div class="brand-container">
-        <a href="index.html" class="brand-link" aria-label="Properties 4 Creations - Home">
-          <img src="images/logo/brand-logo.svg"
-               alt="Properties 4 Creations Logo"
-               class="brand-logo">
-          <span class="brand-text">Properties 4 Creations</span>
-        </a>
-      </div>
-
-      <button class="menu-toggle"
-              aria-label="Toggle navigation menu"
-              aria-expanded="false"
-              aria-controls="main-navigation">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-
-      <nav class="main-navigation"
-           id="main-navigation"
-           role="navigation"
-           aria-label="Main navigation">
-        <ul class="nav-menu" role="menubar">
-          <li role="none">
-            <a href="index.html" class="nav-link" role="menuitem" aria-current="page">Home</a>
-          </li>
-          <li role="none">
-            <a href="properties/index.html" class="nav-link" role="menuitem">Properties</a>
-          </li>
-          <li role="none">
-            <a href="about/index.html" class="nav-link" role="menuitem">About</a>
-          </li>
-          <li role="none">
-            <a href="impact/index.html" class="nav-link" role="menuitem">Our Impact</a>
-          </li>
-          <li role="none">
-            <a href="resources/index.html" class="nav-link" role="menuitem">Resources</a>
-          </li>
-          <li role="none">
-            <a href="contact/index.html" class="nav-link" role="menuitem">Contact</a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="theme-toggle-container">
-        <button id="theme-toggle"
-                class="theme-toggle"
-                aria-label="Toggle dark mode"
-                aria-pressed="false">
-          <span class="theme-icon">🌙</span>
-          <span class="theme-text">Dark Mode</span>
-        </button>
-      </div>
-    </div>
-  </header>
+  <div id="header-placeholder"></div>
 
   <!-- Main Content -->
   <main id="main-content" role="main" style="padding-top: 80px;">
@@ -153,7 +100,7 @@
     <section class="features" aria-labelledby="features-heading">
       <div class="container">
         <h2 id="features-heading" class="text-center">Why Choose Properties 4 Creations?</h2>
-        <div class="features-grid">
+        <div class="features-grid grid-auto">
           <div class="feature-card">
             <img src="images/icons/home.svg" alt="Icon of a residential house" class="feature-icon">
             <h3>100% Section 8 & HUD-VASH Acceptance</h3>
@@ -185,11 +132,11 @@
     <section class="properties" aria-labelledby="properties-heading">
       <div class="container">
         <h2 id="properties-heading" class="text-center">Featured Properties</h2>
-        <div class="properties-grid">
+        <div class="properties-grid grid-auto">
           <a href="properties/index.html" class="property-card" aria-label="View Tyler Ranch Home details">
             <picture>
               <source srcset="images/properties/tyler-ranch-home.webp" type="image/webp">
-              <img src="images/properties/tyler-ranch-home.jpg" alt="Tyler Ranch Home exterior" loading="lazy" width="800" height="600">
+              <img src="images/properties/tyler-ranch-home.webp" alt="Tyler Ranch Home exterior" loading="lazy" width="800" height="600">
             </picture>
             <div class="property-content">
               <h3 class="property-title">Tyler Ranch Home</h3>
@@ -207,7 +154,7 @@
           <a href="properties/index.html" class="property-card" aria-label="View Longview Victorian details">
             <picture>
               <source srcset="images/properties/longview-victorian.webp" type="image/webp">
-              <img src="images/properties/longview-victorian.jpg" alt="Longview Victorian home exterior" loading="lazy" width="800" height="600">
+              <img src="images/properties/longview-victorian.webp" alt="Longview Victorian home exterior" loading="lazy" width="800" height="600">
             </picture>
             <div class="property-content">
               <h3 class="property-title">Longview Victorian</h3>
@@ -225,7 +172,7 @@
           <a href="properties/index.html" class="property-card" aria-label="View Jefferson Riverfront details">
             <picture>
               <source srcset="images/properties/jefferson-riverfront.webp" type="image/webp">
-              <img src="images/properties/jefferson-riverfront.jpg" alt="Jefferson Riverfront property exterior" loading="lazy" width="800" height="600">
+              <img src="images/properties/jefferson-riverfront.webp" alt="Jefferson Riverfront property exterior" loading="lazy" width="800" height="600">
             </picture>
             <div class="property-content">
               <h3 class="property-title">Jefferson Riverfront</h3>
@@ -251,7 +198,7 @@
     <section class="stats" aria-labelledby="stats-heading">
       <div class="container">
         <h2 id="stats-heading" class="text-center">Our Impact in East Texas</h2>
-        <div class="stats-grid">
+        <div class="stats-grid grid-auto">
           <div class="stat-item">
             <div class="stat-number">150+</div>
             <div class="stat-label">Families Housed</div>
@@ -288,59 +235,12 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-
-      <!-- Emergency Banner -->
-      <div class="emergency-banner">
-        <p>
-          <strong>24/7 Support:</strong>
-          Veterans Crisis <a href="tel:988">988</a> |
-          Housing <a href="tel:1-800-827-1000">1-800-827-1000</a>
-        </p>
-      </div>
-
-      <!-- Footer Content -->
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>Properties 4 Creations</h4>
-          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
-          <div class="veteran-badge">Veteran-Owned & Operated</div>
-        </div>
-
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="properties/index.html">Properties</a></li>
-            <li><a href="apply/index.html">Apply Now</a></li>
-            <li><a href="resources/index.html">Resources</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h4>Contact</h4>
-          <p><a href="tel:903-555-1234">(903) 555-1234</a></p>
-          <p><a href="mailto:info@properties4creations.com">info@properties4creations.com</a></p>
-        </div>
-      </div>
-
-      <!-- Footer Bottom -->
-      <div class="footer-bottom">
-        <p>
-          &copy; 2025 Properties 4 Creations.
-          <a href="privacy/index.html">Privacy</a> |
-          <a href="terms/index.html">Terms</a>
-        </p>
-      </div>
-
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
 
   <!-- Scripts -->
   <script type="module" src="js/main.js"></script>
   <script type="module" src="js/mobile-menu.js"></script>
   <script type="module" src="js/theme-toggle.js"></script>
+  <script type="module" src="js/includes.js"></script>
 </body>
 </html>
