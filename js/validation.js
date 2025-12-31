@@ -22,6 +22,7 @@ export function isValidEmail(email) {
  * @returns {boolean} True if phone is valid, false otherwise
  */
 export function isValidPhone(phone) {
+  if (!phone || typeof phone !== 'string') return false;
   const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
   const cleanPhone = phone.replace(/[\s\-\(\)\.]/g, '');
   return phoneRegex.test(cleanPhone) && cleanPhone.length >= 10;
@@ -229,11 +230,12 @@ export function sanitizeInput(input) {
   if (typeof input !== 'string') {
     return '';
   }
-  
+
   return input
-    .replace(/[<>]/g, '') // Remove angle brackets
+    .replace(/<[^>]*>/g, '') // Remove HTML tags
     .replace(/javascript:/gi, '') // Remove javascript: protocol
-    .replace(/on\w+=/gi, '') // Remove event handlers
+    .replace(/on\w+="[^"]*"/gi, '') // Remove event handlers
+    .replace(/on\w+='[^']*'/gi, '') // Remove event handlers with single quotes
     .trim();
 }
 

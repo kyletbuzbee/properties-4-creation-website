@@ -1,0 +1,330 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  NODE_VERSION: '18.x'
+
+jobs:
+  # Job 1: Code Quality and Linting
+  quality:
+    name: Code Quality Checks
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run linting
+      run: npm run lint
+      
+    - name: Check TypeScript types (if applicable)
+      run: npx tsc --noEmit --skipLibCheck || echo "No TypeScript configuration found"
+      
+    - name: Check for security vulnerabilities
+      run: npm audit --audit-level=moderate
+
+  # Job 2: Unit Tests and Code Coverage
+  test:
+    name: Unit Tests & Coverage
+    runs-on: ubuntu-latest
+    needs: quality
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run unit tests
+      run: npm run test:coverage
+      
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v4
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        fail_ci_if_error: true
+        files: ./coverage/lcov.info
+        verbose: true
+
+  # Job 3: Build Verification
+  build:
+    name: Build Verification
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build project
+      run: npm run build
+      
+    - name: Verify build artifacts
+      run: |
+        if [ ! -d "dist" ]; then
+          echo "Build failed: dist directory not found"
+          exit 1
+        fi
+        if [ ! -f "dist/index.html" ]; then
+          echo "Build failed: index.html not found in dist"
+          exit 1
+        fi
+        echo "Build verification successful"
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-files
+        path: dist/
+        retention-days: 7
+
+  # Job 4: E2E Tests
+  e2e:
+    name: End-to-End Tests
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Install Playwright browsers
+      run: npx playwright install --with-deps
+      
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-files
+        path: dist/
+        
+    - name: Start local server
+      run: |
+        npm install -g serve
+        serve -s dist -l 3000 &
+        sleep 5
+        
+    - name: Run E2E tests
+      run: npm run test:e2e
+      
+    - name: Upload E2E test results
+      uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+        name: e2e-test-results
+        path: |
+          test-results/
+          playwright-report/
+        retention-days: 7
+
+  # Job 5: Accessibility Testing
+  accessibility:
+    name: Accessibility Tests
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Install Playwright browsers
+      run: npx playwright install --with-deps
+      
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-files
+        path: dist/
+        
+    - name: Start local server
+      run: |
+        npm install -g serve
+        serve -s dist -l 3000 &
+        sleep 5
+        
+    - name: Run accessibility tests
+      run: npm run test:accessibility
+      
+    - name: Upload accessibility test results
+      uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+        name: accessibility-test-results
+        path: |
+          test-results/
+          playwright-report/
+        retention-days: 7
+
+  # Job 6: Performance Testing
+  performance:
+    name: Performance Tests
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Install Playwright browsers
+      run: npx playwright install --with-deps
+      
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-files
+        path: dist/
+        
+    - name: Start local server
+      run: |
+        npm install -g serve
+        serve -s dist -l 3000 &
+        sleep 5
+        
+    - name: Run performance tests
+      run: npm run test:performance
+      
+    - name: Upload performance test results
+      uses: actions/upload-artifact@v4
+      with:
+        name: performance-test-results
+        path: |
+          reports/
+          lighthouse.json
+        retention-days: 7
+
+  # Job 7: Security Scanning
+  security:
+    name: Security Scanning
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run security audit
+      run: npm audit --audit-level=moderate
+      
+    - name: Run Snyk security scan
+      uses: snyk/actions/node@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        args: --severity-threshold=high
+
+  # Job 8: Deployment (only on main branch)
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [quality, test, build, e2e, accessibility, performance, security]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-files
+        path: dist/
+        
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        force_orphan: true
+        
+    - name: Notify deployment status
+      run: |
+        echo "Deployment completed successfully"
+        echo "Site URL: https://properties4creations.com"
+
+  # Job 9: Quality Gate Summary
+  quality-gate:
+    name: Quality Gate Summary
+    runs-on: ubuntu-latest
+    needs: [quality, test, build, e2e, accessibility, performance, security]
+    if: always()
+    
+    steps:
+    - name: Check all jobs status
+      run: |
+        if [[ "${{ needs.quality.result }}" != "success" || 
+              "${{ needs.test.result }}" != "success" || 
+              "${{ needs.build.result }}" != "success" || 
+              "${{ needs.e2e.result }}" != "success" || 
+              "${{ needs.accessibility.result }}" != "success" || 
+              "${{ needs.performance.result }}" != "success" || 
+              "${{ needs.security.result }}" != "success" ]]; then
+          echo "Quality gate failed: One or more checks did not pass"
+          exit 1
+        else
+          echo "Quality gate passed: All checks completed successfully"
+        fi

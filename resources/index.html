@@ -3,35 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Housing Resources - Properties 4 Creations</title>
-  <meta name="description" content="Comprehensive housing resources for veterans and families in East Texas. Find HUD housing programs, VA assistance, Section 8 information, and local housing authorities.">
-  <meta name="keywords" content="housing resources, HUD programs, VA housing assistance, Section 8, veteran benefits, housing authorities">
+  <title>Resources - Properties 4 Creations</title>
+  <meta name="description" content="Helpful resources for veterans, families, and housing assistance in East Texas. Links to government programs, local services, and support organizations.">
+  <meta name="keywords" content="veteran resources, housing assistance, East Texas resources, government programs, support services">
   <meta name="author" content="Properties 4 Creations">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://properties4creations.com/resources/">
-  <meta property="og:title" content="Housing Resources - Properties 4 Creations">
-  <meta property="og:description" content="Comprehensive housing resources for veterans and families in East Texas.">
+  <meta property="og:title" content="Resources - Properties 4 Creations">
+  <meta property="og:description" content="Comprehensive resources for veterans, families, and housing assistance in East Texas.">
   <meta property="og:image" content="/images/logo/brand-logo.svg">
   <meta property="og:site_name" content="Properties 4 Creations">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://properties4creations.com/resources/">
-  <meta name="twitter:title" content="Housing Resources - Properties 4 Creations">
-  <meta name="twitter:description" content="Comprehensive housing resources for veterans and families in East Texas.">
+  <meta name="twitter:title" content="Resources - Properties 4 Creations">
+  <meta name="twitter:description" content="Comprehensive resources for veterans, families, and housing assistance in East Texas.">
   <meta name="twitter:image" content="/images/logo/brand-logo.svg">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://properties4creations.com/resources/">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/images/logo/brand-logo.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="images/logo/brand-logo.svg">
 
   <!-- Web App Manifest -->
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="../manifest.json">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=1.1">
   <link rel="stylesheet" href="../css/components/buttons.css">
   <link rel="stylesheet" href="../css/components/cards.css">
   <link rel="stylesheet" href="../css/layout/header.css">
@@ -48,85 +48,52 @@
   <link rel="stylesheet" href="../css/sections/resources.css">
   <link rel="stylesheet" href="../css/utilities.css">
 
+  <!-- Preload critical resources -->
+  <link rel="preload" as="image" href="../images/banners/hero-resources-banner.png" imagesrcset="../images/banners/hero-resources-banner.png" imagesizes="100vw">
+
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Housing Resources - Properties 4 Creations",
+    "name": "Resources - Properties 4 Creations",
+    "description": "Helpful resources for veterans, families, and housing assistance in East Texas.",
     "url": "https://properties4creations.com/resources/",
-    "description": "Comprehensive housing resources for veterans and families",
     "mainEntity": {
-      "@type": "WebPage",
-      "about": "Housing assistance programs and resources"
+      "@type": "ItemList",
+      "name": "Resource Categories",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "WebPage",
+            "name": "Veteran Resources"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "WebPage",
+            "name": "Housing Assistance"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "WebPage",
+            "name": "Local Services"
+          }
+        }
+      ]
     }
   }
   </script>
-  <!-- Preload critical resources -->
-  <link rel="preload" as="image" href="/images/banners/hero-home-banner-800w.webp" imagesrcset="/images/banners/hero-home-banner-400w.webp 400w, /images/banners/hero-home-banner-800w.webp 800w" imagesizes="100vw">
 </head>
 <body>
-  <!-- Skip Link for Accessibility -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <!-- Header -->
-  <header class="header-glass" role="banner">
-    <div class="nav-container flex-center-between">
-      <div class="brand-container">
-        <a href="../index.html" class="brand-link" aria-label="Properties 4 Creations - Home">
-          <img src="../images/logo/brand-logo.svg"
-               alt="Properties 4 Creations Logo"
-               class="brand-logo">
-          <span class="brand-text">Properties 4 Creations</span>
-        </a>
-      </div>
-
-      <button class="menu-toggle"
-              aria-label="Toggle navigation menu"
-              aria-expanded="false"
-              aria-controls="main-navigation">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-
-      <nav class="main-navigation"
-           id="main-navigation"
-           role="navigation"
-           aria-label="Main navigation">
-        <ul class="nav-menu" role="menubar">
-          <li role="none">
-            <a href="../index.html" class="nav-link" role="menuitem">Home</a>
-          </li>
-          <li role="none">
-            <a href="../properties/index.html" class="nav-link" role="menuitem">Properties</a>
-          </li>
-          <li role="none">
-            <a href="../about/index.html" class="nav-link" role="menuitem">About</a>
-          </li>
-          <li role="none">
-            <a href="../impact/index.html" class="nav-link" role="menuitem">Our Impact</a>
-          </li>
-          <li role="none">
-            <a href="../resources/index.html" class="nav-link" role="menuitem" aria-current="page">Resources</a>
-          </li>
-          <li role="none">
-            <a href="../contact/index.html" class="nav-link" role="menuitem">Contact</a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="theme-toggle-container">
-        <button id="theme-toggle"
-                class="theme-toggle"
-                aria-label="Toggle dark mode"
-                aria-pressed="false">
-          <span class="theme-icon">🌙</span>
-          <span class="theme-text">Dark Mode</span>
-        </button>
-      </div>
-    </div>
-  </header>
+  <div id="header-placeholder"></div>
 
   <!-- Main Content -->
   <main id="main-content" role="main" style="padding-top: 80px;">
@@ -134,228 +101,180 @@
     <!-- Hero Section -->
     <section class="hero hero-resources" aria-labelledby="hero-heading">
       <div class="container">
-        <h1 id="hero-heading">Housing Resources</h1>
-        <p>Comprehensive guide to housing assistance programs, veteran benefits, and local support services in East Texas.</p>
+        <h1 id="hero-heading">Helpful Resources</h1>
+        <p>Support and assistance for veterans, families, and housing needs in East Texas.</p>
+        <div class="hero-buttons">
+          <a href="../properties/index.html" class="btn btn-primary">Find Housing</a>
+          <a href="../contact/index.html" class="btn btn-secondary">Get Help</a>
+        </div>
       </div>
     </section>
 
-    <!-- Resource Categories -->
-    <section class="resources-section" aria-labelledby="resources-heading">
+    <!-- Resources Grid -->
+    <section class="resources" aria-labelledby="resources-heading">
       <div class="container">
-        <h2 id="resources-heading" class="sr-only">Housing Resources</h2>
-
-        <!-- HUD Housing Resources -->
+        <h2 id="resources-heading" class="text-center">Available Resources</h2>
+        
+        <!-- Veteran Resources -->
         <div class="resource-category">
-          <h2>HUD Housing Resources</h2>
-          <p>The U.S. Department of Housing and Urban Development provides comprehensive housing assistance programs.</p>
-
-          <div class="resources-grid">
-            <div class="resource-card">
-              <h3>HUD.gov</h3>
-              <p>Official U.S. Department of Housing and Urban Development website with comprehensive housing information.</p>
-              <a href="https://www.hud.gov/" target="_blank" rel="noopener noreferrer" class="resource-link">Visit HUD.gov</a>
-            </div>
-
-            <div class="resource-card">
-              <h3>Section 8 Program</h3>
-              <p>Learn about the Housing Choice Vouchers (Section 8) program, eligibility requirements, and how to apply.</p>
-              <a href="https://www.hud.gov/program_offices/public_indian_housing/programs/hcv" target="_blank" rel="noopener noreferrer" class="resource-link">Section 8 Information</a>
-            </div>
-
-            <div class="resource-card">
-              <h3>HUD-VASH Program</h3>
-              <p>HUD-Veterans Affairs Supportive Housing program combining rental assistance with VA case management.</p>
-              <a href="https://www.hud.gov/program_offices/public_indian_housing/programs/hcv/vash" target="_blank" rel="noopener noreferrer" class="resource-link">HUD-VASH Details</a>
-            </div>
-
-            <div class="resource-card">
-              <h3>Fair Housing</h3>
-              <p>Information about fair housing laws, discrimination prevention, and your rights as a housing applicant.</p>
-              <a href="https://www.hud.gov/program_offices/fair_housing_equal_opp" target="_blank" rel="noopener noreferrer" class="resource-link">Fair Housing Resources</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- VA Housing Assistance -->
-        <div class="resource-category">
-          <h2>VA Housing Assistance</h2>
-          <p>Dedicated housing programs and support services for veterans and their families.</p>
-
-          <div class="resources-grid">
-            <div class="resource-card">
-              <h3>VA.gov Housing</h3>
-              <p>Official Department of Veterans Affairs housing assistance programs and application information.</p>
-              <a href="https://www.va.gov/housing-assistance/" target="_blank" rel="noopener noreferrer" class="resource-link">VA Housing Assistance</a>
-            </div>
-
-            <div class="resource-card">
-              <h3>Veterans Crisis Line</h3>
-              <p>24/7 confidential support for veterans in crisis, including housing instability and homelessness.</p>
-              <a href="tel:988" class="resource-link">Call 988</a>
-            </div>
-
-            <div class="resource-card">
-              <h3>VA Case Management</h3>
-              <p>Connect with VA case managers for personalized housing assistance and supportive services.</p>
-              <a href="https://www.va.gov/homeless/ssvf/" target="_blank" rel="noopener noreferrer" class="resource-link">SSVF Program</a>
-            </div>
-
-            <div class="resource-card">
-              <h3>VA Loan Programs</h3>
-              <p>VA guaranteed home loans for eligible veterans, including purchase and refinance options.</p>
-              <a href="https://www.va.gov/housing-assistance/home-loans/" target="_blank" rel="noopener noreferrer" class="resource-link">VA Loan Information</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Section 8 Information -->
-        <div class="resource-category">
-          <h2>Section 8 & Voucher Programs</h2>
-          <p>Detailed information about housing choice vouchers and local program administration.</p>
-
-          <div class="resources-grid">
-            <div class="resource-card">
-              <h3>How Section 8 Works</h3>
-              <p>Complete guide to the Section 8 Housing Choice Voucher program, including application process and tenant responsibilities.</p>
-              <a href="https://www.hud.gov/topics/rental_assistance/phprog" target="_blank" rel="noopener noreferrer" class="resource-link">Program Guide</a>
-            </div>
-
-            <div class="resource-card">
-              <h3>Voucher Eligibility</h3>
-              <p>Income limits, family size requirements, and other eligibility criteria for Section 8 assistance.</p>
-              <a href="https://www.hud.gov/states/texas/renting" target="_blank" rel="noopener noreferrer" class="resource-link">Eligibility Information</a>
-            </div>
-
-            <div class="resource-card">
-              <h3>Finding Housing</h3>
-              <p>Tips for finding Section 8 approved housing and working with property owners who accept vouchers.</p>
-              <a href="https://www.hud.gov/states/texas/renting/section8" target="_blank" rel="noopener noreferrer" class="resource-link">Housing Search Guide</a>
-            </div>
-
-            <div class="resource-card">
-              <h3>Landlord Resources</h3>
-              <p>Information for property owners interested in participating in the Section 8 program.</p>
-              <a href="https://www.hud.gov/program_offices/public_indian_housing/pha/contacts" target="_blank" rel="noopener noreferrer" class="resource-link">Landlord Information</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Veteran Benefits -->
-        <div class="resource-category">
-          <h2>Veteran Benefits & Support</h2>
-          <p>Additional benefits and support programs available to veterans and their families.</p>
-
-          <div class="resources-grid">
-            <div class="resource-card">
-              <h3>Veterans Benefits</h3>
-              <p>Comprehensive guide to VA benefits including disability compensation, pension, and healthcare.</p>
-              <a href="https://www.va.gov/benefit-information/" target="_blank" rel="noopener noreferrer" class="resource-link">VA Benefits Overview</a>
-            </div>
-
-            <div class="resource-card">
-              <h3>GI Bill Benefits</h3>
-              <p>Education and training benefits available to eligible veterans and their families.</p>
-              <a href="https://www.va.gov/education/" target="_blank" rel="noopener noreferrer" class="resource-link">GI Bill Information</a>
-            </div>
-
-            <div class="resource-card">
-              <h3>Veterans Employment</h3>
-              <p>Job training, placement services, and employment resources for transitioning service members.</p>
-              <a href="https://www.dol.gov/agencies/vets" target="_blank" rel="noopener noreferrer" class="resource-link">Veterans Employment</a>
-            </div>
-
-            <div class="resource-card">
-              <h3>Veterans Organizations</h3>
-              <p>Local veterans service organizations providing additional support and advocacy.</p>
-              <a href="https://www.va.gov/vso/" target="_blank" rel="noopener noreferrer" class="resource-link">VSO Directory</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Local Housing Authorities -->
-        <div class="resource-category">
-          <h2>Local Housing Authorities</h2>
-          <p>Public housing agencies and local housing authorities in East Texas.</p>
-
+          <h3>Veteran Resources</h3>
           <div class="resources-grid list-view">
             <div class="resource-card">
-              <h3>Tyler Housing Authority</h3>
-              <p>Public housing and Section 8 voucher administration for Smith County and surrounding areas.</p>
-              <p><strong>Phone:</strong> (903) 597-4567<br>
-              <strong>Address:</strong> 2301 E 5th St, Tyler, TX 75701</p>
-              <a href="https://www.tylerhousing.org/" target="_blank" rel="noopener noreferrer" class="resource-link">Visit Website</a>
+              <h4>VA Benefits and Services</h4>
+              <p>Comprehensive information about VA healthcare, disability compensation, education benefits, and more.</p>
+              <div class="resource-links">
+                <a href="https://www.va.gov/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Visit VA.gov</a>
+              </div>
             </div>
 
             <div class="resource-card">
-              <h3>Longview Housing Authority</h3>
-              <p>Housing assistance programs serving Gregg and surrounding counties.</p>
-              <p><strong>Phone:</strong> (903) 753-7531<br>
-              <strong>Address:</strong> 410 N Fredonia St, Longview, TX 75601</p>
-              <a href="https://www.longviewha.org/" target="_blank" rel="noopener noreferrer" class="resource-link">Visit Website</a>
+              <h4>Texas Veterans Commission</h4>
+              <p>State agency providing services to Texas veterans and their families, including employment assistance and benefits counseling.</p>
+              <div class="resource-links">
+                <a href="https://www.tvc.texas.gov/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Visit TVC Website</a>
+              </div>
             </div>
 
             <div class="resource-card">
-              <h3>Marshall Housing Authority</h3>
-              <p>Harrison County housing programs and voucher administration.</p>
-              <p><strong>Phone:</strong> (903) 935-7811<br>
-              <strong>Address:</strong> 900 W Houston St, Marshall, TX 75670</p>
-              <a href="https://www.marshallha.org/" target="_blank" rel="noopener noreferrer" class="resource-link">Visit Website</a>
+              <h4>HUD-VASH Program</h4>
+              <p>Housing Choice Voucher program for homeless veterans, combining rental assistance with case management and clinical services.</p>
+              <div class="resource-links">
+                <a href="https://www.hud.gov/program_offices/public_indian_housing/programs/hcv/hud-vash" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Learn About HUD-VASH</a>
+              </div>
             </div>
 
             <div class="resource-card">
-              <h3>Texas Workforce Commission</h3>
-              <p>Employment and training programs that can help with housing stability.</p>
-              <p><strong>Phone:</strong> 1-800-832-9672<br>
-              <strong>Website:</strong> Texas Workforce Solutions</p>
-              <a href="https://www.twc.texas.gov/" target="_blank" rel="noopener noreferrer" class="resource-link">Visit Website</a>
+              <h4>VA Home Loan Program</h4>
+              <p>Information about VA home loans, including eligibility requirements and benefits for veterans.</p>
+              <div class="resource-links">
+                <a href="https://www.va.gov/housing-assistance/home-loans/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">VA Home Loans</a>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Financial Assistance Programs -->
+        <!-- Housing Assistance -->
         <div class="resource-category">
-          <h2>Financial Assistance Programs</h2>
-          <p>Additional financial support programs that can help with housing costs and stability.</p>
-
-          <div class="resources-grid">
+          <h3>Housing Assistance</h3>
+          <div class="resources-grid list-view">
             <div class="resource-card">
-              <h3>Utility Assistance</h3>
-              <p>Programs to help with utility costs including electricity, water, and heating assistance.</p>
-              <a href="https://www.hud.gov/states/texas/renting/utility" target="_blank" rel="noopener noreferrer" class="resource-link">Utility Assistance Programs</a>
+              <h4>Section 8 Housing Choice Voucher Program</h4>
+              <p>Federal program that provides rental assistance to low-income families, the elderly, and persons with disabilities.</p>
+              <div class="resource-links">
+                <a href="https://www.hud.gov/program_offices/public_indian_housing/programs/hcv" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">HUD Section 8</a>
+              </div>
             </div>
 
             <div class="resource-card">
-              <h3>Emergency Rental Assistance</h3>
-              <p>Temporary rental assistance for families experiencing financial hardship or homelessness.</p>
-              <a href="https://www.hud.gov/states/texas/renting/era" target="_blank" rel="noopener noreferrer" class="resource-link">ERA Program</a>
+              <h4>Texas Department of Housing and Community Affairs</h4>
+              <p>State agency providing affordable housing programs and community development initiatives.</p>
+              <div class="resource-links">
+                <a href="https://www.tdhca.state.tx.us/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">TDHCA Website</a>
+              </div>
             </div>
 
             <div class="resource-card">
-              <h3>Food & Nutrition Programs</h3>
-              <p>SNAP benefits and other nutrition assistance programs that can free up funds for housing.</p>
-              <a href="https://www.hud.gov/states/texas/renting/snap" target="_blank" rel="noopener noreferrer" class="resource-link">SNAP Information</a>
+              <h4>Local Housing Authorities</h4>
+              <p>Contact information for housing authorities in East Texas cities.</p>
+              <div class="resource-links">
+                <a href="https://www.hud.gov/program_offices/public_indian_housing/pha/contacts" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Find Local PHAs</a>
+              </div>
             </div>
 
             <div class="resource-card">
-              <h3>Legal Aid Services</h3>
-              <p>Free legal assistance for housing-related issues including eviction prevention and tenant rights.</p>
-              <a href="https://www.lsc.gov/find-legal-aid" target="_blank" rel="noopener noreferrer" class="resource-link">Find Legal Aid</a>
+              <h4>Renters' Rights Information</h4>
+              <p>Information about tenant rights and responsibilities in Texas.</p>
+              <div class="resource-links">
+                <a href="https://www.texasattorneygeneral.gov/topics/consumer-protection/landlord-and-tenant" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Texas AG Tenant Rights</a>
+              </div>
             </div>
           </div>
         </div>
 
+        <!-- Local Services -->
+        <div class="resource-category">
+          <h3>Local Services</h3>
+          <div class="resources-grid list-view">
+            <div class="resource-card">
+              <h4>Tyler Area Resources</h4>
+              <p>Local services, food banks, healthcare, and community support in the Tyler area.</p>
+              <div class="resource-links">
+                <a href="https://www.cityoftyler.org/191/Community-Services" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Tyler Community Services</a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <h4>Longview Area Resources</h4>
+              <p>Local assistance programs, healthcare, and support services in the Longview area.</p>
+              <div class="resource-links">
+                <a href="https://www.cityoflongview.com/191/Community-Services" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Longview Community Services</a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <h4>Marshall Area Resources</h4>
+              <p>Local resources and support services in the Marshall area.</p>
+              <div class="resource-links">
+                <a href="https://www.cityofmarshall.com/191/Community-Services" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Marshall Community Services</a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <h4>East Texas Food Bank</h4>
+              <p>Food assistance and nutrition programs for families in need across East Texas.</p>
+              <div class="resource-links">
+                <a href="https://www.etfoodbank.org/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Visit Food Bank</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Financial Assistance -->
+        <div class="resource-category">
+          <h3>Financial Assistance</h3>
+          <div class="resources-grid list-view">
+            <div class="resource-card">
+              <h4>Utility Assistance Programs</h4>
+              <p>Help with paying utility bills and energy assistance programs.</p>
+              <div class="resource-links">
+                <a href="https://www.hhs.texas.gov/services/financial/low-income-home-energy-assistance-program-liheap" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">LIHEAP Program</a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <h4>Emergency Financial Assistance</h4>
+              <p>Emergency aid for rent, utilities, and other essential needs.</p>
+              <div class="resource-links">
+                <a href="https://www.211texas.org/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">211 Texas</a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <h4>Employment Services</h4>
+              <p>Job training, career counseling, and employment assistance programs.</p>
+              <div class="resource-links">
+                <a href="https://www.twc.texas.gov/jobseekers" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Texas Workforce Commission</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Contact CTA -->
-    <section class="cta-section" aria-labelledby="cta-heading">
+    <!-- Additional Support -->
+    <section class="additional-support" aria-labelledby="support-heading">
       <div class="container">
-        <div class="cta-content">
-          <h2 id="cta-heading">Need Help Navigating These Resources?</h2>
-          <p>Our team is here to help you understand and access these housing programs. We can guide you through applications and connect you with the right resources.</p>
-          <div class="cta-buttons">
-            <a href="../contact/" class="btn btn-primary">Get Personalized Help</a>
-            <a href="../apply/" class="btn btn-secondary">Apply for Housing</a>
+        <h2 id="support-heading" class="text-center">Need Additional Help?</h2>
+        <div class="support-content">
+          <div class="support-text">
+            <p>If you need assistance navigating these resources or have questions about our housing options, our team is here to help. We can provide guidance on available programs and help you find the support you need.</p>
+            <div class="support-buttons">
+              <a href="../contact/index.html" class="btn btn-primary">Contact Us</a>
+              <a href="../apply/index.html" class="btn btn-secondary">Apply for Housing</a>
+            </div>
+          </div>
+          <div class="support-image">
+            <img src="../images/icons/020-online-community.png" alt="Support and community" loading="lazy" width="400" height="300">
           </div>
         </div>
       </div>

@@ -8584,3 +8584,2438 @@ export default defineConfig({
 
 [FILE_END: vite.config.js]
 ################################################################################
+
+================================================================================
+FILE_BEGIN: jest.config.js
+METADATA: Size=1193 bytes | Last_Modified=2025-12-27 12:11:07.403003
+================================================================================
+export default {
+  // Test environment
+  testEnvironment: 'jsdom',
+
+  // Setup files
+  setupFilesAfterEnv: ['<rootDir>/tests/setup.js'],
+
+  // Test file patterns
+  testMatch: [
+    '<rootDir>/tests/**/*.test.js',
+    // '<rootDir>/tests/**/*.spec.js', // This line is removed to prevent Jest from running Playwright e2e tests
+    '<rootDir>/js/**/*.test.js'
+  ],
+
+  // Module name mapping for imports
+  moduleNameMapper: {
+    '\\.(css|scss|sass)$': 'identity-obj-proxy',
+    '\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>/tests/__mocks__/fileMock.js'
+  },
+
+  // Coverage configuration
+  collectCoverageFrom: [
+    'js/**/*.js',
+    '!js/**/*.test.js',
+    '!js/**/*.spec.js'
+  ],
+  coverageDirectory: 'coverage',
+  coverageReporters: ['text', 'lcov', 'html'],
+
+  // Test thresholds
+  coverageThreshold: {
+    global: {
+      branches: 70,
+      functions: 70,
+      lines: 70,
+      statements: 70
+    }
+  },
+
+  // Transform configuration
+  transform: {
+    '^.+\\.js$': 'babel-jest'
+  },
+
+  // Module directories
+  moduleDirectories: ['node_modules', 'js'],
+
+  // Test timeout
+  testTimeout: 10000,
+
+  // Verbose output
+  verbose: true
+};
+
+
+[FILE_END: jest.config.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: js\a11y.js
+METADATA: Size=2624 bytes | Last_Modified=2025-12-29 20:29:49.760847
+================================================================================
+/**
+ * Properties 4 Creations - Accessibility Module
+ * Handles accessibility features and focus management
+ *
+ * @fileoverview Provides accessibility enhancements and focus management
+ * @author Properties 4 Creations
+ */
+
+/**
+ * Add focus management for better keyboard navigation
+ */
+export function initFocusManagement() {
+  // Trap focus in mobile menu when open
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNav = document.querySelector('.main-navigation');
+
+  if (menuToggle && mainNav) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+
+      if (isOpen) {
+        // Focus first menu item
+        const firstLink = mainNav.querySelector('.nav-link');
+        if (firstLink) {
+          setTimeout(() => firstLink.focus(), 100);
+        }
+      }
+    });
+  }
+
+  // Close mobile menu on escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const menuToggle = document.querySelector('.menu-toggle');
+      if (menuToggle && menuToggle.getAttribute('aria-expanded') === 'true') {
+        menuToggle.click();
+        menuToggle.focus();
+      }
+    }
+  });
+}
+
+/**
+ * Set current page indicator in navigation
+ */
+export function setCurrentPage() {
+  const currentPath = window.location.pathname;
+
+  // Remove trailing slash for comparison
+  const normalizedPath = currentPath.replace(/\/$/, '') || '/';
+
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  navLinks.forEach(link => {
+    const linkHref = link.getAttribute('href');
+
+    if (linkHref === normalizedPath) {
+      link.classList.add('is-active');
+    } else {
+      link.classList.remove('is-active');
+    }
+  });
+}
+
+/**
+ * Normalize path for comparison
+ * @param {string} path - The path to normalize
+ * @returns {string} Normalized path
+ */
+export function normalizePath(path) {
+  return path.replace(/index\.html$/, '').replace(/\/$/, '') || '/';
+}
+
+/**
+ * Announce message to screen readers
+ * @param {string} message - The message to announce
+ */
+export function announceToScreenReader(message) {
+  const announcement = document.createElement('div');
+  announcement.setAttribute('aria-live', 'polite');
+  announcement.setAttribute('aria-atomic', 'true');
+  announcement.className = 'sr-only';
+  announcement.textContent = message;
+
+  document.body.appendChild(announcement);
+
+  // Remove after announcement
+  setTimeout(() => {
+    if (announcement.parentNode) {
+      announcement.remove();
+    }
+  }, 1000);
+}
+
+[FILE_END: js\a11y.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: js\accordion-faq.js
+METADATA: Size=5640 bytes | Last_Modified=2025-12-29 20:29:34.082443
+================================================================================
+/**
+ * Properties 4 Creations - FAQ Module
+ * Handles FAQ accordion functionality and search
+ *
+ * @fileoverview Provides FAQ accordion and search functionality
+ * @author Properties 4 Creations
+ */
+
+/**
+ * Initialize FAQ accordions
+ */
+export function initFAQ() {
+  initializeAccordions();
+  initializeFAQSearch();
+}
+
+/**
+ * Initialize accordions (FAQ section)
+ */
+function initializeAccordions() {
+  const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+  accordionHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const isActive = content.classList.contains('active');
+
+      // Close all accordions in the same group
+      const accordion = header.closest('.accordion');
+      const allContents = accordion.querySelectorAll('.accordion-content');
+      const allHeaders = accordion.querySelectorAll('.accordion-header');
+
+      allContents.forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('aria-hidden', 'true');
+      });
+      allHeaders.forEach(h => h.setAttribute('aria-expanded', 'false'));
+
+      // Open clicked accordion if it wasn't active
+      if (!isActive) {
+        content.classList.add('active');
+        header.setAttribute('aria-expanded', 'true');
+        content.setAttribute('aria-hidden', 'false');
+      }
+    });
+
+    // Set initial ARIA attributes
+    header.setAttribute('aria-expanded', 'false');
+    const content = header.nextElementSibling;
+    content.setAttribute('aria-hidden', 'true');
+  });
+}
+
+/**
+ * Initialize FAQ search functionality
+ */
+function initializeFAQSearch() {
+  const searchInput = document.getElementById('faq-search');
+  const clearButton = document.getElementById('clear-search');
+  const noResults = document.getElementById('faq-no-results');
+
+  if (!searchInput) return;
+
+  // Add search functionality
+  searchInput.addEventListener('input', debounce(handleFAQSearch, 300));
+
+  // Clear search functionality
+  if (clearButton) {
+    clearButton.addEventListener('click', clearFAQSearch);
+  }
+
+  // Keyboard shortcuts
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      clearFAQSearch();
+    }
+  });
+}
+
+/**
+ * Handle FAQ search
+ */
+function handleFAQSearch() {
+  const searchInput = document.getElementById('faq-search');
+  const clearButton = document.getElementById('clear-search');
+  const noResults = document.getElementById('faq-no-results');
+  const searchTerm = searchInput.value.toLowerCase().trim();
+
+  const accordionItems = document.querySelectorAll('.accordion-item');
+  let visibleCount = 0;
+
+  accordionItems.forEach(item => {
+    const question = item.querySelector('.question-text');
+    const answer = item.querySelector('.accordion-content');
+    const category = item.dataset.category || '';
+
+    if (!question || !answer) return;
+
+    const questionText = question.textContent.toLowerCase();
+    const answerText = answer.textContent.toLowerCase();
+
+    const matches = !searchTerm ||
+      questionText.includes(searchTerm) ||
+      answerText.includes(searchTerm) ||
+      category.includes(searchTerm);
+
+    if (matches) {
+      item.style.display = 'block';
+      visibleCount++;
+    } else {
+      item.style.display = 'none';
+    }
+  });
+
+  // Show/hide clear button
+  if (clearButton) {
+    clearButton.style.display = searchTerm ? 'inline-block' : 'none';
+  }
+
+  // Show/hide no results message
+  if (noResults) {
+    noResults.style.display = visibleCount === 0 && searchTerm ? 'block' : 'none';
+  }
+
+  // Announce results to screen readers
+  if (searchTerm) {
+    const announcement = `${visibleCount} FAQ items found for "${searchTerm}"`;
+    announceToScreenReader(announcement);
+  }
+}
+
+/**
+ * Clear FAQ search
+ */
+function clearFAQSearch() {
+  const searchInput = document.getElementById('faq-search');
+  const clearButton = document.getElementById('clear-search');
+  const noResults = document.getElementById('faq-no-results');
+
+  if (searchInput) searchInput.value = '';
+  if (clearButton) clearButton.style.display = 'none';
+  if (noResults) noResults.style.display = 'none';
+
+  // Show all FAQ items
+  const accordionItems = document.querySelectorAll('.accordion-item');
+  accordionItems.forEach(item => {
+    item.style.display = 'block';
+  });
+
+  // Close all accordions
+  const accordionContents = document.querySelectorAll('.accordion-content');
+  const accordionHeaders = document.querySelectorAll('.accordion-header');
+  accordionContents.forEach(content => content.classList.remove('active'));
+  accordionHeaders.forEach(header => header.setAttribute('aria-expanded', 'false'));
+}
+
+/**
+ * Announce message to screen readers
+ */
+function announceToScreenReader(message) {
+  const announcement = document.createElement('div');
+  announcement.setAttribute('aria-live', 'polite');
+  announcement.setAttribute('aria-atomic', 'true');
+  announcement.className = 'sr-only';
+  announcement.textContent = message;
+
+  document.body.appendChild(announcement);
+
+  // Remove after announcement
+  setTimeout(() => {
+    if (announcement.parentNode) {
+      announcement.remove();
+    }
+  }, 1000);
+}
+
+/**
+ * Utility function to debounce function calls
+ */
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+[FILE_END: js\accordion-faq.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: js\comparison-slider.js
+METADATA: Size=7178 bytes | Last_Modified=2025-12-29 20:25:36.471871
+================================================================================
+// Properties 4 Creations - Comparison Slider
+// Handles before/after image comparison functionality
+
+document.addEventListener('DOMContentLoaded', () => {
+  window.comparisonSlider.initialize();
+});
+
+/**
+ * Initialize all comparison sliders on the page
+ */
+function initializeComparisonSliders() {
+  const sliders = document.querySelectorAll('.comparison-slider');
+
+  sliders.forEach((slider, index) => {
+    createComparisonSlider(slider, index);
+  });
+}
+
+/**
+ * Create a comparison slider for a given container
+ * Supports both pre-rendered images and data attributes
+ */
+function createComparisonSlider(container, index) {
+  const beforeImage = container.querySelector('.before-image');
+  const afterImage = container.querySelector('.after-image');
+  const beforeSrc = container.dataset.before;
+  const afterSrc = container.dataset.after;
+
+  // Handle data attribute pattern (Impact Gallery style)
+  if (beforeSrc && afterSrc) {
+    // Create the slider structure for data attributes
+    container.innerHTML = `
+      <img src="${beforeSrc}" alt="Before renovation" class="before-image" style="display: block;">
+      <div class="slider-overlay" style="background-image: url('${afterSrc}')"></div>
+      <div class="slider-handle" role="slider" aria-label="Adjust before/after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+        <div class="slider-handle-button" aria-label="Drag to compare images"></div>
+      </div>
+      <div class="slider-label before-label">Before</div>
+      <div class="slider-label after-label">After</div>
+    `;
+  }
+  // Handle pre-rendered image pattern
+  else if (!beforeImage || !afterImage) {
+    console.warn('Comparison slider missing before or after image');
+    return;
+  }
+
+  const finalBeforeImage = container.querySelector('.before-image');
+  const finalAfterImage = container.querySelector('.after-image');
+  const overlay = container.querySelector('.slider-overlay');
+  const handle = container.querySelector('.slider-handle');
+
+  if (!finalBeforeImage || !overlay || !handle) {
+    console.warn('Comparison slider elements not created properly');
+    return;
+  }
+
+  // Position images
+  container.style.position = 'relative';
+  finalBeforeImage.style.position = 'absolute';
+  finalBeforeImage.style.top = '0';
+  finalBeforeImage.style.left = '0';
+  finalBeforeImage.style.width = '100%';
+  finalBeforeImage.style.height = '100%';
+  finalBeforeImage.style.objectFit = 'cover';
+
+  overlay.style.position = 'absolute';
+  overlay.style.top = '0';
+  overlay.style.left = '0';
+  overlay.style.width = '50%';
+  overlay.style.height = '100%';
+  overlay.style.backgroundSize = 'cover';
+  overlay.style.backgroundPosition = 'center';
+  overlay.style.backgroundRepeat = 'no-repeat';
+
+  handle.style.position = 'absolute';
+  handle.style.top = '50%';
+  handle.style.left = '50%';
+  handle.style.transform = 'translate(-50%, -50%)';
+  handle.style.zIndex = '10';
+  handle.style.cursor = 'ew-resize';
+
+  // Initialize slider position
+  let sliderPosition = 50; // percentage
+  updateSlider(sliderPosition, container, overlay, handle);
+
+  // Mouse events
+  let isDragging = false;
+
+  handle.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    handle.style.cursor = 'grabbing';
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const percentage = (x / rect.width) * 100;
+
+    sliderPosition = Math.max(0, Math.min(100, percentage));
+    updateSlider(sliderPosition, container, overlay, handle);
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      handle.style.cursor = 'ew-resize';
+    }
+  });
+
+  // Touch events for mobile
+  handle.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    e.preventDefault();
+  });
+
+  document.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+
+    const rect = container.getBoundingClientRect();
+    const touch = e.touches[0];
+    const x = touch.clientX - rect.left;
+    const percentage = (x / rect.width) * 100;
+
+    sliderPosition = Math.max(0, Math.min(100, percentage));
+    updateSlider(sliderPosition, container, overlay, handle);
+  });
+
+  document.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+
+  // Keyboard navigation
+  handle.addEventListener('keydown', (e) => {
+    const step = 5; // 5% steps
+
+    switch (e.key) {
+      case 'ArrowLeft':
+        sliderPosition = Math.max(0, sliderPosition - step);
+        updateSlider(sliderPosition, container, overlay, handle);
+        e.preventDefault();
+        break;
+      case 'ArrowRight':
+        sliderPosition = Math.min(100, sliderPosition + step);
+        updateSlider(sliderPosition, container, overlay, handle);
+        e.preventDefault();
+        break;
+      case 'Home':
+        sliderPosition = 0;
+        updateSlider(sliderPosition, container, overlay, handle);
+        e.preventDefault();
+        break;
+      case 'End':
+        sliderPosition = 100;
+        updateSlider(sliderPosition, container, overlay, handle);
+        e.preventDefault();
+        break;
+    }
+  });
+}
+
+/**
+ * Update slider position
+ */
+function updateSlider(position, container, overlay, handle) {
+  // Update overlay width
+  overlay.style.width = `${position}%`;
+
+  // Update handle position
+  handle.style.left = `${position}%`;
+
+  // Update ARIA attributes
+  handle.setAttribute('aria-valuenow', Math.round(position));
+
+  // Update background position for smooth image transition
+  overlay.style.backgroundPosition = `${100 - position}% center`;
+}
+
+/**
+ * Create a simple static comparison (fallback for browsers without JS)
+ */
+function createStaticComparison(container) {
+  const beforeImage = container.querySelector('.before-image');
+  const afterImage = container.querySelector('.after-image');
+
+  if (!beforeImage || !afterImage) return;
+
+  // Create a simple side-by-side layout
+  container.style.display = 'flex';
+
+  beforeImage.style.flex = '1';
+  beforeImage.style.objectFit = 'cover';
+  beforeImage.style.height = '300px';
+
+  afterImage.style.flex = '1';
+  afterImage.style.objectFit = 'cover';
+  afterImage.style.height = '300px';
+
+  // Add labels
+  const beforeLabel = document.createElement('div');
+  beforeLabel.textContent = 'Before';
+  beforeLabel.style.textAlign = 'center';
+  beforeLabel.style.padding = '0.5rem';
+  beforeLabel.style.fontWeight = 'bold';
+
+  const afterLabel = document.createElement('div');
+  afterLabel.textContent = 'After';
+  afterLabel.style.textAlign = 'center';
+  afterLabel.style.padding = '0.5rem';
+  afterLabel.style.fontWeight = 'bold';
+
+  container.insertBefore(beforeLabel, beforeImage);
+  container.appendChild(afterLabel);
+}
+
+// Export for potential use by other scripts
+window.comparisonSlider = {
+  initialize: initializeComparisonSliders,
+  create: createComparisonSlider
+};
+
+
+[FILE_END: js\comparison-slider.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: js\forms.js
+METADATA: Size=1150 bytes | Last_Modified=2025-12-29 20:28:57.003475
+================================================================================
+/**
+ * Properties 4 Creations - Forms Module
+ * Handles form initialization and submission
+ *
+ * @fileoverview Initializes form functionality using validation module
+ * @author Properties 4 Creations
+ */
+
+import { 
+  handleApplicationSubmit, 
+  handleContactSubmit, 
+  addFormValidation, 
+  setMinimumMoveInDate 
+} from './validation.js';
+
+/**
+ * Initialize form validation and submission
+ */
+export function initForms() {
+  // Set minimum date for move-in date field
+  setMinimumMoveInDate();
+
+  const forms = [
+    document.getElementById('application-form'),
+    document.getElementById('contact-form')
+  ];
+
+  forms.forEach(form => {
+    if (form) {
+      const submitButton = form.querySelector('button[type="submit"]');
+      if (submitButton) {
+        submitButton.disabled = true; // Disable on page load
+      }
+      
+      if (form.id === 'application-form') {
+        form.addEventListener('submit', handleApplicationSubmit);
+      } else if (form.id === 'contact-form') {
+        form.addEventListener('submit', handleContactSubmit);
+      }
+      
+      addFormValidation(form);
+    }
+  });
+}
+
+[FILE_END: js\forms.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: js\includes.js
+METADATA: Size=632 bytes | Last_Modified=2025-12-29 15:26:33.417937
+================================================================================
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to fetch and include HTML content
+    function includeHTML() {
+        // Load header
+        fetch('/_header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+            });
+
+        // Load footer
+        fetch('/_footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('body').insertAdjacentHTML('beforeend', data);
+            });
+    }
+
+    includeHTML();
+});
+
+
+[FILE_END: js\includes.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: js\main.js
+METADATA: Size=13355 bytes | Last_Modified=2025-12-29 20:34:53.355616
+================================================================================
+/**
+ * Properties 4 Creations - Main JavaScript
+ * Main entry point with form validation and common functionality
+ *
+ * @fileoverview Initializes all JavaScript components and functionality
+ * @author Properties 4 Creations
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    // Initialize all components using modular structure
+    import('./forms.js').then(({ initForms }) => initForms());
+    import('./accordion-faq.js').then(({ initFAQ }) => initFAQ());
+    import('./properties-filters.js').then(({ initPropertyFilters }) => initPropertyFilters());
+    import('./a11y.js').then(({ initFocusManagement, setCurrentPage }) => {
+      initFocusManagement();
+      setCurrentPage();
+    });
+    import('./performance.js').then(({ initPerformanceOptimizations, initPerformanceMonitoring, initLazyLoading }) => {
+      initPerformanceOptimizations();
+      initPerformanceMonitoring();
+      initLazyLoading();
+    });
+
+    // Service worker removed - not needed for housing application site
+    // Forms require real-time processing, offline capability creates confusion
+  } catch (error) {
+    console.error('Error initializing main JavaScript:', error);
+    // Fallback to basic functionality
+    initializeBasicFunctionality();
+  }
+});
+
+/**
+ * Initialize basic functionality as fallback when main initialization fails
+ * @private
+ */
+function initializeBasicFunctionality() {
+  console.warn('Initializing basic functionality due to initialization error');
+  
+  // Basic form validation
+  const forms = document.querySelectorAll('form');
+  forms.forEach(form => {
+    if (form.id === 'application-form') {
+      form.addEventListener('submit', handleApplicationSubmit);
+    } else if (form.id === 'contact-form') {
+      form.addEventListener('submit', handleContactSubmit);
+    }
+  });
+}
+
+/**
+ * Handle application form submission (fallback)
+ */
+async function handleApplicationSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+
+  if (!validateForm(form)) {
+    showError(form, 'Please correct the errors before submitting.');
+    return;
+  }
+
+  const formData = new FormData(form);
+  const formspreeUrl = form.action;
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalButtonText = submitButton ? submitButton.textContent : 'Submit Application';
+
+  if (submitButton) {
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+    submitButton.classList.add('btn-loading');
+    submitButton.innerHTML = '<span class="spinner"></span> Sending...';
+  }
+
+  try {
+    // Input sanitization
+    const sanitizedData = new FormData();
+    for (const [key, value] of formData.entries()) {
+      sanitizedData.append(key, sanitizeInput(value));
+    }
+
+    const response = await fetch(formspreeUrl, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: sanitizedData
+    });
+
+    if (response.ok) {
+      showSuccess(form, 'Application Submitted Successfully! Thank you! We will contact you within 24 hours.');
+      form.reset();
+      // After resetting, re-disable the submit button
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+    } else {
+      let errorMessage = 'There was an issue submitting your application. Please try again.';
+      try {
+        const errorData = await response.json();
+        if (errorData && errorData.errors) {
+          errorMessage = `Submission failed: ${errorData.errors.map(err => err.message).join(', ')}`;
+        } else if (errorData && errorData.error) {
+          errorMessage = `Submission failed: ${errorData.error}`;
+        }
+      } catch (jsonError) {
+        console.warn('Could not parse error response as JSON:', jsonError);
+      }
+      showError(form, errorMessage);
+    }
+  } catch (error) {
+    console.error('Network error submitting application:', error);
+    showError(form, 'Network error. Please check your internet connection and try again.');
+  } finally {
+    if (submitButton) {
+      submitButton.textContent = originalButtonText;
+      submitButton.disabled = false;
+      submitButton.classList.remove('btn-loading');
+      submitButton.innerHTML = originalButtonText;
+    }
+  }
+}
+
+/**
+ * Handle contact form submission (fallback)
+ */
+async function handleContactSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+
+  if (!validateForm(form)) {
+    showError(form, 'Please correct the errors before submitting.');
+    return;
+  }
+
+  const formData = new FormData(form);
+  const formspreeUrl = form.action;
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalButtonText = submitButton ? submitButton.textContent : 'Send Message';
+
+  if (submitButton) {
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+    submitButton.classList.add('btn-loading');
+    submitButton.innerHTML = '<span class="spinner"></span> Sending...';
+  }
+
+  try {
+    // Input sanitization
+    const sanitizedData = new FormData();
+    for (const [key, value] of formData.entries()) {
+      sanitizedData.append(key, sanitizeInput(value));
+    }
+
+    const response = await fetch(formspreeUrl, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: sanitizedData
+    });
+
+    if (response.ok) {
+      showSuccess(form, 'Message Sent Successfully! Thank you! We will respond within 24 hours.');
+      form.reset();
+      // After resetting, re-disable the submit button
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+    } else {
+      let errorMessage = 'There was an issue sending your message. Please try again.';
+      try {
+        const errorData = await response.json();
+        if (errorData && errorData.errors) {
+          errorMessage = `Submission failed: ${errorData.errors.map(err => err.message).join(', ')}`;
+        } else if (errorData && errorData.error) {
+          errorMessage = `Submission failed: ${errorData.error}`;
+        }
+      } catch (jsonError) {
+        console.warn('Could not parse error response as JSON:', jsonError);
+      }
+      showError(form, errorMessage);
+    }
+  } catch (error) {
+    console.error('Network error submitting contact form:', error);
+    showError(form, 'Network error. Please check your internet connection and try again.');
+  } finally {
+    if (submitButton) {
+      submitButton.textContent = originalButtonText;
+      submitButton.disabled = false;
+      submitButton.classList.remove('btn-loading');
+      submitButton.innerHTML = originalButtonText;
+    }
+  }
+}
+
+/**
+ * Validate the entire form by checking each field.
+ * @param {HTMLFormElement} form - The form element to validate
+ * @param {boolean} [showErrors=true] - Whether to display error messages for invalid fields
+ * @returns {boolean} True if the form is valid, false otherwise
+ * @throws {Error} If form parameter is not a valid HTMLFormElement
+ */
+function validateForm(form, showErrors = true) {
+  if (!form || !(form instanceof HTMLFormElement)) {
+    console.error('validateForm: Invalid form parameter');
+    return false;
+  }
+
+  const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+  let isFormValid = true;
+  
+  try {
+    for (const input of inputs) {
+      if (!validateField(input, showErrors)) {
+        isFormValid = false;
+      }
+    }
+  } catch (error) {
+    console.error('Error validating form:', error);
+    return false;
+  }
+  
+  return isFormValid;
+}
+
+/**
+ * Validate a single field
+ * @param {HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement} field The field to validate.
+ * @param {boolean} showErrorMsg Whether to display the error message.
+ * @returns {boolean} True if the field is valid, false otherwise.
+ */
+function validateField(field, showErrorMsg = true) {
+  const value = field.value.trim();
+  let isValid = true;
+  let errorMessage = '';
+
+  // Required field validation
+  if (field.hasAttribute('required') && !value) {
+    isValid = false;
+    errorMessage = 'This field is required';
+  }
+
+  // Min length validation (only if value is not empty)
+  if (isValid && field.hasAttribute('minlength') && value.length < parseInt(field.getAttribute('minlength'), 10)) {
+    isValid = false;
+    errorMessage = `Minimum ${field.getAttribute('minlength')} characters required`;
+  }
+
+  // Email validation (only if value is not empty)
+  if (isValid && field.type === 'email' && value && !isValidEmail(value)) {
+    isValid = false;
+    errorMessage = 'Please enter a valid email address';
+  }
+
+  // Phone validation (only if value is not empty)
+  if (isValid && field.type === 'tel' && value && !isValidPhone(value)) {
+    isValid = false;
+    errorMessage = 'Please enter a valid phone number';
+  }
+
+  // Checkbox validation
+  if (field.type === 'checkbox' && field.hasAttribute('required') && !field.checked) {
+    isValid = false;
+    errorMessage = 'You must agree to this';
+  }
+
+  if (!isValid && showErrorMsg) {
+    showFieldError(field, errorMessage);
+  } else {
+    clearFieldError(field);
+  }
+
+  return isValid;
+}
+
+/**
+ * Show error for a specific field
+ */
+function showFieldError(field, message) {
+  clearFieldError(field);
+
+  field.classList.add('error');
+  field.setAttribute('aria-invalid', 'true');
+
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'field-error';
+  errorDiv.textContent = message;
+  errorDiv.setAttribute('role', 'alert');
+
+  field.parentNode.appendChild(errorDiv);
+}
+
+/**
+ * Clear error for a specific field
+ */
+function clearFieldError(field) {
+  field.classList.remove('error');
+  field.removeAttribute('aria-invalid');
+
+  const errorDiv = field.parentNode.querySelector('.field-error');
+  if (errorDiv) {
+    errorDiv.remove();
+  }
+}
+
+/**
+ * Email validation
+ */
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+/**
+ * Phone validation (basic US phone number format)
+ */
+function isValidPhone(phone) {
+  const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+  const cleanPhone = phone.replace(/[\s\-\(\)\.]/g, '');
+  return phoneRegex.test(cleanPhone) && cleanPhone.length >= 10;
+}
+
+/**
+ * Show success message within the context of a form
+ */
+function showSuccess(form, message) {
+  const successMessageDiv = form.parentNode.querySelector('.success-message');
+
+  if (successMessageDiv) {
+    // Clear any previous general error message for this form
+    const existingErrorDiv = form.parentNode.querySelector('.form-general-error');
+    if (existingErrorDiv) {
+      existingErrorDiv.remove();
+    }
+
+    successMessageDiv.innerHTML = `<h3>${message}</h3>`;
+    successMessageDiv.style.display = 'block';
+    successMessageDiv.setAttribute('aria-hidden', 'false');
+
+    // Hide after 5 seconds
+    setTimeout(() => {
+      successMessageDiv.style.display = 'none';
+      successMessageDiv.setAttribute('aria-hidden', 'true');
+      successMessageDiv.innerHTML = '';
+    }, 5000);
+  } else {
+    // Fallback if no specific div is found (current implementation)
+    const successDiv = document.createElement('div');
+    successDiv.className = 'success-message';
+    successDiv.textContent = message;
+    successDiv.setAttribute('role', 'alert');
+    successDiv.setAttribute('aria-live', 'polite');
+    form.parentNode.insertBefore(successDiv, form.nextSibling);
+
+    setTimeout(() => {
+      if (successDiv.parentNode) {
+        successDiv.remove();
+      }
+    }, 5000);
+  }
+}
+
+/**
+ * Show error message before a specific form
+ */
+function showError(form, message) {
+  // Clear any existing general error message for this form
+  const existingErrorDiv = form.parentNode.querySelector('.form-general-error');
+  if (existingErrorDiv) {
+    existingErrorDiv.remove();
+  }
+
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'error-message form-general-error'; // Add a specific class to identify it
+  errorDiv.textContent = message;
+  errorDiv.setAttribute('role', 'alert');
+  errorDiv.setAttribute('aria-live', 'assertive');
+
+  // Style the error message (keep existing inline style for now)
+  errorDiv.style.cssText = `
+    background: var(--color-semantic-error);
+    color: var(--color-neutral-white);
+    padding: var(--spacing-4);
+    border-radius: 0.5rem;
+    margin: var(--spacing-4) 0;
+    text-align: center;
+  `;
+
+  form.parentNode.insertBefore(errorDiv, form); // Insert before the form
+
+  // Auto-hide after 5 seconds
+  setTimeout(() => {
+    if (errorDiv.parentNode) {
+      errorDiv.remove();
+    }
+  }, 5000);
+}
+
+/**
+ * Sanitize user input to prevent XSS attacks
+ * @param {string} input - The input string to sanitize
+ * @returns {string} Sanitized input string
+ */
+function sanitizeInput(input) {
+  if (typeof input !== 'string') {
+    return '';
+  }
+  
+  return input
+    .replace(/[<>]/g, '') // Remove angle brackets
+    .replace(/javascript:/gi, '') // Remove javascript: protocol
+    .replace(/on\w+=/gi, '') // Remove event handlers
+    .trim();
+}
+
+
+[FILE_END: js\main.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: js\mobile-menu.js
+METADATA: Size=5686 bytes | Last_Modified=2025-12-29 20:24:45.839744
+================================================================================
+// Properties 4 Creations - Mobile Menu
+// Handles mobile navigation menu functionality
+
+document.addEventListener('DOMContentLoaded', () => {
+  initializeMobileMenu();
+});
+
+/**
+ * Initialize mobile menu functionality
+ */
+function initializeMobileMenu() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNav = document.querySelector('.main-navigation');
+
+  if (!menuToggle || !mainNav) {
+    console.warn('Mobile menu elements not found');
+    return;
+  }
+
+  // Set initial ARIA attributes
+  menuToggle.setAttribute('aria-expanded', 'false');
+  // Only set aria-hidden on mobile
+  if (window.innerWidth < 768) {
+    mainNav.setAttribute('aria-hidden', 'true');
+  }
+
+  // Add click event listener
+  menuToggle.addEventListener('click', handleMenuToggle);
+
+  // Handle keyboard navigation
+  document.addEventListener('keydown', handleKeydown);
+
+  // Close menu when clicking outside
+  document.addEventListener('click', handleOutsideClick);
+
+  // Close menu on window resize (if switching to desktop)
+  window.addEventListener('resize', debounce(handleResize, 250));
+}
+
+/**
+ * Handle menu toggle button click
+ */
+function handleMenuToggle() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNav = document.querySelector('.main-navigation');
+
+  const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+
+  if (isExpanded) {
+    closeMenu();
+  } else {
+    openMenu();
+  }
+}
+
+/**
+ * Open the mobile menu
+ */
+function openMenu() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNav = document.querySelector('.main-navigation');
+  const body = document.body;
+
+  // Update ARIA attributes
+  menuToggle.setAttribute('aria-expanded', 'true');
+  if (window.innerWidth < 768) {
+    mainNav.setAttribute('aria-hidden', 'false');
+  }
+
+  // Prevent body scroll
+  body.style.overflow = 'hidden';
+
+  // Focus management - focus first menu item after animation
+  setTimeout(() => {
+    const firstLink = mainNav.querySelector('.nav-link');
+    if (firstLink) {
+      firstLink.focus();
+    }
+  }, 300); // Match CSS transition duration
+}
+
+/**
+ * Close the mobile menu
+ */
+function closeMenu() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNav = document.querySelector('.main-navigation');
+  const body = document.body;
+
+  // Update ARIA attributes
+  menuToggle.setAttribute('aria-expanded', 'false');
+  if (window.innerWidth < 768) {
+    mainNav.setAttribute('aria-hidden', 'true');
+  }
+
+  // Restore body scroll
+  body.style.overflow = '';
+
+  // Return focus to menu toggle
+  menuToggle.focus();
+}
+
+/**
+ * Handle keyboard navigation
+ */
+function handleKeydown(event) {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNav = document.querySelector('.main-navigation');
+
+  // Close menu on Escape key
+  if (event.key === 'Escape') {
+    const isOpen = menuToggle && menuToggle.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      closeMenu();
+      event.preventDefault();
+    }
+  }
+
+  // Handle Tab navigation within menu
+  if (event.key === 'Tab') {
+    const isOpen = menuToggle && menuToggle.getAttribute('aria-expanded') === 'true';
+
+    if (isOpen && mainNav) {
+      const focusableElements = mainNav.querySelectorAll(
+        'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      // If Tab on last element, close menu and focus toggle
+      if (event.target === lastElement && !event.shiftKey) {
+        closeMenu();
+        event.preventDefault();
+      }
+
+      // If Shift+Tab on first element, close menu and focus toggle
+      if (event.target === firstElement && event.shiftKey) {
+        closeMenu();
+        event.preventDefault();
+      }
+    }
+  }
+}
+
+/**
+ * Handle clicks outside the menu
+ */
+function handleOutsideClick(event) {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNav = document.querySelector('.main-navigation');
+
+  const isOpen = menuToggle && menuToggle.getAttribute('aria-expanded') === 'true';
+
+  if (isOpen) {
+    // Check if click is outside menu and toggle
+    const isClickInsideMenu = mainNav && mainNav.contains(event.target);
+    const isClickOnToggle = menuToggle && menuToggle.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnToggle) {
+      closeMenu();
+    }
+  }
+}
+
+/**
+ * Handle window resize
+ */
+function handleResize() {
+  const menuToggle = document.querySelector('.menu-toggle');
+
+  // If window is resized to desktop size and menu is open, close it
+  if (window.innerWidth >= 768) {
+    const isOpen = menuToggle && menuToggle.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      closeMenu();
+    }
+  }
+}
+
+/**
+ * Utility function to get current menu state
+ */
+function isMenuOpen() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  return menuToggle && menuToggle.getAttribute('aria-expanded') === 'true';
+}
+
+/**
+ * Utility function to debounce function calls
+ */
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// Export functions for potential use by other scripts
+window.mobileMenu = {
+  open: openMenu,
+  close: closeMenu,
+  isOpen: isMenuOpen
+};
+
+
+[FILE_END: js\mobile-menu.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: js\performance.js
+METADATA: Size=5569 bytes | Last_Modified=2025-12-30 01:00:26.690267
+================================================================================
+/**
+ * Properties 4 Creations - Performance Module
+ * Handles performance optimizations and monitoring
+ *
+ * @fileoverview Provides performance optimizations and Core Web Vitals monitoring
+ * @author Properties 4 Creations
+ */
+
+/**
+ * Initialize performance optimizations
+ */
+export function initPerformanceOptimizations() {
+  // Preload critical resources
+  preloadCriticalResources();
+
+  // Add resource hints for better loading
+  addResourceHints();
+
+  // Optimize scroll performance
+  optimizeScrollPerformance();
+}
+
+/**
+ * Initialize performance monitoring for Core Web Vitals
+ */
+export function initPerformanceMonitoring() {
+  // Check if PerformanceObserver is supported
+  if ('PerformanceObserver' in window) {
+    const metrics = {
+      lcp: 0,
+      cls: 0,
+      fid: 0,
+      navigationTiming: {}
+    };
+
+    // Track navigation timing
+    if (window.performance && window.performance.timing) {
+      metrics.navigationTiming = {
+        loadTime: performance.timing.loadEventEnd - performance.timing.navigationStart,
+        domReady: performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart
+      };
+    }
+
+    // Largest Contentful Paint
+    try {
+      new PerformanceObserver((entryList) => {
+        const entries = entryList.getEntries();
+        const lastEntry = entries[entries.length - 1];
+        metrics.lcp = lastEntry.startTime;
+        console.log('LCP:', metrics.lcp, 'ms');
+        
+        // Send to analytics if available
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            event: 'performance_metrics',
+            metricType: 'LCP',
+            value: metrics.lcp
+          });
+        }
+      }).observe({type: 'largest-contentful-paint', buffered: true});
+    } catch (e) {
+      console.warn('LCP monitoring failed:', e);
+    }
+
+    // Cumulative Layout Shift
+    try {
+      let cls = 0;
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          if (!entry.hadRecentInput) {
+            cls += entry.value;
+          }
+        }
+        metrics.cls = cls;
+        console.log('CLS:', metrics.cls);
+        
+        // Send to analytics if available
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            event: 'performance_metrics',
+            metricType: 'CLS',
+            value: metrics.cls
+          });
+        }
+      }).observe({type: 'layout-shift', buffered: true});
+    } catch (e) {
+      console.warn('CLS monitoring failed:', e);
+    }
+
+    // First Input Delay
+    try {
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          metrics.fid = entry.processingStart - entry.startTime;
+          console.log('FID:', metrics.fid, 'ms');
+          
+          // Send to analytics if available
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              event: 'performance_metrics',
+              metricType: 'FID',
+              value: metrics.fid
+            });
+          }
+        }
+      }).observe({type: 'first-input', buffered: true});
+    } catch (e) {
+      console.warn('FID monitoring failed:', e);
+    }
+
+    // Log metrics to console for debugging
+    console.log('Performance Monitoring Initialized');
+    console.log('Navigation Timing:', metrics.navigationTiming);
+    
+    // Expose metrics globally for debugging
+    window.performanceMetrics = metrics;
+  } else {
+    console.log('PerformanceObserver not supported, performance monitoring disabled');
+  }
+}
+
+/**
+ * Initialize lazy loading for images
+ */
+export function initLazyLoading() {
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.classList.add('loaded');
+          observer.unobserve(img);
+        }
+      });
+    });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+  } else {
+    // Fallback for browsers without IntersectionObserver
+    lazyImages.forEach(img => {
+      img.classList.add('loaded');
+    });
+  }
+}
+
+/**
+ * Preload critical resources
+ */
+function preloadCriticalResources() {
+  // Preload logo and critical images
+  const criticalImages = [
+    '/images/logo/brand-logo.svg',
+    '/images/logo/brand-logo.svg'
+  ];
+
+  criticalImages.forEach(src => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = src;
+    document.head.appendChild(link);
+  });
+}
+
+/**
+ * Add resource hints for better loading
+ */
+function addResourceHints() {
+  // DNS prefetch for external domains
+  const domains = ['fonts.googleapis.com', 'fonts.gstatic.com'];
+
+  domains.forEach(domain => {
+    const link = document.createElement('link');
+    link.rel = 'dns-prefetch';
+    link.href = `//${domain}`;
+    document.head.appendChild(link);
+  });
+}
+
+/**
+ * Optimize scroll performance
+ */
+function optimizeScrollPerformance() {
+  let ticking = false;
+
+  function updateScrollPosition() {
+    // Add scroll-based effects here if needed
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateScrollPosition);
+      ticking = true;
+    }
+  });
+}
+
+[FILE_END: js\performance.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: js\properties-filters.js
+METADATA: Size=2814 bytes | Last_Modified=2025-12-29 20:29:11.842685
+================================================================================
+/**
+ * Properties 4 Creations - Properties Filters Module
+ * Handles property filtering functionality
+ *
+ * @fileoverview Provides property filtering logic for the properties page
+ * @author Properties 4 Creations
+ */
+
+/**
+ * Initialize property filters
+ */
+export function initPropertyFilters() {
+  const searchInput = document.getElementById('property-search');
+  const bedroomsSelect = document.getElementById('filter-bedrooms');
+  const locationSelect = document.getElementById('filter-location');
+  const noResults = document.getElementById('no-results');
+
+  // Only run on pages with property filters
+  if (!searchInput && !bedroomsSelect && !locationSelect) {
+    return;
+  }
+
+  const propertyCards = document.querySelectorAll('.property-card');
+
+  function filterProperties() {
+    const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    const selectedBedrooms = bedroomsSelect ? bedroomsSelect.value : '';
+    const selectedLocation = locationSelect ? locationSelect.value : '';
+
+    let visibleCount = 0;
+
+    propertyCards.forEach(card => {
+      // Guard against missing elements
+      const titleElement = card.querySelector('.property-title');
+      const detailsElement = card.querySelector('.property-details');
+      const tagElements = card.querySelectorAll('.tag');
+
+      if (!titleElement || !detailsElement) {
+        console.warn('Property card missing required elements:', card);
+        return;
+      }
+
+      const title = titleElement.textContent.toLowerCase();
+      const details = detailsElement.textContent.toLowerCase();
+      const tags = Array.from(tagElements).map(tag => tag.textContent.toLowerCase());
+
+      let matchesSearch = !searchTerm || title.includes(searchTerm) || details.includes(searchTerm) || tags.some(tag => tag.includes(searchTerm));
+      let matchesBedrooms = !selectedBedrooms || details.includes(selectedBedrooms + ' br') || (selectedBedrooms === '4' && details.includes('4+ br'));
+      let matchesLocation = !selectedLocation || title.includes(selectedLocation) || details.includes(selectedLocation);
+
+      if (matchesSearch && matchesBedrooms && matchesLocation) {
+        card.style.display = 'block';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Show/hide no results message
+    if (noResults) {
+      noResults.style.display = visibleCount === 0 && (searchTerm || selectedBedrooms || selectedLocation) ? 'block' : 'none';
+    }
+  }
+
+  // Add event listeners
+  if (searchInput) searchInput.addEventListener('input', filterProperties);
+  if (bedroomsSelect) bedroomsSelect.addEventListener('change', filterProperties);
+  if (locationSelect) locationSelect.addEventListener('change', filterProperties);
+}
+
+[FILE_END: js\properties-filters.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: js\theme-toggle.js
+METADATA: Size=4993 bytes | Last_Modified=2025-12-26 13:43:08.755546
+================================================================================
+// Properties 4 Creations - Theme Toggle
+// Handles dark mode functionality
+
+document.addEventListener('DOMContentLoaded', () => {
+  initializeThemeToggle();
+});
+
+/**
+ * Initialize theme toggle functionality
+ */
+function initializeThemeToggle() {
+  const themeToggle = document.getElementById('theme-toggle');
+
+  if (!themeToggle) {
+    console.warn('Theme toggle button not found');
+    return;
+  }
+
+  // Load saved theme or default to light
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const defaultTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+  // Set initial theme
+  setTheme(defaultTheme);
+
+  // Update toggle button appearance
+  updateToggleButton(defaultTheme);
+
+  // Add click event listener
+  themeToggle.addEventListener('click', handleThemeToggle);
+
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleSystemThemeChange);
+}
+
+/**
+ * Handle theme toggle button click
+ */
+function handleThemeToggle() {
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+  setTheme(newTheme);
+}
+
+/**
+ * Set the theme
+ */
+function setTheme(theme) {
+  // Update data attribute on html element
+  document.documentElement.setAttribute('data-theme', theme);
+
+  // Save to localStorage
+  localStorage.setItem('theme', theme);
+
+  // Update toggle button appearance
+  updateToggleButton(theme);
+
+  // Update meta theme-color for mobile browsers
+  updateMetaThemeColor(theme);
+
+  // Announce theme change to screen readers
+  announceThemeChange(theme);
+}
+
+/**
+ * Update the toggle button appearance and accessibility attributes
+ */
+function updateToggleButton(theme) {
+  const themeToggle = document.getElementById('theme-toggle');
+
+  if (!themeToggle) return;
+
+  const themeIcon = themeToggle.querySelector('.theme-icon');
+  const themeText = themeToggle.querySelector('.theme-text');
+
+  if (theme === 'dark') {
+    // Dark mode is active
+    themeToggle.setAttribute('aria-pressed', 'true');
+    themeToggle.setAttribute('aria-label', 'Switch to light mode');
+
+    if (themeIcon) themeIcon.textContent = '☀️';
+    if (themeText) themeText.textContent = 'Light Mode';
+  } else {
+    // Light mode is active
+    themeToggle.setAttribute('aria-pressed', 'false');
+    themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+
+    if (themeIcon) themeIcon.textContent = '🌙';
+    if (themeText) themeText.textContent = 'Dark Mode';
+  }
+}
+
+/**
+ * Update meta theme-color for mobile browsers
+ */
+function updateMetaThemeColor(theme) {
+  let metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
+  if (!metaThemeColor) {
+    metaThemeColor = document.createElement('meta');
+    metaThemeColor.name = 'theme-color';
+    document.head.appendChild(metaThemeColor);
+  }
+
+  // Set theme color based on current theme
+  const color = theme === 'dark' ? '#0B1120' : '#FFFFFF';
+  metaThemeColor.setAttribute('content', color);
+}
+
+/**
+ * Announce theme change to screen readers
+ */
+function announceThemeChange(theme) {
+  const announcement = theme === 'dark'
+    ? 'Dark mode enabled'
+    : 'Light mode enabled';
+
+  // Create or update live region for screen reader announcements
+  let liveRegion = document.getElementById('theme-announcements');
+
+  if (!liveRegion) {
+    liveRegion = document.createElement('div');
+    liveRegion.id = 'theme-announcements';
+    liveRegion.setAttribute('aria-live', 'polite');
+    liveRegion.setAttribute('aria-atomic', 'true');
+    liveRegion.className = 'sr-only';
+    document.body.appendChild(liveRegion);
+  }
+
+  liveRegion.textContent = announcement;
+
+  // Clear the announcement after a short delay
+  setTimeout(() => {
+    liveRegion.textContent = '';
+  }, 1000);
+}
+
+/**
+ * Handle system theme preference changes
+ */
+function handleSystemThemeChange(event) {
+  // Only auto-switch if user hasn't manually set a preference
+  const savedTheme = localStorage.getItem('theme');
+
+  if (!savedTheme) {
+    const newTheme = event.matches ? 'dark' : 'light';
+    setTheme(newTheme);
+  }
+}
+
+/**
+ * Get current theme
+ */
+function getCurrentTheme() {
+  return document.documentElement.getAttribute('data-theme') || 'light';
+}
+
+/**
+ * Check if dark mode is preferred
+ */
+function prefersDarkMode() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
+/**
+ * Toggle theme programmatically
+ */
+function toggleTheme() {
+  const currentTheme = getCurrentTheme();
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  setTheme(newTheme);
+}
+
+// Export functions for potential use by other scripts
+window.themeManager = {
+  getCurrentTheme,
+  setTheme,
+  toggleTheme,
+  prefersDarkMode
+};
+
+
+[FILE_END: js\theme-toggle.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: js\validation.js
+METADATA: Size=14037 bytes | Last_Modified=2025-12-29 20:28:47.253482
+================================================================================
+/**
+ * Properties 4 Creations - Form Validation Module
+ * Handles form validation and submission logic
+ *
+ * @fileoverview Provides form validation utilities and submission handlers
+ * @author Properties 4 Creations
+ */
+
+/**
+ * Email validation
+ * @param {string} email - The email address to validate
+ * @returns {boolean} True if email is valid, false otherwise
+ */
+export function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+/**
+ * Phone validation (basic US phone number format)
+ * @param {string} phone - The phone number to validate
+ * @returns {boolean} True if phone is valid, false otherwise
+ */
+export function isValidPhone(phone) {
+  const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+  const cleanPhone = phone.replace(/[\s\-\(\)\.]/g, '');
+  return phoneRegex.test(cleanPhone) && cleanPhone.length >= 10;
+}
+
+/**
+ * Validate a single field
+ * @param {HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement} field The field to validate.
+ * @param {boolean} showErrorMsg Whether to display the error message.
+ * @returns {boolean} True if the field is valid, false otherwise.
+ */
+export function validateField(field, showErrorMsg = true) {
+  const value = field.value.trim();
+  let isValid = true;
+  let errorMessage = '';
+
+  // Required field validation
+  if (field.hasAttribute('required') && !value) {
+    isValid = false;
+    errorMessage = 'This field is required';
+  }
+
+  // Min length validation (only if value is not empty)
+  if (isValid && field.hasAttribute('minlength') && value.length < parseInt(field.getAttribute('minlength'), 10)) {
+    isValid = false;
+    errorMessage = `Minimum ${field.getAttribute('minlength')} characters required`;
+  }
+
+  // Email validation (only if value is not empty)
+  if (isValid && field.type === 'email' && value && !isValidEmail(value)) {
+    isValid = false;
+    errorMessage = 'Please enter a valid email address';
+  }
+
+  // Phone validation (only if value is not empty)
+  if (isValid && field.type === 'tel' && value && !isValidPhone(value)) {
+    isValid = false;
+    errorMessage = 'Please enter a valid phone number';
+  }
+
+  // Checkbox validation
+  if (field.type === 'checkbox' && field.hasAttribute('required') && !field.checked) {
+    isValid = false;
+    errorMessage = 'You must agree to this';
+  }
+
+  if (!isValid && showErrorMsg) {
+    showFieldError(field, errorMessage);
+  } else {
+    clearFieldError(field);
+  }
+
+  return isValid;
+}
+
+/**
+ * Validate the entire form by checking each field.
+ * @param {HTMLFormElement} form - The form element to validate
+ * @param {boolean} [showErrors=true] - Whether to display error messages for invalid fields
+ * @returns {boolean} True if the form is valid, false otherwise
+ * @throws {Error} If form parameter is not a valid HTMLFormElement
+ */
+export function validateForm(form, showErrors = true) {
+  if (!form || !(form instanceof HTMLFormElement)) {
+    console.error('validateForm: Invalid form parameter');
+    return false;
+  }
+
+  const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+  let isFormValid = true;
+  
+  try {
+    for (const input of inputs) {
+      if (!validateField(input, showErrors)) {
+        isFormValid = false;
+      }
+    }
+  } catch (error) {
+    console.error('Error validating form:', error);
+    return false;
+  }
+  
+  return isFormValid;
+}
+
+/**
+ * Show error for a specific field
+ * @param {HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement} field - The field to show error for
+ * @param {string} message - The error message to display
+ */
+function showFieldError(field, message) {
+  clearFieldError(field);
+
+  field.classList.add('error');
+  field.setAttribute('aria-invalid', 'true');
+
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'field-error';
+  errorDiv.textContent = message;
+  errorDiv.setAttribute('role', 'alert');
+
+  field.parentNode.appendChild(errorDiv);
+}
+
+/**
+ * Clear error for a specific field
+ * @param {HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement} field - The field to clear error for
+ */
+function clearFieldError(field) {
+  field.classList.remove('error');
+  field.removeAttribute('aria-invalid');
+
+  const errorDiv = field.parentNode.querySelector('.field-error');
+  if (errorDiv) {
+    errorDiv.remove();
+  }
+}
+
+/**
+ * Show success message within the context of a form
+ * @param {HTMLFormElement} form - The form to show success for
+ * @param {string} message - The success message to display
+ */
+export function showSuccess(form, message) {
+  const successMessageDiv = form.parentNode.querySelector('.success-message');
+
+  if (successMessageDiv) {
+    // Clear any previous general error message for this form
+    const existingErrorDiv = form.parentNode.querySelector('.form-general-error');
+    if (existingErrorDiv) {
+      existingErrorDiv.remove();
+    }
+
+    successMessageDiv.innerHTML = `<h3>${message}</h3>`;
+    successMessageDiv.style.display = 'block';
+    successMessageDiv.setAttribute('aria-hidden', 'false');
+
+    // Hide after 5 seconds
+    setTimeout(() => {
+      successMessageDiv.style.display = 'none';
+      successMessageDiv.setAttribute('aria-hidden', 'true');
+      successMessageDiv.innerHTML = '';
+    }, 5000);
+  } else {
+    // Fallback if no specific div is found (current implementation)
+    const successDiv = document.createElement('div');
+    successDiv.className = 'success-message';
+    successDiv.textContent = message;
+    successDiv.setAttribute('role', 'alert');
+    successDiv.setAttribute('aria-live', 'polite');
+    form.parentNode.insertBefore(successDiv, form.nextSibling);
+
+    setTimeout(() => {
+      if (successDiv.parentNode) {
+        successDiv.remove();
+      }
+    }, 5000);
+  }
+}
+
+/**
+ * Show error message before a specific form
+ * @param {HTMLFormElement} form - The form to show error for
+ * @param {string} message - The error message to display
+ */
+export function showError(form, message) {
+  // Clear any existing general error message for this form
+  const existingErrorDiv = form.parentNode.querySelector('.form-general-error');
+  if (existingErrorDiv) {
+    existingErrorDiv.remove();
+  }
+
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'error-message form-general-error'; // Add a specific class to identify it
+  errorDiv.textContent = message;
+  errorDiv.setAttribute('role', 'alert');
+  errorDiv.setAttribute('aria-live', 'assertive');
+
+  // Style the error message (keep existing inline style for now)
+  errorDiv.style.cssText = `
+    background: var(--color-semantic-error);
+    color: var(--color-neutral-white);
+    padding: var(--spacing-4);
+    border-radius: 0.5rem;
+    margin: var(--spacing-4) 0;
+    text-align: center;
+  `;
+
+  form.parentNode.insertBefore(errorDiv, form); // Insert before the form
+
+  // Auto-hide after 5 seconds
+  setTimeout(() => {
+    if (errorDiv.parentNode) {
+      errorDiv.remove();
+    }
+  }, 5000);
+}
+
+/**
+ * Sanitize user input to prevent XSS attacks
+ * @param {string} input - The input string to sanitize
+ * @returns {string} Sanitized input string
+ */
+export function sanitizeInput(input) {
+  if (typeof input !== 'string') {
+    return '';
+  }
+  
+  return input
+    .replace(/[<>]/g, '') // Remove angle brackets
+    .replace(/javascript:/gi, '') // Remove javascript: protocol
+    .replace(/on\w+=/gi, '') // Remove event handlers
+    .trim();
+}
+
+/**
+ * Handle application form submission
+ * @param {Event} e - The form submission event
+ */
+export async function handleApplicationSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+
+  if (!validateForm(form)) {
+    showError(form, 'Please correct the errors before submitting.');
+    return;
+  }
+
+  const formData = new FormData(form);
+  const formspreeUrl = form.action;
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalButtonText = submitButton ? submitButton.textContent : 'Submit Application';
+
+  if (submitButton) {
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+    submitButton.classList.add('btn-loading');
+    submitButton.innerHTML = '<span class="spinner"></span> Sending...';
+  }
+
+  try {
+    // Input sanitization
+    const sanitizedData = new FormData();
+    for (const [key, value] of formData.entries()) {
+      sanitizedData.append(key, sanitizeInput(value));
+    }
+
+    const response = await fetch(formspreeUrl, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: sanitizedData
+    });
+
+    if (response.ok) {
+      showSuccess(form, 'Application Submitted Successfully! Thank you! We will contact you within 24 hours.');
+      form.reset();
+      // After resetting, re-disable the submit button
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+    } else {
+      let errorMessage = 'There was an issue submitting your application. Please try again.';
+      try {
+        const errorData = await response.json();
+        if (errorData && errorData.errors) {
+          errorMessage = `Submission failed: ${errorData.errors.map(err => err.message).join(', ')}`;
+        } else if (errorData && errorData.error) {
+          errorMessage = `Submission failed: ${errorData.error}`;
+        }
+      } catch (jsonError) {
+        console.warn('Could not parse error response as JSON:', jsonError);
+      }
+      showError(form, errorMessage);
+    }
+  } catch (error) {
+    console.error('Network error submitting application:', error);
+    showError(form, 'Network error. Please check your internet connection and try again.');
+  } finally {
+    if (submitButton) {
+      submitButton.textContent = originalButtonText;
+      submitButton.disabled = false;
+      submitButton.classList.remove('btn-loading');
+      submitButton.innerHTML = originalButtonText;
+    }
+  }
+}
+
+/**
+ * Handle contact form submission
+ * @param {Event} e - The form submission event
+ */
+export async function handleContactSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+
+  if (!validateForm(form)) {
+    showError(form, 'Please correct the errors before submitting.');
+    return;
+  }
+
+  const formData = new FormData(form);
+  const formspreeUrl = form.action;
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalButtonText = submitButton ? submitButton.textContent : 'Send Message';
+
+  if (submitButton) {
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+    submitButton.classList.add('btn-loading');
+    submitButton.innerHTML = '<span class="spinner"></span> Sending...';
+  }
+
+  try {
+    // Input sanitization
+    const sanitizedData = new FormData();
+    for (const [key, value] of formData.entries()) {
+      sanitizedData.append(key, sanitizeInput(value));
+    }
+
+    const response = await fetch(formspreeUrl, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: sanitizedData
+    });
+
+    if (response.ok) {
+      showSuccess(form, 'Message Sent Successfully! Thank you! We will respond within 24 hours.');
+      form.reset();
+      // After resetting, re-disable the submit button
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+    } else {
+      let errorMessage = 'There was an issue sending your message. Please try again.';
+      try {
+        const errorData = await response.json();
+        if (errorData && errorData.errors) {
+          errorMessage = `Submission failed: ${errorData.errors.map(err => err.message).join(', ')}`;
+        } else if (errorData && errorData.error) {
+          errorMessage = `Submission failed: ${errorData.error}`;
+        }
+      } catch (jsonError) {
+        console.warn('Could not parse error response as JSON:', jsonError);
+      }
+      showError(form, errorMessage);
+    }
+  } catch (error) {
+    console.error('Network error submitting contact form:', error);
+    showError(form, 'Network error. Please check your internet connection and try again.');
+  } finally {
+    if (submitButton) {
+      submitButton.textContent = originalButtonText;
+      submitButton.disabled = false;
+      submitButton.classList.remove('btn-loading');
+      submitButton.innerHTML = originalButtonText;
+    }
+  }
+}
+
+/**
+ * Add real-time form validation and manage submit button state
+ * @param {HTMLFormElement} form - The form to add validation to
+ */
+export function addFormValidation(form) {
+  const inputs = form.querySelectorAll('input, select, textarea');
+  const submitButton = form.querySelector('button[type="submit"]');
+
+  inputs.forEach(input => {
+    // Real-time validation on blur to show errors
+    input.addEventListener('blur', () => {
+      validateField(input);
+    });
+
+    // On input, clear the specific field's error and check form validity to update button state
+    input.addEventListener('input', () => {
+      clearFieldError(input);
+      if (submitButton) {
+        // Check all fields to see if the form is now valid
+        const isFormValid = validateForm(form, false); // Pass false to prevent showing new errors on every keystroke
+        submitButton.disabled = !isFormValid;
+      }
+    });
+  });
+}
+
+/**
+ * Set minimum date for move-in date field (7 days from today)
+ */
+export function setMinimumMoveInDate() {
+  const moveDateInput = document.getElementById('move-date');
+  if (moveDateInput) {
+    const today = new Date();
+    const minDate = new Date(today);
+    minDate.setDate(today.getDate() + 7);
+
+    // Format as YYYY-MM-DD
+    const formattedDate = minDate.toISOString().split('T')[0];
+    moveDateInput.setAttribute('min', formattedDate);
+  }
+}
+
+[FILE_END: js\validation.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: playwright.config.js
+METADATA: Size=1881 bytes | Last_Modified=2025-12-27 00:36:33.773940
+================================================================================
+// Playwright configuration for E2E testing
+import { defineConfig, devices } from '@playwright/test';
+
+export default defineConfig({
+  // Test directory
+  testDir: './tests/e2e',
+
+  // Timeout settings
+  timeout: 30 * 1000,
+  expect: {
+    timeout: 5000,
+  },
+
+  // Run tests in files in parallel
+  fullyParallel: true,
+
+  // Fail the build on CI if you accidentally left test.only in the source code
+  forbidOnly: !!process.env.CI,
+
+  // Retry on CI only
+  retries: process.env.CI ? 2 : 0,
+
+  // Opt out of parallel tests on CI
+  workers: process.env.CI ? 1 : undefined,
+
+  // Reporter to use
+  reporter: process.env.CI
+    ? [['github'], ['html']]
+    : [['list'], ['html', { open: 'never' }]],
+
+  // Shared settings for all projects
+  use: {
+    // Base URL for tests
+    baseURL: process.env.CI ? 'http://localhost:3000' : 'http://localhost:3000',
+
+    // Collect trace when retrying the failed test
+    trace: 'on-first-retry',
+
+    // Take screenshot only when test fails
+    screenshot: 'only-on-failure',
+
+    // Record video only when test fails
+    video: 'retain-on-failure',
+  },
+
+  // Configure projects for major browsers
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
+
+    /* Test against mobile viewports */
+    {
+      name: 'Mobile Chrome',
+      use: { ...devices['Pixel 5'] },
+    },
+    {
+      name: 'Mobile Safari',
+      use: { ...devices['iPhone 12'] },
+    },
+  ],
+
+  // Run your local dev server before starting the tests
+  webServer: process.env.CI ? undefined : {
+    command: 'npm run dev',
+    port: 3000,
+    reuseExistingServer: !process.env.CI,
+  },
+});
+
+
+[FILE_END: playwright.config.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: postcss.config.js
+METADATA: Size=59 bytes | Last_Modified=2025-12-27 17:47:23.586669
+================================================================================
+export default {
+  plugins: {
+    autoprefixer: {},
+  },
+}
+
+
+[FILE_END: postcss.config.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: tailwind.config.js
+METADATA: Size=434 bytes | Last_Modified=2025-12-27 05:12:00.823358
+================================================================================
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./*.html",
+    "./about/**/*.html",
+    "./apply/**/*.html",
+    "./contact/**/*.html",
+    "./faq/**/*.html",
+    "./impact/**/*.html",
+    "./privacy/**/*.html",
+    "./properties/**/*.html",
+    "./resources/**/*.html",
+    "./terms/**/*.html",
+    "./transparency/**/*.html",
+    "./js/**/*.js",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+
+
+[FILE_END: tailwind.config.js]
+################################################################################
+
+================================================================================
+FILE_BEGIN: vite.config.js
+METADATA: Size=1954 bytes | Last_Modified=2025-12-30 09:35:22.115701
+================================================================================
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  // Multiple HTML entry points for MPA (Multi-Page Application)
+  build: {
+    rollupOptions: {
+      input: {
+        // Main pages
+        main: resolve(__dirname, 'index.html'),
+        properties: resolve(__dirname, 'properties/index.html'),
+        apply: resolve(__dirname, 'apply/index.html'),
+        contact: resolve(__dirname, 'contact/index.html'),
+        impact: resolve(__dirname, 'impact/index.html'),
+        resources: resolve(__dirname, 'resources/index.html'),
+        faq: resolve(__dirname, 'faq/index.html'),
+        transparency: resolve(__dirname, 'transparency/index.html'),
+        privacy: resolve(__dirname, 'privacy/index.html'),
+        terms: resolve(__dirname, 'terms/index.html'),
+        '404': resolve(__dirname, '404.html')
+      },
+      output: {
+        // Clean up output structure
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name?.endsWith('.css')) {
+            return 'assets/[name]-[hash][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        }
+      }
+    },
+    // Optimize for static hosting
+    outDir: 'dist',
+    emptyOutDir: true,
+    // Ensure proper base path handling
+    assetsDir: 'assets'
+  },
+  // Development server configuration
+  server: {
+    port: 3000,
+    open: true,
+    // Handle SPA routing for development
+    fs: {
+      strict: false
+    }
+  },
+  // Path resolution for imports
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+      '~': resolve(__dirname)
+    }
+  },
+  // Performance optimizations
+  css: {
+    devSourcemap: true
+  },
+  // Build optimizations
+  esbuild: {
+    drop: ['console', 'debugger'] // Remove console.logs in production
+  }
+});
+
+
+[FILE_END: vite.config.js]
+################################################################################
