@@ -1,0 +1,83 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for the central heart -->
+    <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b92b78" />
+      <stop offset="100%" stop-color="#fa5b4e" />
+    </linearGradient>
+    
+    <!-- Clip path for avatars to stay inside circles -->
+    <clipPath id="circleClip">
+      <circle cx="0" cy="0" r="56" />
+    </clipPath>
+  </defs>
+
+  <!-- Background Ring connecting the nodes -->
+  <circle cx="256" cy="256" r="212" fill="none" stroke="#fcd368" stroke-width="14" />
+
+  <!-- Styles for reuse -->
+  <style>
+    .node-stroke { stroke: #1a3b70; stroke-width: 14; }
+    .node-base { fill: #ffffff; }
+    .avatar-head { r: 20; cy: -15; }
+    .equals-bar { fill: #ffffff; height: 12; width: 60; x: -30; rx: 6; }
+  </style>
+
+  <!-- Top Left Node -->
+  <g transform="translate(106, 106)">
+    <circle r="64" class="node-base" />
+    <g clip-path="url(#circleClip)">
+      <circle class="avatar-head" fill="#d94646" />
+      <path d="M -50 60 Q 0 15 50 60 V 80 H -50 Z" fill="#fcd34d" />
+    </g>
+    <circle r="64" fill="none" class="node-stroke" />
+  </g>
+
+  <!-- Top Right Node -->
+  <g transform="translate(406, 106)">
+    <circle r="64" class="node-base" />
+    <g clip-path="url(#circleClip)">
+      <circle class="avatar-head" fill="#fca568" />
+      <path d="M -50 60 Q 0 15 50 60 V 80 H -50 Z" fill="#a78bfa" />
+    </g>
+    <circle r="64" fill="none" class="node-stroke" />
+  </g>
+
+  <!-- Bottom Left Node -->
+  <g transform="translate(106, 406)">
+    <circle r="64" class="node-base" />
+    <g clip-path="url(#circleClip)">
+      <circle class="avatar-head" fill="#fca5a5" />
+      <path d="M -50 60 Q 0 15 50 60 V 80 H -50 Z" fill="#67e8f9" />
+    </g>
+    <circle r="64" fill="none" class="node-stroke" />
+  </g>
+
+  <!-- Bottom Right Node -->
+  <g transform="translate(406, 406)">
+    <circle r="64" class="node-base" />
+    <g clip-path="url(#circleClip)">
+      <circle class="avatar-head" fill="#ef4444" />
+      <path d="M -50 60 Q 0 15 50 60 V 80 H -50 Z" fill="#a3e635" />
+    </g>
+    <circle r="64" fill="none" class="node-stroke" />
+  </g>
+
+  <!-- Central Heart -->
+  <g transform="translate(256, 256)">
+    <!-- Heart Shape centered roughly -->
+    <path d="M 0 -50 C -85 -110 -170 -20 -90 60 L 0 150 L 90 60 C 170 -20 85 -110 0 -50 Z" 
+          fill="url(#heartGradient)" 
+          stroke="#1a3b70" 
+          stroke-width="14" 
+          stroke-linejoin="round" 
+          stroke-linecap="round"
+          transform="translate(0, -20)" />
+    
+    <!-- Equals Sign -->
+    <g transform="translate(0, 10)">
+      <rect class="equals-bar" y="-12" />
+      <rect class="equals-bar" y="12" />
+    </g>
+  </g>
+</svg>

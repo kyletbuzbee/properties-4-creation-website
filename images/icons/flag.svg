@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <!-- Gradients for metallic and depth effects -->
+    <linearGradient id="poleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8E6E26"/>
+      <stop offset="25%" stop-color="#F9C846"/>
+      <stop offset="50%" stop-color="#FFF0A0"/>
+      <stop offset="75%" stop-color="#CCA43B"/>
+      <stop offset="100%" stop-color="#705418"/>
+    </linearGradient>
+    
+    <linearGradient id="baseGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFB700"/>
+      <stop offset="100%" stop-color="#D48800"/>
+    </linearGradient>
+    
+    <!-- Wave shading to simulate 3D cloth folds -->
+    <linearGradient id="waveShadow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.0"/>
+      <stop offset="25%" stop-color="#FFF" stop-opacity="0.3"/>
+      <stop offset="55%" stop-color="#000" stop-opacity="0.15"/>
+      <stop offset="80%" stop-color="#000" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.0"/>
+    </linearGradient>
+    
+    <!-- Reusable Star Symbol -->
+    <path id="star" d="M 0,-6 L 1.4,-1.8 L 5.7,-1.8 L 2.2,0.8 L 3.5,5.0 L 0,2.5 L -3.5,5.0 L -2.2,0.8 L -5.7,-1.8 L -1.4,-1.8 Z" fill="#FFFFFF"/>
+    
+    <!-- Clipping path for the waving flag shape -->
+    <clipPath id="flagShape">
+       <path d="M 70,60 C 180,20 300,110 470,60 L 470,320 C 300,370 180,280 70,320 Z" />
+    </clipPath>
+    
+    <!-- Clipping path for the blue canton -->
+    <clipPath id="cantonCut">
+      <rect x="70" y="0" width="170" height="512"/>
+    </clipPath>
+  </defs>
+
+  <!-- Flagpole -->
+  <rect x="50" y="40" width="20" height="420" fill="url(#poleGradient)" rx="2" stroke="#2c2005" stroke-width="1"/>
+  
+  <!-- Finial (Ball on top) -->
+  <circle cx="60" cy="30" r="12" fill="url(#poleGradient)" stroke="#2c2005" stroke-width="1"/>
+
+  <!-- Flag Content Group -->
+  <g clip-path="url(#flagShape)">
+    <!-- White Background (Acts as white stripes) -->
+    <rect x="70" y="0" width="400" height="512" fill="#F0F0F0"/>
+    
+    <!-- Red Stripes -->
+    <g fill="#D62828">
+       <!-- We construct the stripes by shifting the wave curve down by 20px increments -->
+       <!-- Stripe 1 -->
+       <path d="M 70,60 C 180,20 300,110 470,60 L 470,80 C 300,130 180,40 70,80 Z"/>
+       <!-- Stripe 3 -->
+       <path d="M 70,100 C 180,60 300,150 470,100 L 470,120 C 300,170 180,80 70,120 Z"/>
+       <!-- Stripe 5 -->
+       <path d="M 70,140 C 180,100 300,190 470,140 L 470,160 C 300,210 180,120 70,160 Z"/>
+       <!-- Stripe 7 -->
+       <path d="M 70,180 C 180,140 300,230 470,180 L 470,200 C 300,250 180,160 70,200 Z"/>
+       <!-- Stripe 9 -->
+       <path d="M 70,220 C 180,180 300,270 470,220 L 470,240 C 300,290 180,200 70,240 Z"/>
+       <!-- Stripe 11 -->
+       <path d="M 70,260 C 180,220 300,310 470,260 L 470,280 C 300,330 180,240 70,280 Z"/>
+       <!-- Stripe 13 -->
+       <path d="M 70,300 C 180,260 300,350 470,300 L 470,320 C 300,370 180,280 70,320 Z"/>
+    </g>
+
+    <!-- Canton (Blue Field) -->
+    <g clip-path="url(#cantonCut)">
+        <!-- Blue shape covering the top 7 stripes area -->
+        <path d="M 70,60 C 180,20 300,110 470,60 L 470,200 C 300,250 180,160 70,200 Z" fill="#003049"/>
+        
+        <!-- Stars Pattern -->
+        <g transform="translate(85, 75)">
+            <!-- 5 Rows of stars -->
+            <g id="row1">
+                <use href="#star" x="0" y="0"/> <use href="#star" x="30" y="0"/> <use href="#star" x="60" y="0"/> <use href="#star" x="90" y="0"/> <use href="#star" x="120" y="0"/>
+            </g>
+            <g id="row2" transform="translate(15, 20)">
+                <use href="#star" x="0" y="0"/> <use href="#star" x="30" y="0"/> <use href="#star" x="60" y="0"/> <use href="#star" x="90" y="0"/>
+            </g>
+            <g id="row3" transform="translate(0, 40)">
+                <use href="#star" x="0" y="0"/> <use href="#star" x="30" y="0"/> <use href="#star" x="60" y="0"/> <use href="#star" x="90" y="0"/> <use href="#star" x="120" y="0"/>
+            </g>
+            <g id="row4" transform="translate(15, 60)">
+                <use href="#star" x="0" y="0"/> <use href="#star" x="30" y="0"/> <use href="#star" x="60" y="0"/> <use href="#star" x="90" y="0"/>
+            </g>
+            <g id="row5" transform="translate(0, 80)">
+                <use href="#star" x="0" y="0"/> <use href="#star" x="30" y="0"/> <use href="#star" x="60" y="0"/> <use href="#star" x="90" y="0"/> <use href="#star" x="120" y="0"/>
+            </g>
+            <g id="row6" transform="translate(15, 100)">
+                <use href="#star" x="0" y="0"/> <use href="#star" x="30" y="0"/> <use href="#star" x="60" y="0"/> <use href="#star" x="90" y="0"/>
+            </g>
+        </g>
+    </g>
+    
+    <!-- Shadow/Highlight Overlay for 3D effect -->
+    <rect x="70" y="0" width="400" height="512" fill="url(#waveShadow)"/>
+  </g>
+  
+  <!-- Flag Outline Stroke -->
+  <path d="M 70,60 C 180,20 300,110 470,60 L 470,320 C 300,370 180,280 70,320 Z" fill="none" stroke="#001A40" stroke-width="3"/>
+
+  <!-- Base Stand -->
+  <g>
+    <!-- Bottom Tier -->
+    <rect x="25" y="465" width="70" height="15" rx="3" fill="url(#baseGradient)" stroke="#001A40" stroke-width="2"/>
+    <!-- Top Tier -->
+    <rect x="35" y="450" width="50" height="15" rx="3" fill="url(#baseGradient)" stroke="#001A40" stroke-width="2"/>
+  </g>
+</svg>
