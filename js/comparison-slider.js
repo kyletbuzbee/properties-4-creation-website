@@ -216,7 +216,10 @@ function createStaticComparison(container) {
   container.appendChild(afterLabel);
 }
 
-// Export for potential use by other scripts
+// Export for testing and potential use by other scripts
+export { initializeComparisonSliders, createComparisonSlider };
+
+// Also attach to window for backwards compatibility
 window.comparisonSlider = {
   initialize: initializeComparisonSliders,
   create: createComparisonSlider

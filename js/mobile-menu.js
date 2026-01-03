@@ -201,7 +201,10 @@ function debounce(func, wait) {
   };
 }
 
-// Export functions for potential use by other scripts
+// Export functions for testing and potential use by other scripts
+export { initializeMobileMenu, openMenu, closeMenu, isMenuOpen };
+
+// Also attach to window for backwards compatibility
 window.mobileMenu = {
   open: openMenu,
   close: closeMenu,

@@ -173,7 +173,10 @@ function toggleTheme() {
   setTheme(newTheme);
 }
 
-// Export functions for potential use by other scripts
+// Export functions for testing and potential use by other scripts
+export { initializeThemeToggle, setTheme, toggleTheme, getCurrentTheme, prefersDarkMode };
+
+// Also attach to window for backwards compatibility
 window.themeManager = {
   getCurrentTheme,
   setTheme,
